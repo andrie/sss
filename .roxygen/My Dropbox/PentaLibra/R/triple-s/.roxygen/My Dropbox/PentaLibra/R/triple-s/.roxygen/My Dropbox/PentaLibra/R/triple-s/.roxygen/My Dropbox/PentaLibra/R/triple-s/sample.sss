@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE sss PUBLIC "-//Triple-S//DTD Survey Interchange v1.2//EN"
+
+                     "http://www.triple-s.org/dtd/sss_v12.dtd">
+
+
+
+<sss version="1.2" options="standardnames">
+
+
+
+<date>21 September 2001</date>
+
+<time>18:32</time>
+
+<origin>Export 1.42</origin>
+
+
+
+<survey>
+
+    <name>SP5201-1</name>
+
+    <title>Historic House Exit Survey<br/>First Wave</title>
+
+
+
+    <record ident="V">
+
+
+
+        <variable ident="1" type="single">
+
+            <name>Q1</name>
+
+            <label>Number of visits</label>
+
+            <position start="1" />
+
+            <values>
+
+                <value code="1">First visit</value>
+
+                <value code="2">Visited before within the year</value>
+
+                <value code="3">Visited before that</value>
+
+            </values>
+
+        </variable>
+
+
+
+        <variable ident="2" type="multiple">
+
+            <name>Q2</name>
+
+            <label>Attractions visited</label>
+
+            <position start="2" finish="10" />
+
+            <values>
+
+                <value code="1">Sherwood Forest</value>
+
+                <value code="2">Nottingham Castle</value>
+
+                <value code="3">&quot;Friar Tuck&quot; Restaurant</value>
+
+                <value code="4">&quot;Maid Marion&quot; Cafe</value>
+
+                <value code="5">Mining museum</value>
+
+                <value code="9">Other</value>
+
+            </values>
+
+        </variable>
+
+
+
+        <variable ident="3" type="character">
+
+            <name>Q3</name>
+
+            <label>Other attractions visited</label>
+
+            <position start="11" finish="40" />
+
+            <size>30</size>
+
+        </variable>
+
+
+
+
+        <variable ident="4" type="multiple">
+
+            <name>Q4</name>
+
+            <label>Two favourite attractions visited</label>
+
+            <position start="41" finish="42" />
+
+            <spread subfields="2" />
+
+            <!--same answer list as Q2-->
+
+            <values>
+
+                <value code="1">Sherwood Forest</value>
+
+                <value code="2">Nottingham Castle</value>
+
+                <value code="3">&quot;Friar Tuck&quot; Restaurant</value>
+
+                <value code="4">&quot;Maid Marion&quot; Cafe</value>
+
+                <value code="5">Mining museum</value>
+
+                <value code="9">Other</value>
+
+            </values>
+
+        </variable>
+
+
+
+        <variable ident="5" type="quantity">
+
+            <name>Q5</name>
+
+            <label>Miles travelled</label>
+
+            <position start="43" finish="45" />
+
+            <values>
+
+                <range from="1" to="499" />
+
+                <value code="500">500 or more</value>
+
+                <value code="999">Not stated</value>
+
+            </values>
+
+        </variable>
+
+
+
+        <variable ident="6" type="logical">
+
+            <name>Q6</name>
+
+            <label>Would come again</label>
+
+            <position start="46" />
+
+        </variable>
+
+
+
+        <variable ident="7" type="single">
+
+            <name>Q7</name>
+
+            <label>When is that most likely to be</label>
+
+            <position start="47" />
+
+            <filter>Q6</filter>
+
+            <values>
+
+                <value code="1">Within 3 months</value>
+
+                <value code="2">Between 3 months and 1 year</value>
+
+                <value code="3">More than 1 years time</value>
+
+            </values>
+
+        </variable>
+
+
+
+        <variable ident="99" type="quantity">
+
+            <name>Q99</name>
+
+            <label>Case weight</label>
+
+            <position start="48" finish="54"/>
+
+            <range from="0.0000" to="99.9999"/>
+
+        </variable>
+
+
+
+    </record>
+
+
+
+</survey>
+
+
+
+</sss>
