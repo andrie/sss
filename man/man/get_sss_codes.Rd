@@ -6,3 +6,4 @@
 \details{This function parses the record node and extracts all "codes" nodes into a data.frame}
 \keyword{XML}
 \arguments{\item{x}{XML node}}
+\examples{get_sss_record(xmlRoot(doc)[["survey"]][["record"]])}

@@ -8,3 +8,4 @@
 \arguments{\item{sss}{Parsed .sss metadata information}
 \item{df}{Parsed .asc data}
 \item{i}{The column number of sss that should be processed}}
+\examples{# None}

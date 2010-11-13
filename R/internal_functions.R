@@ -56,7 +56,7 @@ is.character0 <- function(x){
 #'
 #' @param x XML node
 #' @keywords XML
-#' @example
+#' @examples
 #' get_sss_record(xmlRoot(doc)[["survey"]][["record"]])
 get_sss_codes <- function(x){
 	size <- xmlSize(x[["values"]])
@@ -93,7 +93,7 @@ get_variable_position <- function(sss, asc, variable_row){
 #' Trims leading and trailing white space from a string  
 #'
 #' @param x A string
-#' @example
+#' @examples
 #' str_clean("  string with white space   ")
 str_clean <- function(x){
 	x <- sub('[[:space:]]+$', '', x) ## white space, POSIX-style
@@ -115,7 +115,7 @@ list_to_df <- function(list, names){
 #' @param i The column number of sss that should be processed 
 #' @keywords triple-s
 #' @seealso llply_colwise
-#' @example
+#' @examples
 #' # None
 change_type <- function (sss, df, i){
 	type <- sss$variables$type[i]
@@ -140,7 +140,7 @@ change_type <- function (sss, df, i){
 #' @param i The column number of sss that should be processed 
 #' @keywords triple-s
 #' @seealso llply_colwise
-#' @example
+#' @examples
 #' # None
 change_values <- function (sss, df, i){
 #	ident <- sss$variables$ident[i]
@@ -170,7 +170,7 @@ change_values <- function (sss, df, i){
 #' @param df Parsed .asc data
 #' @param custom_function A function that operates on a single column 
 #' @keywords triple-s
-#' @example
+#' @examples
 #' # None
 llply_colwise <- function(sss, df, custom_function){
 	n <- nrow(sss$variables)

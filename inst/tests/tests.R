@@ -5,10 +5,10 @@
 # Author: Andrie
 ###############################################################################
 
-library(testthat)
+
 
 test_that("parsing of .sss and .asc works", {
-	path <- "F:\\My Dropbox\\Eclipse projects\\sss\\"
+	path <- "F:\\git\\sss\\"
 	filename_sss <- "data\\sample.sss"
 	filename_asc <- "data\\sample.asc"
 	d <- read_sss(paste(path, filename_sss, sep=""), paste(path, filename_asc, sep=""))
@@ -17,4 +17,3 @@ test_that("parsing of .sss and .asc works", {
 })
 
 
-#test_dir("inst/tests/", "minimal")

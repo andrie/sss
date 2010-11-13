@@ -7,3 +7,4 @@
 \arguments{\item{sss}{Parsed .sss metadata information}
 \item{df}{Parsed .asc data}
 \item{custom_function}{A function that operates on a single column}}
+\examples{# None}
