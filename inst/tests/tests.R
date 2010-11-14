@@ -8,10 +8,10 @@
 
 
 test_that("parsing of .sss and .asc works", {
-	path <- "F:\\git\\sss\\"
-	filename_sss <- "data\\sample.sss"
-	filename_asc <- "data\\sample.asc"
-	d <- read_sss(paste(path, filename_sss, sep=""), paste(path, filename_asc, sep=""))
+	path <- "F:\\git\\sss\\data\\"
+	filename_sss <- paste(path, "sample.sss", sep="")
+	filename_asc <- paste(path, "sample.asc", sep="")
+	d <- read_sss(filename_sss, filename_asc)
 			
 	expect_that(d, is_a("data.frame"))	
 })

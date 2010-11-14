@@ -1,4 +1,4 @@
-# TODO: Add comment
+# sss internal functions
 # 
 # Author: Andrie
 ###############################################################################
@@ -46,9 +46,10 @@ get_sss_record <- function(xmlNode){
 	)
 }
 
-is.character0 <- function(x){
-	identical(x, character(0))
-}
+#is.character0 <- function(x){
+#	identical(x, character(0))
+#}
+
 
 #' Reads all "codes" inside the triple-s "record" 
 #'

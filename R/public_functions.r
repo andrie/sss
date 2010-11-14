@@ -62,8 +62,8 @@ read_sss_data <- function(asc_filename){
 #' # Not executed
 #' # read_sss("sample.sss, sample.asc")
 read_sss <- function(sss_filename, asc_filename){
-	sss <- read_sss_metadata(paste(path, filename_sss, sep=""))
-	asc <- read_sss_data(paste(path, filename_asc, sep=""))
+	sss <- read_sss_metadata(sss_filename)
+	asc <- read_sss_data(asc_filename)
 	n <- nrow(sss$variables)
 	
 	df <- list_to_df(llply(1:n, function(x)get_variable_position(sss, asc, x)), sss$variables$name)
