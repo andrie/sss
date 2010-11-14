@@ -1,3 +1,12 @@
+#' Tools for importing files in the triple-s .(Standard Survey Structure) format
+#'
+#' sss will import data and metadata in the triple-s XML format.
+#' triple-s XML is an open standard that describes survey data and metadata
+#' The standard specifies that the data is in an ASCII data file (.asc) and 
+#' the associated metadata is in an XML file (.sss)
+#'
+#' The triple-s organisation: http://www.triple-s.org/
+#'
 #' @docType package
 #' ...
 #' @imports plyr

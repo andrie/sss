@@ -23,8 +23,11 @@
 #' # Not executed
 #' # read_sss_metadata("sample.sss")
 read_sss_metadata <- function(sss_filename){
-	doc <- xmlTreeParse(sss_filename, getDTD = F)
-	r <- xmlRoot(doc)[["survey"]][["record"]]
+	xmlTreeParse(sss_filename, getDTD = F)
+}
+
+parse_sss_metadata <- function(XMLdoc){
+	r <- xmlRoot(XMLdoc)[["survey"]][["record"]]
 	variables <- ldply(xmlChildren(r), get_sss_record)
 	codes <- ldply(xmlChildren(r), get_sss_codes)
 	list(variables=variables, codes=codes)
@@ -43,7 +46,7 @@ read_sss_metadata <- function(sss_filename){
 #' # Not executed
 #' # read_sss_data("sample.asc")
 read_sss_data <- function(asc_filename){
-	scan(asc_filename, sep="\n", what="character")
+	suppressWarnings(scan(asc_filename, sep="\n", what="character"))
 }
 
 
@@ -62,14 +65,27 @@ read_sss_data <- function(asc_filename){
 #' # Not executed
 #' # read_sss("sample.sss, sample.asc")
 read_sss <- function(sss_filename, asc_filename){
-	sss <- read_sss_metadata(sss_filename)
+	if (class(sss_filename)=="character"){
+		doc <- read_sss_metadata(sss_filename)
+		sss <- parse_sss_metadata(doc)
+	} else if (class(sss_filename=="XMLDocumentContent")){
+		sss <- parse_sss_metadata(sss_filename)
+	} else {
+		stop("sss_filename not recognised as either a file or an XML object")
+	}	
+	
 	asc <- read_sss_data(asc_filename)
+	parse_sss(sss, asc)
+}
+
+parse_sss <- function(sss, asc){
 	n <- nrow(sss$variables)
 	
 	df <- list_to_df(llply(1:n, function(x)get_variable_position(sss, asc, x)), sss$variables$name)
 	df <- llply_colwise(sss, df, change_values)
 	df <- llply_colwise(sss, df, change_type)
 	df
+	
 }
-
+	
 

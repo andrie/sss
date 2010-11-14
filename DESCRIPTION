@@ -1,8 +1,10 @@
 Package: sss
 Version: 0.1-0
 Date: 2010-11-11
-Title: Tools for importing files in the triple-s .(Standard Survey Structure) format
-Description: sss is a set of tools to import survey files in the .sss (triple-s) format.  
+Title: Tools for importing files in the triple-s .(Standard Survey Structure) 
+format
+Description: sss is a set of tools to import survey files in the .sss (triple-s) 
+format.  
 URL: 
 Maintainer: Andrie de Vries <apdevries@gmail.com>
 Author: Andrie de Vries <apdevries@gmail.com>
