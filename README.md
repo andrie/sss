@@ -6,6 +6,8 @@ The aim of sss is to provide a function to import triple-s XML files into r.
 
 triple-s is a standard to transfer survey data between applications.
 
+http://www.triple-s.org/
+
 ## XML
 
 This packages depends on the XML package.
@@ -28,7 +30,9 @@ http://cran.r-project.org/web/packages/XML/INSTALL
 Follow the instruction at http://www.bioconductor.org/install/
 
 In summary, run the following code:
+
 `source("http://bioconductor.org/biocLite.R")`
+
 `biocLite("EBImage")`
 
 
