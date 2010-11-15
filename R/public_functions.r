@@ -57,8 +57,8 @@ parse_sss_metadata <- function(XMLdoc){
 #' @examples
 #' # Not executed
 #' # read_sss_data("sample.asc")
-read_sss_data <- function(asc_filename){
-	suppressWarnings(scan(asc_filename, sep="\n", what="character"))
+read_sss_data <- function(data_filename){
+	suppressWarnings(scan(data_filename, sep="\n", what="character"))
 }
 
 
@@ -76,7 +76,7 @@ read_sss_data <- function(asc_filename){
 #' @examples
 #' # Not executed
 #' # read_sss("sample.sss, sample.asc")
-read_sss <- function(sss_filename, asc_filename){
+read_sss <- function(sss_filename, data_filename){
 	if (class(sss_filename)=="character"){
 		doc <- read_sss_metadata(sss_filename)
 		sss <- parse_sss_metadata(doc)
@@ -86,8 +86,26 @@ read_sss <- function(sss_filename, asc_filename){
 		stop("sss_filename not recognised as either a file or an XML object")
 	}	
 	
-	asc <- read_sss_data(asc_filename)
+	asc <- read_sss_data(data_filename)
 	parse_sss(sss, asc)
+}
+
+#' A wrapper around read_sss  
+#'
+#' This function reads and parses a .sss XML metadata file as well as its
+#' associated .asc data file. 
+#' The .sss standard defines a standard survey structure
+#'
+#' @param sss_filename Name of .sss file containing the survey metadata
+#' @param asc_filename Name of .asc file containing survey data
+#' @keywords triple-s
+#' @seealso read_sss
+#' @export 
+#' @examples
+#' # Not executed
+#' # read.sss("sample.sss, sample.asc")
+read.sss <- function(sss_filename, data_filename){
+	read_sss(sss_filename, data_filename)
 }
 
 parse_sss <- function(sss, asc){

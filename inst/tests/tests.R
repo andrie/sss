@@ -14,8 +14,8 @@ test_that("parsing of .sss and .asc works", {
 	d <- read_sss(filename_sss, filename_asc)
 			
 	expect_that(d, is_a("data.frame"))
-	expect_that(nrow(d), is_equal(3))
-	expect_that(ncol(d), is_equal(8))
+	expect_that(nrow(d), equals(3))
+	expect_that(ncol(d), equals(12))
 })
 
 

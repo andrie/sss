@@ -144,7 +144,6 @@ change_type <- function (sss, df, i){
 #' @examples
 #' # None
 change_values <- function (sss, df, i){
-#	ident <- sss$variables$ident[i]
 	has_values <- sss$variables$has_values[i]
 	x <- df[, i]
 	if (has_values){
@@ -162,6 +161,10 @@ change_values <- function (sss, df, i){
 	x
 }
 
+split_multiple <- function(df_column, start, end){
+	ldply(df_column, function(x)substring(x, start, end))
+}
+
 parse_multiple <- function (sss, df, i){
 	# This needs to process fields with type "multiple" in two ways:
 	# 1. If subfields is set to n, where n>0, it means that there are n columns
@@ -175,14 +178,27 @@ parse_multiple <- function (sss, df, i){
 	for (i in 1:n){
 		x <- df[, i]
 		if (sss$variables$type[i] == "multiple"){
-			x <- data.frame(
-					x1=x,
-					x2=x,
-					stringsAsFactors=FALSE
-			)
-			dfnew <- cbind(dfnew, x)
-		}		
-	}
+			subfields <- sss$variables$subfields[i]
+			if (subfields > 0){
+				### Process multiple with subfields
+				width <- sss$variables$width[i]
+				for (j in 1:subfields){
+					newname <- as.character(paste(names(df)[i], j, sep="_"))
+					dfnew <- cbind(dfnew, split_multiple(df[, i], j, j+width-1))
+					names(dfnew)[ncol(dfnew)] <- newname
+				}
+			} else {
+				### Process multiple without subfields
+				subfields <- as.numeric(sss$variables$position_finish[i]) - 
+						as.numeric(sss$variables$position_start[i]) + 1 
+				for (j in 1:subfields){
+					newname <- as.character(paste(names(df)[i], j, sep="_"))
+					dfnew <- cbind(dfnew, split_multiple(df[, i], j, j))
+					names(dfnew)[ncol(dfnew)] <- newname
+				}
+			}	
+		} # end if multiple		
+	} # end for
 	dfnew
 }
 

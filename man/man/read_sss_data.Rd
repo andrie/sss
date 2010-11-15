@@ -1,7 +1,7 @@
 \name{read_sss_data}
 \alias{read_sss_data}
 \title{Reads a triple-s XML (...}
-\usage{read_sss_data(asc_filename)}
+\usage{read_sss_data(data_filename)}
 \description{Reads a triple-s XML (.asc) data file, as specified by the triple-s XML standard}
 \details{This function reads and parses a .asc XML data file.
 The .sss standard defines a standard survey structure}

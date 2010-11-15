@@ -1,7 +1,7 @@
 \name{read_sss}
 \alias{read_sss}
 \title{Reads and processes a triple-s...}
-\usage{read_sss(sss_filename, asc_filename)}
+\usage{read_sss(sss_filename, data_filename)}
 \description{Reads and processes a triple-s .sss and .asc file}
 \details{This function reads and parses a .sss XML metadata file as well as its
 associated .asc data file. 
