@@ -162,8 +162,31 @@ change_values <- function (sss, df, i){
 	x
 }
 
-#change_values(sss, df, 1)
+parse_multiple <- function (sss, df, i){
+	# This needs to process fields with type "multiple" in two ways:
+	# 1. If subfields is set to n, where n>0, it means that there are n columns
+	#    Each of these columns can take on any of the values in $codes
+	#    Width defines the number of characters to read in the .asc file
+	# 2. If width is not set, it means each variable was coded as boolean
+	#    Thus there will be a column for each value in $codes, and each column 
+	#    will be boolean
+	n <- nrow(sss$variables)
+	dfnew <- df
+	for (i in 1:n){
+		x <- df[, i]
+		if (sss$variables$type[i] == "multiple"){
+			x <- data.frame(
+					x1=x,
+					x2=x,
+					stringsAsFactors=FALSE
+			)
+			dfnew <- cbind(dfnew, x)
+		}		
+	}
+	dfnew
+}
 
+	
 
 #' Applies a custom function to each column of a data.frame  
 #'

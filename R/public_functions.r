@@ -12,13 +12,13 @@
 
 #' Reads a triple-s XML (.sss) metadata file, as specified by the triple-s XML standard  
 #'
-#' This function reads and parses a .sss XML metadata file.
+#' This function reads a .sss XML metadata file.
 #' The .sss standard defines a standard survey structure
 #'
 #' @param sss_filename Name of .sss file containing the survey metadata
 #' @keywords XML
 #' @export 
-#' @seealso read_sss, read_sss_data
+#' @seealso parse_sss_metadata, read_sss, read_sss_data
 #' @examples
 #' # Not executed
 #' # read_sss_metadata("sample.sss")
@@ -26,10 +26,22 @@ read_sss_metadata <- function(sss_filename){
 	xmlTreeParse(sss_filename, getDTD = F)
 }
 
+#' Parses a triple-s XML (.sss) metadata file, as specified by the triple-s XML standard  
+#'
+#' This function parses a .sss XML metadata file.
+#' The .sss standard defines a standard survey structure
+#'
+#' @param sss_filename Name of .sss file containing the survey metadata
+#' @keywords XML
+#' @export 
+#' @seealso read_sss_metadata, read_sss, read_sss_data
+#' @examples
+#' # Not executed
+#' # read_sss_metadata("sample.sss")
 parse_sss_metadata <- function(XMLdoc){
 	r <- xmlRoot(XMLdoc)[["survey"]][["record"]]
 	variables <- ldply(xmlChildren(r), get_sss_record)
-	codes <- ldply(xmlChildren(r), get_sss_codes)
+	codes     <- ldply(xmlChildren(r), get_sss_codes)
 	list(variables=variables, codes=codes)
 }
 
@@ -84,6 +96,7 @@ parse_sss <- function(sss, asc){
 	df <- list_to_df(llply(1:n, function(x)get_variable_position(sss, asc, x)), sss$variables$name)
 	df <- llply_colwise(sss, df, change_values)
 	df <- llply_colwise(sss, df, change_type)
+	df <- parse_multiple(sss, df, i)
 	df
 	
 }
