@@ -1,5 +1,5 @@
+import(plyr)
 export(read_sss_metadata)
-export(parse_sss_metadata)
 export(read_sss_data)
 export(read_sss)
 export(read.sss)

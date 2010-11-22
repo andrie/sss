@@ -6,8 +6,7 @@
 \details{This function reads and parses a .sss XML metadata file as well as its
 associated .asc data file. 
 The .sss standard defines a standard survey structure}
-\keyword{triple-s}
 \arguments{\item{sss_filename}{Name of .sss file containing the survey metadata}
-\item{asc_filename}{Name of .asc file containing survey data}}
+\item{data_filename}{Name of .asc file containing survey data}}
 \examples{# Not executed
 # read_sss("sample.sss, sample.asc")}

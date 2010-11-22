@@ -3,16 +3,29 @@
 # Author: Andrie
 ###############################################################################
 
+#' The top level parse function 
+#'
+#' @param sss Parsed sss metadata file
+#' @param asc Parsed sss data file
+parse_sss <- function(sss, asc){
+	n <- nrow(sss$variables)
+	
+	df <- list_to_df(llply(1:n, function(x)get_variable_position(sss, asc, x)), sss$variables$name)
+	df <- llply_colwise(sss, df, change_values)
+	df <- llply_colwise(sss, df, change_type)
+	df <- parse_multiple(sss, df, i)
+	df
+	
+}
+
+
 
 #' Reads all "variables" inside the triple-s "record" 
 #'
 #' This function parses the record node, extracts all variables
 #' and creates a data frame with information about size, position, type, etc.
 #'
-#' @param x XML node
-#' @keywords XML
-#' @examples
-#' get_sss_record(xmlRoot(doc)[["survey"]][["record"]])
+#' @param xmlNode XML node
 get_sss_record <- function(xmlNode){
 	p <- as.character(xmlAttrs (xmlNode[["position"]]))
 	if (is.null(xmlNode[["spread"]])){
@@ -56,9 +69,6 @@ get_sss_record <- function(xmlNode){
 #' This function parses the record node and extracts all "codes" nodes into a data.frame
 #'
 #' @param x XML node
-#' @keywords XML
-#' @examples
-#' get_sss_record(xmlRoot(doc)[["survey"]][["record"]])
 get_sss_codes <- function(x){
 	size <- xmlSize(x[["values"]])
 	if (is.null(x[["values"]])){
@@ -82,6 +92,11 @@ get_sss_codes <- function(x){
 }
 
 
+#' Reads metadata to find position of variables 
+#'
+#' @param sss Parsed .sss metadata information
+#' @param asc Parsed .asc data
+#' @param variable_row Variable row
 get_variable_position <- function(sss, asc, variable_row){
 	position <- c(
 			sss$variables[variable_row,]$position_start,
@@ -90,18 +105,19 @@ get_variable_position <- function(sss, asc, variable_row){
 	ldply(asc, function(x)substring(x, position[1], position[2]))	
 }
 
-## trim trailing white space
 #' Trims leading and trailing white space from a string  
 #'
 #' @param x A string
-#' @examples
-#' str_clean("  string with white space   ")
 str_clean <- function(x){
 	x <- sub('[[:space:]]+$', '', x) ## white space, POSIX-style
 	x <- sub('^[[:space:]]+', '', x) ## white space, POSIX-style
 	x
 }
 
+#' Converts list to data frame  
+#'
+#' @param list A list
+#' @param	names Character: a list of names
 list_to_df <- function(list, names){
 	df <- as.data.frame(list, stringsAsFactors=FALSE)
 	names(df) <- names
@@ -116,8 +132,6 @@ list_to_df <- function(list, names){
 #' @param i The column number of sss that should be processed 
 #' @keywords triple-s
 #' @seealso llply_colwise
-#' @examples
-#' # None
 change_type <- function (sss, df, i){
 	type <- sss$variables$type[i]
 	x <- df[, i]
@@ -141,8 +155,6 @@ change_type <- function (sss, df, i){
 #' @param i The column number of sss that should be processed 
 #' @keywords triple-s
 #' @seealso llply_colwise
-#' @examples
-#' # None
 change_values <- function (sss, df, i){
 	has_values <- sss$variables$has_values[i]
 	x <- df[, i]
@@ -161,10 +173,22 @@ change_values <- function (sss, df, i){
 	x
 }
 
+#' Splits a data frame column into multiple columns  
+#' 
+#' @param df_column A fixed-width column in a data frame
+#' @param start Numeric: start position
+#' @param end Numeric: end position
+#' @seealso llply_colwise
 split_multiple <- function(df_column, start, end){
 	ldply(df_column, function(x)substring(x, start, end))
 }
 
+#' Parse field of type "multiple"   
+#' 
+#' @param sss Parsed .sss metadata information
+#' @param df Parsed .asc data
+#' @param i The column number of sss that should be processed 
+#' @seealso llply_colwise
 parse_multiple <- function (sss, df, i){
 	# This needs to process fields with type "multiple" in two ways:
 	# 1. If subfields is set to n, where n>0, it means that there are n columns

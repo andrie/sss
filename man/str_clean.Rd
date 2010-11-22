@@ -4,4 +4,3 @@
 \usage{str_clean(x)}
 \description{Trims leading and trailing white space from a string}
 \arguments{\item{x}{A string}}
-\examples{str_clean("  string with white space   ")}

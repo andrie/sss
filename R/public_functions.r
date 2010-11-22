@@ -16,7 +16,6 @@
 #' The .sss standard defines a standard survey structure
 #'
 #' @param sss_filename Name of .sss file containing the survey metadata
-#' @keywords XML
 #' @export 
 #' @seealso parse_sss_metadata, read_sss, read_sss_data
 #' @examples
@@ -31,13 +30,8 @@ read_sss_metadata <- function(sss_filename){
 #' This function parses a .sss XML metadata file.
 #' The .sss standard defines a standard survey structure
 #'
-#' @param sss_filename Name of .sss file containing the survey metadata
-#' @keywords XML
-#' @export 
+#' @param XMLdoc An XML document - as returned by XML()
 #' @seealso read_sss_metadata, read_sss, read_sss_data
-#' @examples
-#' # Not executed
-#' # read_sss_metadata("sample.sss")
 parse_sss_metadata <- function(XMLdoc){
 	r <- xmlRoot(XMLdoc)[["survey"]][["record"]]
 	variables <- ldply(xmlChildren(r), get_sss_record)
@@ -50,8 +44,7 @@ parse_sss_metadata <- function(XMLdoc){
 #' This function reads and parses a .asc XML data file.
 #' The .sss standard defines a standard survey structure
 #'
-#' @param asc_filename Name of .asc file containing the survey metadata
-#' @keywords XML
+#' @param data_filename Name of .asc file containing the survey metadata
 #' @export 
 #' @seealso read_sss, read_sss_metadata
 #' @examples
@@ -70,8 +63,7 @@ read_sss_data <- function(data_filename){
 #' The .sss standard defines a standard survey structure
 #'
 #' @param sss_filename Name of .sss file containing the survey metadata
-#' @param asc_filename Name of .asc file containing survey data
-#' @keywords triple-s
+#' @param data_filename Name of .asc file containing survey data
 #' @export 
 #' @examples
 #' # Not executed
@@ -97,7 +89,7 @@ read_sss <- function(sss_filename, data_filename){
 #' The .sss standard defines a standard survey structure
 #'
 #' @param sss_filename Name of .sss file containing the survey metadata
-#' @param asc_filename Name of .asc file containing survey data
+#' @param data_filename Name of .asc file containing survey data
 #' @keywords triple-s
 #' @seealso read_sss
 #' @export 
@@ -108,15 +100,5 @@ read.sss <- function(sss_filename, data_filename){
 	read_sss(sss_filename, data_filename)
 }
 
-parse_sss <- function(sss, asc){
-	n <- nrow(sss$variables)
-	
-	df <- list_to_df(llply(1:n, function(x)get_variable_position(sss, asc, x)), sss$variables$name)
-	df <- llply_colwise(sss, df, change_values)
-	df <- llply_colwise(sss, df, change_type)
-	df <- parse_multiple(sss, df, i)
-	df
-	
-}
 	
 
