@@ -1,23 +1,14 @@
 
 
-# What I want: A list with an entry for each record
-# - ident
-# - type (Single, multiple, character, quantity, logical)
-# - name
-# - label
-# - position start
-# - position finish
-# - list of value codes
-# - list of value descriptions
 
-#' Reads a triple-s XML (.sss) metadata file, as specified by the triple-s XML standard  
+#' Reads a triple-s XML (sss) metadata file, as specified by the triple-s XML standard.  
 #'
-#' This function reads a .sss XML metadata file.
-#' The .sss standard defines a standard survey structure
+#' This function reads a .sss XML metadata file.  The .sss standard defines a standard survey structure
 #'
 #' @param sss_filename Name of .sss file containing the survey metadata
 #' @export 
-#' @seealso parse_sss_metadata, read_sss, read_sss_data
+#' @seealso \code{\link{parse_sss_metadata}}, \code{\link{read_sss}}, \code{\link{read_sss_data}}
+#' @keywords read
 #' @examples
 #' # Not executed
 #' # read_sss_metadata("sample.sss")
@@ -25,12 +16,15 @@ read_sss_metadata <- function(sss_filename){
 	xmlTreeParse(sss_filename, getDTD = F)
 }
 
-#' Parses a triple-s XML (.sss) metadata file, as specified by the triple-s XML standard  
+###############################################################################
+
+#' Parses a triple-s XML (sss) metadata file, as specified by the triple-s XML standard.  
 #'
-#' This function parses a .sss XML metadata file.
-#' The .sss standard defines a standard survey structure
-#'
+#' This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
+#' #'
 #' @param XMLdoc An XML document - as returned by XML()
+#' @keywords parse
+#' @export 
 #' @seealso read_sss_metadata, read_sss, read_sss_data
 parse_sss_metadata <- function(XMLdoc){
 	r <- xmlRoot(XMLdoc)[["survey"]][["record"]]
@@ -39,14 +33,17 @@ parse_sss_metadata <- function(XMLdoc){
 	list(variables=variables, codes=codes)
 }
 
-#' Reads a triple-s XML (.asc) data file, as specified by the triple-s XML standard  
+
+###############################################################################
+
+#' Reads a triple-s XML (asc) data file, as specified by the triple-s XML standard.
 #'
-#' This function reads and parses a .asc XML data file.
-#' The .sss standard defines a standard survey structure
+#' This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
 #'
 #' @param data_filename Name of .asc file containing the survey metadata
 #' @export 
-#' @seealso read_sss, read_sss_metadata
+#' @seealso \code{\link{read_sss}}, \code{\link{read_sss_metadata}}
+#' @keywords parse
 #' @examples
 #' # Not executed
 #' # read_sss_data("sample.asc")
@@ -55,16 +52,16 @@ read_sss_data <- function(data_filename){
 }
 
 
+###############################################################################
 
-#' Reads and processes a triple-s .sss and .asc file  
+#' Reads and processes a triple-s files (in sss and asc formats).  
 #'
-#' This function reads and parses a .sss XML metadata file as well as its
-#' associated .asc data file. 
-#' The .sss standard defines a standard survey structure
+#' This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
 #'
 #' @param sss_filename Name of .sss file containing the survey metadata
 #' @param data_filename Name of .asc file containing survey data
 #' @export 
+#' @keywords read
 #' @examples
 #' # Not executed
 #' # read_sss("sample.sss, sample.asc")
@@ -82,16 +79,17 @@ read_sss <- function(sss_filename, data_filename){
 	parse_sss(sss, asc)
 }
 
-#' A wrapper around read_sss  
+
+###############################################################################
+
+#' A wrapper around read_sss.  
 #'
-#' This function reads and parses a .sss XML metadata file as well as its
-#' associated .asc data file. 
-#' The .sss standard defines a standard survey structure
+#' This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
 #'
 #' @param sss_filename Name of .sss file containing the survey metadata
 #' @param data_filename Name of .asc file containing survey data
-#' @keywords triple-s
-#' @seealso read_sss
+#' @keywords read
+#' @seealso \code{\link{read_sss}}
 #' @export 
 #' @examples
 #' # Not executed

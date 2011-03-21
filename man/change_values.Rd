@@ -3,7 +3,7 @@
 \title{Applies coded values to asc data, as described in sss metadata...}
 \usage{change_values(sss, df, i)}
 \description{Applies coded values to asc data, as described in sss metadata}
-\keyword{triple-s}
+\keyword{internal}
 \seealso{llply_colwise}
 \arguments{\item{sss}{Parsed .sss metadata information}
 \item{df}{Parsed .asc data}

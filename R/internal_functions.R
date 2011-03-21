@@ -7,13 +7,18 @@
 #'
 #' @param sss Parsed sss metadata file
 #' @param asc Parsed sss data file
+#' @keywords internal
 parse_sss <- function(sss, asc){
 	n <- nrow(sss$variables)
 	
-	df <- list_to_df(llply(1:n, function(x)get_variable_position(sss, asc, x)), sss$variables$name)
+	df <- list_to_df(
+			llply(
+					1:n, 
+					function(x)get_variable_position(sss, asc, x)), 
+			sss$variables$name)
 	df <- llply_colwise(sss, df, change_values)
 	df <- llply_colwise(sss, df, change_type)
-	df <- parse_multiple(sss, df, i)
+	df <- parse_multiple(sss, df)
 	df
 	
 }
@@ -26,6 +31,7 @@ parse_sss <- function(sss, asc){
 #' and creates a data frame with information about size, position, type, etc.
 #'
 #' @param xmlNode XML node
+#' @keywords internal
 get_sss_record <- function(xmlNode){
 	p <- as.character(xmlAttrs (xmlNode[["position"]]))
 	if (is.null(xmlNode[["spread"]])){
@@ -69,6 +75,7 @@ get_sss_record <- function(xmlNode){
 #' This function parses the record node and extracts all "codes" nodes into a data.frame
 #'
 #' @param x XML node
+#' @keywords internal
 get_sss_codes <- function(x){
 	size <- xmlSize(x[["values"]])
 	if (is.null(x[["values"]])){
@@ -97,6 +104,7 @@ get_sss_codes <- function(x){
 #' @param sss Parsed .sss metadata information
 #' @param asc Parsed .asc data
 #' @param variable_row Variable row
+#' @keywords internal
 get_variable_position <- function(sss, asc, variable_row){
 	position <- c(
 			sss$variables[variable_row,]$position_start,
@@ -105,19 +113,11 @@ get_variable_position <- function(sss, asc, variable_row){
 	ldply(asc, function(x)substring(x, position[1], position[2]))	
 }
 
-#' Trims leading and trailing white space from a string  
-#'
-#' @param x A string
-str_clean <- function(x){
-	x <- sub('[[:space:]]+$', '', x) ## white space, POSIX-style
-	x <- sub('^[[:space:]]+', '', x) ## white space, POSIX-style
-	x
-}
-
 #' Converts list to data frame  
 #'
 #' @param list A list
 #' @param	names Character: a list of names
+#' @keywords internal
 list_to_df <- function(list, names){
 	df <- as.data.frame(list, stringsAsFactors=FALSE)
 	names(df) <- names
@@ -130,8 +130,8 @@ list_to_df <- function(list, names){
 #' @param sss Parsed .sss metadata information
 #' @param df Parsed .asc data
 #' @param i The column number of sss that should be processed 
-#' @keywords triple-s
 #' @seealso llply_colwise
+#' @keywords internal
 change_type <- function (sss, df, i){
 	type <- sss$variables$type[i]
 	x <- df[, i]
@@ -143,7 +143,7 @@ change_type <- function (sss, df, i){
 	}
 	
 	if (type=="character"){
-		x <- factor(str_clean(x))
+		x <- factor(str_trim(x))
 	}
 	x
 }
@@ -153,7 +153,7 @@ change_type <- function (sss, df, i){
 #' @param sss Parsed .sss metadata information
 #' @param df Parsed .asc data
 #' @param i The column number of sss that should be processed 
-#' @keywords triple-s
+#' @keywords internal
 #' @seealso llply_colwise
 change_values <- function (sss, df, i){
 	has_values <- sss$variables$has_values[i]
@@ -161,8 +161,8 @@ change_values <- function (sss, df, i){
 	if (has_values){
 		code_frame <- subset(
 										sss$codes,
-										ident==sss$variables$ident[i], 
-										select=c(code, codevalues)
+										sss$codes$ident==sss$variables$ident[i], 
+										select=c("code", "codevalues")
 								)
 								
 		row.names(code_frame) <- code_frame$code
@@ -179,6 +179,7 @@ change_values <- function (sss, df, i){
 #' @param start Numeric: start position
 #' @param end Numeric: end position
 #' @seealso llply_colwise
+#' @keywords internal
 split_multiple <- function(df_column, start, end){
 	ldply(df_column, function(x)substring(x, start, end))
 }
@@ -187,9 +188,9 @@ split_multiple <- function(df_column, start, end){
 #' 
 #' @param sss Parsed .sss metadata information
 #' @param df Parsed .asc data
-#' @param i The column number of sss that should be processed 
 #' @seealso llply_colwise
-parse_multiple <- function (sss, df, i){
+#' @keywords internal
+parse_multiple <- function (sss, df){
 	# This needs to process fields with type "multiple" in two ways:
 	# 1. If subfields is set to n, where n>0, it means that there are n columns
 	#    Each of these columns can take on any of the values in $codes
@@ -233,7 +234,7 @@ parse_multiple <- function (sss, df, i){
 #' @param sss Parsed .sss metadata information
 #' @param df Parsed .asc data
 #' @param custom_function A function that operates on a single column 
-#' @keywords triple-s
+#' @keywords internal
 #' @examples
 #' # None
 llply_colwise <- function(sss, df, custom_function){
