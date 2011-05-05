@@ -3,24 +3,22 @@
 # Author: Andrie
 ###############################################################################
 
-#' The top level parse function 
+
+#' Applies coded values to asc data, as described in sss metadata  
 #'
-#' @param sss Parsed sss metadata file
-#' @param asc Parsed sss data file
+#' @param sss Parsed .sss metadata information
+#' @param df Parsed .asc data
 #' @keywords internal
-parse_sss <- function(sss, asc){
-	n <- nrow(sss$variables)
-	
-	df <- list_to_df(
-			llply(
-					1:n, 
-					function(x)get_variable_position(sss, asc, x)), 
-			sss$variables$name)
-	df <- llply_colwise(sss, df, change_values)
-	df <- llply_colwise(sss, df, change_type)
-	df <- parse_multiple(sss, df)
-	df
-	
+#' @seealso llply_colwise
+change_values <- function (sss, df){
+  for(i in which(sss$variables$has_values)){
+    code_frame <- sss$codes[sss$codes$ident==sss$variables$ident[i], c("code", "codevalues")]
+    row.names(code_frame) <- code_frame$code
+    x <- code_frame$codevalues[df[, i]]
+    x[is.na(x)] <- x[is.na(x)]
+    df[, i] <- x
+  }
+  df
 }
 
 
@@ -51,7 +49,7 @@ get_sss_record <- function(xmlNode){
 	} else {
 		pto <- p[[1]]
 	}
-	data.frame(
+  data.frame(
 			ident      = as.character(xmlAttrs (xmlNode)["ident"]),
 			type       = as.character(xmlAttrs (xmlNode)["type"]),
 			name       = as.character(xmlValue (xmlNode[["name"]])[1]),
@@ -99,151 +97,96 @@ get_sss_codes <- function(x){
 }
 
 
-#' Reads metadata to find position of variables 
+#' Splits sss metadata into multiple lines 
 #'
-#' @param sss Parsed .sss metadata information
-#' @param asc Parsed .asc data
-#' @param variable_row Variable row
-#' @keywords internal
-get_variable_position <- function(sss, asc, variable_row){
-	position <- c(
-			sss$variables[variable_row,]$position_start,
-			sss$variables[variable_row,]$position_finish
-	)
-	ldply(asc, function(x)substring(x, position[1], position[2]))	
-}
-
-#' Converts list to data frame  
+#' This is necessary when the variable type is "multiple"
 #'
-#' @param list A list
-#' @param	names Character: a list of names
+#' @param sss data.frame containing .sss metadata
+#' @param sep character vector defining the string that separates field and subfield names
 #' @keywords internal
-list_to_df <- function(list, names){
-	df <- as.data.frame(list, stringsAsFactors=FALSE)
-	names(df) <- names
-	df
+split_sss <- function(sss, sep="_"){
+#  sss$length <- 1
+#  sss_mult <- with(sss, sss[type=="multiple", ])
+#  sss$length[sss$type=="multiple"] <- with(sss_mult, subfields)
+  sss$col_width <- with(sss, 
+    as.numeric(sapply(seq_len(nrow(sss)), function(i){
+        ifelse(type[i]!="multiple", 1,
+            ifelse(subfields[i]>0, 
+                subfields[i], 
+                position_finish[i] - position_start[i] +1))  
+        }
+    ))
+  )
+  ret <- split_multiple(sss, sss$col_width, sep)
+  ret$name <- names_multiple(sss$name, sss$col_width, sep)
+  ret$col_width <- with(ret, (position_finish - position_start + 1)/ col_width)
+  ret
 }
 
-
-#' Sets the data type of a column to correspond to parsed sss metadata  
+#' Splits a data.frame into multiple lines 
 #'
-#' @param sss Parsed .sss metadata information
-#' @param df Parsed .asc data
-#' @param i The column number of sss that should be processed 
-#' @seealso llply_colwise
-#' @keywords internal
-change_type <- function (sss, df, i){
-	type <- sss$variables$type[i]
-	x <- df[, i]
-	
-	if (type=="quantity"){
-		xnew <- as.numeric(x)
-		xnew[is.na(xnew)] <- x[is.na(xnew)]
-		x <- xnew
-	}
-	
-	if (type=="character"){
-		x <- factor(str_trim(x))
-	}
-	x
-}
-
-#' Applies coded values to asc data, as described in sss metadata  
+#' When length is greater than 1, duplicates that row
 #'
-#' @param sss Parsed .sss metadata information
-#' @param df Parsed .asc data
-#' @param i The column number of sss that should be processed 
+#' @param df data.frame with .sss metadata
+#' @param n Numeric vector that indicates the number of times each row must be repeated
+#' @param sep character vector defining the string that separates field and subfield names
 #' @keywords internal
-#' @seealso llply_colwise
-change_values <- function (sss, df, i){
-	has_values <- sss$variables$has_values[i]
-	x <- df[, i]
-	if (has_values){
-		code_frame <- subset(
-										sss$codes,
-										sss$codes$ident==sss$variables$ident[i], 
-										select=c("code", "codevalues")
-								)
-								
-		row.names(code_frame) <- code_frame$code
-		xnew <- code_frame[x, "codevalues"]
-		xnew[is.na(xnew)] <- x[is.na(xnew)]
-		x <- xnew
-	}
-	x
+split_multiple <- function(df, n, sep="_"){
+  ret <- df[repeat_n(n), ]
+  row.names(ret) <- names_multiple(row.names(df), n, sep)
+  ret
 }
 
-#' Splits a data frame column into multiple columns  
-#' 
-#' @param df_column A fixed-width column in a data frame
-#' @param start Numeric: start position
-#' @param end Numeric: end position
-#' @seealso llply_colwise
+#' Repeats each element n times 
+#'
+#' Each element is repeated n times.  This is used to construct a vector of the new length after accounting for fields of type multiple 
+#'
+#' @param n Numeric vector that indicates the number of times each row must be repeated
 #' @keywords internal
-split_multiple <- function(df_column, start, end){
-	ldply(df_column, function(x)substring(x, start, end))
+repeat_n <- function(n){
+  rep(seq_along(n), times=pmax(1, n))
 }
 
-#' Parse field of type "multiple"   
-#' 
-#' @param sss Parsed .sss metadata information
-#' @param df Parsed .asc data
-#' @seealso llply_colwise
+#' Reads all "codes" inside the triple-s "record" 
+#'
+#' This function parses the record node and extracts all "codes" nodes into a data.frame
+#'
+#' @param x XML node
 #' @keywords internal
-parse_multiple <- function (sss, df){
-	# This needs to process fields with type "multiple" in two ways:
-	# 1. If subfields is set to n, where n>0, it means that there are n columns
-	#    Each of these columns can take on any of the values in $codes
-	#    Width defines the number of characters to read in the .asc file
-	# 2. If width is not set, it means each variable was coded as boolean
-	#    Thus there will be a column for each value in $codes, and each column 
-	#    will be boolean
-	n <- nrow(sss$variables)
-	dfnew <- df
-	for (i in 1:n){
-		x <- df[, i]
-		if (sss$variables$type[i] == "multiple"){
-			subfields <- sss$variables$subfields[i]
-			if (subfields > 0){
-				### Process multiple with subfields
-				width <- sss$variables$width[i]
-				for (j in 1:subfields){
-					newname <- as.character(paste(names(df)[i], j, sep="_"))
-					dfnew <- cbind(dfnew, split_multiple(df[, i], j, j+width-1))
-					names(dfnew)[ncol(dfnew)] <- newname
-				}
-			} else {
-				### Process multiple without subfields
-				subfields <- as.numeric(sss$variables$position_finish[i]) - 
-						as.numeric(sss$variables$position_start[i]) + 1 
-				for (j in 1:subfields){
-					newname <- as.character(paste(names(df)[i], j, sep="_"))
-					dfnew <- cbind(dfnew, split_multiple(df[, i], j, j))
-					names(dfnew)[ncol(dfnew)] <- newname
-				}
-			}	
-		} # end if multiple		
-	} # end for
-	dfnew
+names_multiple <- function(names, length, sep="_"){
+  xl <- rep(names, times=pmax(1, length))
+  sm <- rep(length<=1, times=pmax(1, length))
+  xr <- paste(sep, sequence(pmax(1, length)), sep="")
+  xr[sm] <- ""
+  paste(xl, xr, sep="")
 }
 
 	
 
-#' Applies a custom function to each column of a data.frame  
-#'
-#' @param sss Parsed .sss metadata information
-#' @param df Parsed .asc data
-#' @param custom_function A function that operates on a single column 
-#' @keywords internal
-#' @examples
-#' # None
-llply_colwise <- function(sss, df, custom_function){
-	n <- nrow(sss$variables)
-	df <- as.data.frame(
-			llply(1:n, function(i)custom_function(sss, df, i)),
-			stringsAsFactors=FALSE
-	)
-	names(df) <- sss$variables$name
-	df
-}
+
+#colsplit_fixed <- function(df, n, width=1){
+##  cat("### colsplit_fixed ### n = ", n, "\n")
+##  cat("### colsplit_fixed ### ", df)
+#  s <- unlist(lapply(df[, n], function(x)substr_fixed(x, width)))
+#  ret <- as.data.frame(matrix(s, nrow=nrow(df), byrow=TRUE))
+#  names(ret) <- paste(names(df)[n], seq_len(ncol(ret)), sep="_")
+#  ret
+#}
+#
+#substr_fixed <- function(x, width){
+#  n <- ceiling(nchar(x)/width)
+#  if(length(width)==1){
+#    width <- seq(from=0, to=nchar(x), by=width)
+#  } else {
+#    width <- c(0, cumsum(width))
+#  }
+#  sapply(seq_len(length(width)-1), function(i)substr(x, width[i]+1, width[i+1]))
+#}
+#
+#replace_df_col <- function(x, new, n){
+#  col_order <- c(seq_len(n-1), seq(ncol(x)+1, ncol(x)+ncol(new)), seq(n+1, ncol(x)))
+#  x <- cbind(x, new)
+#  x[, col_order]
+#}
+
 
