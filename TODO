@@ -1,0 +1,10 @@
+Todo:
+-----
+
+* Question text is incorrect for questions of type "multiple" - the values should be copied to the subquestion text.
+
+* Values for questions of type "quantity" is incorrect when there are values specified (this could possibly be fixed with an attribute in the data - investigate read.spss behaviour
+
+* Update all documentation
+
+* Write package documentation 

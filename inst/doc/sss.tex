@@ -1,0 +1,109 @@
+\documentclass[a4paper]{article}
+
+%\VignetteIndexEntry{Introduction to ggcluster}
+%\VignettePackage{ggcluster}
+
+% Definitions
+%\newcommand{\slan}{{\tt S}}
+%\newcommand{\rlan}{{\tt R}}
+\newcommand{\sss}{{\tt sss}}
+\newcommand{\code}[1]{{\tt #1}}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{.1in}
+\setlength{\textwidth}{140mm}
+\setlength{\oddsidemargin}{10mm}
+
+\title{Introduction to the \sss{} package for reading and parsing sss files.}
+\author{Andrie de Vries}
+
+\usepackage{Sweave}
+\begin{document}
+
+\maketitle
+
+\sss{} is a package that makes it easy to read and parse survey data in the sss file format.
+
+\section{Introduction}
+
+Lorem ipsum.
+
+
+\section{The triple-s XML data and meta-data format}
+
+Sit dolor amet.
+
+\section{Example}
+
+Set path to point to import files.
+
+\begin{Schunk}
+\begin{Sinput}
+> library(sss)
+> filenameSSS <- "sample.sss"
+> filenameASC <- "sample.asc"
+\end{Sinput}
+\end{Schunk}
+
+Import and parse the files
+
+\begin{Schunk}
+\begin{Sinput}
+> sssXML <- readSSSmetadata(filenameSSS)
+> sss <- parseSSSmetadata(sssXML)
+> asc <- readSSSdata(filenameASC)
+\end{Sinput}
+\end{Schunk}
+
+Display the results.
+
+\begin{Schunk}
+\begin{Sinput}
+> df <- read.sss(filenameSSS, filenameASC)
+> print(str(df))
+\end{Sinput}
+\begin{Soutput}
+'data.frame':	3 obs. of  17 variables:
+ $ Q1  : chr  "Visited before within the year" "Visited before that" "Visited before within the year"
+ $ Q2_1: num  1 0 1
+ $ Q2_2: num  0 1 0
+ $ Q2_3: num  1 0 0
+ $ Q2_4: num  0 0 1
+ $ Q2_5: num  0 0 0
+ $ Q2_6: num  0 0 0
+ $ Q2_7: num  0 0 0
+ $ Q2_8: num  0 0 0
+ $ Q2_9: num  1 0 1
+ $ Q3  : chr  "Amusement Park                " "                              " "\"Marco's\" Restaurant          "
+ $ Q4_1: chr  "Sherwood Forest" "Nottingham Castle" "Other"
+ $ Q4_2: chr  "Other" NA "\"Maid Marion\" Cafe"
+ $ Q5  : num  12 999 58
+ $ Q6  : logi  TRUE TRUE FALSE
+ $ Q7  : chr  "Within 3 months" "More than 1 years time" NA
+ $ Q99 : num  1.4 0.9 0.7
+ - attr(*, "variable.labels")= chr  "Number of visits" "Attractions visited" "Attractions visited" "Attractions visited" ...
+NULL
+\end{Soutput}
+\begin{Sinput}
+> print(df$Q1)
+\end{Sinput}
+\begin{Soutput}
+[1] "Visited before within the year" "Visited before that"           
+[3] "Visited before within the year"
+\end{Soutput}
+\end{Schunk}
+
+\section{Final thoughts}
+
+The last word.
+
+
+% Start a new page
+% Not echoed, not evaluated
+% ONLY here for checkVignettes so that all output doesn't
+% end up on one enormous page
+
+\end{document}
+
+
+
+

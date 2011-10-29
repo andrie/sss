@@ -1,0 +1,21 @@
+sss 0.0-06
+----------
+
+Improvements:
+
+* Substantial gains in speed by rewriting `fast.read.fwf` and `changeValues` to use `lapply` rather than loops. 
+
+sss 0.0-05
+----------
+
+Fixed issues:
+
+* Fixed issues with converting logical values to TRUE/FALSE
+* Convert values where appropriate
+* Add variable.label attribute containing question text
+
+sss 0.0-04
+----------
+
+* Refactored all function names to use camelCase
+* Implemented read.fast.fwf to read fixed width file 
