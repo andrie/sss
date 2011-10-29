@@ -1,16 +1,23 @@
 Package: sss
-Imports:
 Maintainer: Andrie de Vries <apdevries@gmail.com>
 License: GPL (>=2)
-Title: Tools for importing files in the triple-s .(Standard Survey
-    Structure) format
+Title: Tools for importing files in the triple-s .(Standard
+    Survey Structure) format
 LazyData: true
 Author: Andrie de Vries <apdevries@gmail.com>
-Description: sss is a set of tools to import survey files in the .sss
-    (triple-s) format.
-Version: 0.0-3
+Description: sss is a set of tools to import survey files
+    in the .sss (triple-s) format.
+Version: 0.0-5
 URL:
-Date: 2011-02-15
-Depends: R (>= 2.11.0), XML
-Suggests:
-Collate: 'help.R' 'internal_functions.R' 'public_functions.r'
+Date: 2011-10-29
+Depends:
+    R (>= 2.11.0),
+    XML,
+    methods,
+    plyr
+Collate:
+    'export.r'
+    'sss-package.R'
+    'readFwf.R'
+    'internal-csv.R'
+    'internal-xml.R'

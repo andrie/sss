@@ -1,6 +1,6 @@
 #sss
 
-The aim of sss is to provide a function to import triple-s XML files into r.
+The aim of the sss package is to provide a function to import triple-s XML files into r.
 
 ## The triple-s standard
 
@@ -8,7 +8,7 @@ triple-s is a standard to transfer survey data between applications.
 
 http://www.triple-s.org/
 
-## XML
+## Notes about the dependency on the XML package 
 
 This packages depends on the XML package.
 
