@@ -2,24 +2,19 @@
 # Author: Andrie
 #----------------------------------------------------------------------------------
 
-clip <- function (x, n = 1) 
-  x[1 %upto% (length(x) - n)]
-
 
 
 #' Read in fixed-width files quickly.
 #' 
-#' Experimental replacement for read.fwf that runs much faster.
+#' Experimental replacement for read.fwf that runs much faster.  However, it is much less flexible than read.fwf.
 #' 
-#' @param file character 
-#' @param widths vector of column widths. Negative numbers mean "skip this many columns". Use an NA as the final element if there are likely to be extra characters at the end of each row after the last one that you're interested in. 
+#' @param file Character vector: name of file 
+#' @param widths Numeric vector: column widths. Negative numbers mean "skip this many columns". Use an NA as the final element if there are likely to be extra characters at the end of each row after the last one that you're interested in. 
 #' @param col.names names for the columns that are NOT skipped 
-#' @param colClasses can be used to control type conversion; see read.table. It is an optional vector whose names must be part of col.names. There is one extension of the read.table rules:a colClass string starting POSIXct. will trigger automatic conversion to POSIXct, using the rest of the string as the format specifier. See also tz. 
-#' @param tz used in auto-conversion to POSIXct when colClass is set 
-#' @param ... ignored; it's here so that this function can be called just like read.fwf 
-#' @param dec Decimal period
-#' @export 
-#' @note Original code from package mvbutils
+#' @param colClasses can be used to control type conversion; see \code{\link{read.table}}. It is an optional vector whose names must be part of col.names. There is one extension of the \code{\link{read.table}} rules:a colClasses string starting \code{\link{POSIXct}}. will trigger automatic conversion to POSIXct, using the rest of the string as the format specifier. 
+#' @param tz used in auto-conversion to \code{\link{POSIXct}} when \code{colClasses} is set 
+#' @param dec the character to be assumed for decimal points. Passed to \code{\link[utils]{type.convert}}
+#' @param ... ignored 
 fast.read.fwf <- function (
     file, widths, col.names = NULL, colClasses = NA,  
     tz = "", dec=".", ...){

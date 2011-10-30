@@ -1,9 +1,10 @@
-sss 0.0-06
+sss 0.0-07 (30/10/2011)
 ----------
 
 Improvements:
 
-* Substantial gains in speed by rewriting `fast.read.fwf` and `changeValues` to use `lapply` rather than loops. 
+* Substantial gains in speed by rewriting `fast.read.fwf` and `changeValues` to use `lapply` rather than loops.
+* Documentation updates 
 
 sss 0.0-05
 ----------

@@ -7,7 +7,7 @@ LazyData: true
 Author: Andrie de Vries <apdevries@gmail.com>
 Description: sss is a set of tools to import survey files
     in the .sss (triple-s) format.
-Version: 0.0-6
+Version: 0.0-07
 URL:
 Date: 2011-10-29
 Depends:
@@ -16,8 +16,8 @@ Depends:
     methods,
     plyr
 Collate:
-    'export.r'
     'sss-package.R'
-    'readFwf.R'
     'internal-csv.R'
     'internal-xml.R'
+    'read-fwf.R'
+    'read-sss.R'

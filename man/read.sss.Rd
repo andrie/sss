@@ -5,14 +5,24 @@
   read.sss(sssFilename, ascFilename, sep = "_")
 }
 \arguments{
-  \item{sssFilename}{Name of .sss file containing the
-  survey metadata}
+  \item{sssFilename}{Character string: name of .sss file
+  containing the survey metadata}
 
-  \item{ascFilename}{Name of .asc file containing survey
-  data}
+  \item{ascFilename}{Character string: name of .asc file
+  containing survey data}
 
-  \item{sep}{character vector defining the string that
-  separates field and subfield names}
+  \item{sep}{Character vector defining the string that
+  separates question and subquestion labels, e.g.
+  \code{c("Q_1", "Q_2")}}
+}
+\value{
+  A data frame with one element (column) for each variable
+  in the data set. The data.frame contains several
+  attributes:
+
+  \describe{ \item{variable.labels}{a named list of value
+  labels with one element per variable, either NULL or a
+  names character vector} }
 }
 \description{
   This function reads and parses a .sss XML metadata file
@@ -22,6 +32,9 @@
 \examples{
 # Not executed
 # read.sss("sample.sss, sample.asc")
+}
+\references{
+  http://www.triple-s.org/
 }
 \keyword{read}
 
