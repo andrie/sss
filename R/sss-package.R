@@ -8,8 +8,13 @@
 #'
 #' @docType package
 #' @name sss-package
+#' @import plyr
+#' @import XML
 #' @aliases sss sss-package
 #' @keywords package
-
 NULL
+
+.onLoad <- function(libname, pkgname){
+  message("The sss package is in early stages of development and still considered experimental.")
+}  
 
