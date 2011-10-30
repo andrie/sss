@@ -30,7 +30,7 @@ getSSSrecord <- function(xmlNode){
   } else {
     pto <- p[[1]]
   }
-  data.frame(
+  quickdf(list(
       ident      = as.character(xmlAttrs (xmlNode)["ident"]),
       type       = as.character(xmlAttrs (xmlNode)["type"]),
       name       = as.character(xmlValue (xmlNode[["name"]])[1]),
@@ -39,9 +39,9 @@ getSSSrecord <- function(xmlNode){
       positionFinish = as.character(pto),
       subfields = subfields,
       width     = width,
-      hasValues = !is.null(xmlNode[["values"]]),
-      stringsAsFactors = FALSE
-  )
+      hasValues = !is.null(xmlNode[["values"]])
+      #stringsAsFactors = FALSE
+  ))
 }
 
 #is.character0 <- function(x){
@@ -59,19 +59,20 @@ getSSScodes <- function(x){
   size <- xmlSize(x[["values"]])
   if (is.null(x[["values"]])){
     df <- data.frame(
-        ident      = as.character(xmlAttrs (x)["ident"]),
+        ident      = as.character(xmlAttrs(x)["ident"]),
         code       = NA,
         codevalues = NA,
         stringsAsFactors = FALSE
     )
   } else {
+    #browser()
     df <- data.frame(
-        ident      = rep(as.character(xmlAttrs (x)["ident"]), size),
+        ident      = rep(unname(xmlAttrs (x)["ident"]), size),
         code       = as.character(xmlSApply(x[["values"]], xmlAttrs)),
         codevalues = as.character(xmlSApply(x[["values"]], xmlValue)),
         stringsAsFactors = FALSE
     )
-    df <- subset(df, df$codevalues!="character(0)")
+    df <- df[df$codevalues!="character(0)", ]
   }
   
   df

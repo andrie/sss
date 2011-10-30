@@ -27,13 +27,14 @@ readSSSmetadata <- function(SSSfilename){
 #' @seealso readSSSmetadata, read.sss, readSSSdata
 parseSSSmetadata <- function(XMLdoc){
 	r <- xmlRoot(XMLdoc)[["survey"]][["record"]]
-  variables <- as.data.frame(
-      do.call(rbind, lapply(xmlChildren(r), getSSSrecord)), 
-      stringsAsFactors=FALSE)
+  variables <- quickdf(
+      do.call(rbind, lapply(xmlChildren(r), getSSSrecord)) 
+      #stringsAsFactors=FALSE)
+  )
   variables$positionFinish <- as.numeric(variables$positionFinish)
   variables$positionStart <- as.numeric(variables$positionStart)
   
-  codes <- as.data.frame(do.call(rbind, lapply(xmlChildren(r), getSSScodes)), stringsAsFactors=FALSE)
+  codes <- quickdf(do.call(rbind, lapply(xmlChildren(r), getSSScodes)))#, stringsAsFactors=FALSE)
   list(variables=variables, codes=codes)
 }
 
