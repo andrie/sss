@@ -2,8 +2,8 @@
 \alias{fast.read.fwf}
 \title{Read in fixed-width files quickly.}
 \usage{
-  fast.read.fwf(file, widths, col.names = NULL, colClasses
-  = NA, tz = "", dec = ".", ...)
+  fast.read.fwf(file, widths, col.names = NULL,
+    colClasses = NA, tz = "", dec = ".", ...)
 }
 \arguments{
   \item{file}{Character vector: name of file}

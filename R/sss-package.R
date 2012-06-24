@@ -14,7 +14,7 @@
 #' @keywords package
 NULL
 
-.onLoad <- function(libname, pkgname){
-  message("The sss package is in early stages of development and still considered experimental.")
+.onAttach <- function(libname, pkgname){
+  packageStartupMessage("The sss package is in early stages of development and still considered experimental.")
 }  
 

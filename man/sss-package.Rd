@@ -1,6 +1,5 @@
 \docType{package}
 \name{sss-package}
-\alias{"sss-package"}
 \alias{sss}
 \alias{sss-package}
 \title{Tools for importing files in the triple-s .(Standard Survey Structure) format.}

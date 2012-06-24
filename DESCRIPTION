@@ -10,9 +10,9 @@ Description: sss is a set of tools to import survey files
     read.sss that reads the .asc and .sss files of a
     triple-s survey data file.  The package is experimental
     - feedback, issues and bug reports are welcome.
-Version: 0.0-08
+Version: 0.0-10
 URL: https://github.com/andrie/sss
-Date: 2011-10-29
+Date: 2012-06-20
 Depends:
     R (>= 2.11.0),
     methods

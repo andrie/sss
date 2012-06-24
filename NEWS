@@ -1,3 +1,20 @@
+sss 0.0-09 (18/06/2012)
+----------
+
+* Minor changes to remove redundant files and folders
+* Now uses packageStartupMessage() rather than message() to display startup message
+
+
+sss 0.0-08 (30/10/2011)
+----------
+
+* First experimental release to CRAN
+
+Improvements:
+
+* Performance gains as a result of using plyr::quickdf rather than as.data.frame
+* Imports plyr and XML rather than declaring dependency
+
 sss 0.0-07 (30/10/2011)
 ----------
 

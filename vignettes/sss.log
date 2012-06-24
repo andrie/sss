@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.9.28)  29 OCT 2011 17:59
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.5.21)  20 JUN 2012 18:52
 entering extended mode
-**f:/git/sss/sss/inst/doc/./sss.tex
-(f:/git/sss/sss/inst/doc/./sss.tex
+**C:/Users/andrie/Ubuntu*One/dev/sss/sss/vignettes/./sss.tex
+("C:/Users/andrie/Ubuntu One/dev/sss/sss/vignettes/./sss.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -29,7 +29,7 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) ("C:/Program Files/R/R-2.13.2/share/texmf/tex/latex\Sweave.sty"
+) ("C:/Program Files/R/R-2.15.0/share/texmf/tex/latex\Sweave.sty"
 Package: Sweave 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
@@ -57,7 +57,7 @@ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
-) (C:\Users\Andrie\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyvrb\fancyvrb.sty
+) (C:\Users\andrie\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyvrb\fancyvrb.sty
 Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
@@ -68,7 +68,7 @@ Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix
 \c@FancyVerbLine=\count89
 \FV@StepNumber=\count90
 \FV@OutFile=\write3
-) ("C:/Program Files/R/R-2.13.2/share/texmf/tex/latex\upquote.sty"
+) ("C:/Program Files/R/R-2.15.0/share/texmf/tex/latex\upquote.sty"
 Package: upquote 2003/08/11 v1.1 Covington's upright-quote modification to verb
 atim and verb
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\textcomp.sty"
@@ -166,7 +166,7 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ae\t1aer.fd"
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
-)))) (f:\git\sss\sss\inst\doc\sss.aux)
+)))) ("C:\Users\andrie\Ubuntu One\dev\sss\sss\vignettes\sss.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
@@ -185,7 +185,7 @@ LaTeX Font Info:    Try loading font information for TS1+cmr on input line 20.
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 20.
-(C:\Users\Andrie\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+(C:\Users\andrie\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count91
 \scratchdimen=\dimen105
@@ -209,40 +209,40 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 22.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 22.
-LaTeX Font Info:    Try loading font information for TS1+aett on input line 65.
+LaTeX Font Info:    Try loading font information for TS1+aett on input line 56.
 
-("C:/Program Files/R/R-2.13.2/share/texmf/tex/latex\ts1aett.fd"
+("C:/Program Files/R/R-2.15.0/share/texmf/tex/latex\ts1aett.fd"
 File: ts1aett.fd 
 )
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 65.
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 56.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmtt.fd"
 File: ts1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `TS1/aett/m/n' in size <10> not available
-(Font)              Font shape `TS1/cmtt/m/n' tried instead on input line 65.
+(Font)              Font shape `TS1/cmtt/m/n' tried instead on input line 56.
 [1
 
-{C:/Users/Andrie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] (f:\gi
-t\sss\sss\inst\doc\sss.aux) ) 
+{C:/Users/andrie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] ("C:\U
+sers\andrie\Ubuntu One\dev\sss\sss\vignettes\sss.aux") ) 
 Here is how much of TeX's memory you used:
  2363 strings out of 494045
- 32778 string characters out of 3146017
- 76223 words of memory out of 3000000
+ 32978 string characters out of 3145966
+ 77223 words of memory out of 3000000
  5624 multiletter control sequences out of 15000+200000
  21932 words of font info for 53 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 35i,6n,21p,312b,278s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Andrie\AppData\Local\MiKTeX\2.9\fonts\p
-k\ljfour\jknappen\ec\dpi600\tctt1000.pk><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmsltt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmtt12.pfb>
-Output written on sss.pdf (2 pages, 90015 bytes).
+ 35i,6n,21p,337b,278s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\andrie\AppDa
+ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tctt1000.pk><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsltt10.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on sss.pdf (2 pages, 86868 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
