@@ -1,24 +1,26 @@
 Package: sss
-Maintainer: Andrie de Vries <apdevries@gmail.com>
-License: GPL (>=2)
+Authors@R: person("Andrie", "de Vries", role=c("aut", "cre"),
+    email="apdevries@gmail.com")
+License: GPL-2|GPL-3
 Title: Tools for importing files in the triple-s .(Standard
     Survey Structure) format
 LazyData: true
-Author: Andrie de Vries <apdevries@gmail.com>
 Description: sss is a set of tools to import survey files
     in the .sss (triple-s) format. It provides the function
     read.sss that reads the .asc and .sss files of a
     triple-s survey data file.  The package is experimental
     - feedback, issues and bug reports are welcome.
-Version: 0.0-10
+Version: 0.0-11
 URL: https://github.com/andrie/sss
-Date: 2012-06-20
+Date: 2013-10-22
 Depends:
-    R (>= 2.11.0),
-    methods
+    R (>= 2.11.0)
 Imports:
+    methods,
     plyr,
     XML
+Suggests:
+    testthat
 Collate:
     'sss-package.R'
     'internal-csv.R'

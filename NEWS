@@ -1,3 +1,10 @@
+sss 0.0-11 (25/10/2013)
+----------
+
+* No functional changes
+* Added .Rbuildignore to comply with CRAN requirements for R-3.1-0
+
+
 sss 0.0-09 (18/06/2012)
 ----------
 

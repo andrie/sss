@@ -10,6 +10,7 @@
 #' @name sss-package
 #' @import plyr
 #' @import XML
+#' @import methods
 #' @aliases sss sss-package
 #' @keywords package
 NULL
