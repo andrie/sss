@@ -13,7 +13,7 @@
 #' # Not executed
 #' # readSSSmetadata("sample.sss")
 readSSSmetadata <- function(SSSfilename){
-	xmlTreeParse(SSSfilename, getDTD = F)
+  xmlTreeParse(SSSfilename, getDTD = F)
 }
 
 
@@ -26,16 +26,18 @@ readSSSmetadata <- function(SSSfilename){
 #' @export 
 #' @seealso readSSSmetadata, read.sss, readSSSdata
 parseSSSmetadata <- function(XMLdoc){
-	r <- xmlRoot(XMLdoc)[["survey"]][["record"]]
-  variables <- quickdf(
-      do.call(rbind, lapply(xmlChildren(r), getSSSrecord)) 
-      #stringsAsFactors=FALSE)
+  r <- xmlRoot(XMLdoc)[["survey"]][["record"]]
+  format <- if("format" %in% names(xmlAttrs(r))) xmlAttrs(r)[["format"]] else "fixed"
+  skip   <- if("skip"   %in% names(xmlAttrs(r))) xmlAttrs(r)[["skip"]] else 0
+  variables <- fastdf(
+    do.call(rbind, lapply(xmlChildren(r), getSSSrecord)) 
+    #stringsAsFactors=FALSE)
   )
   variables$positionFinish <- as.numeric(variables$positionFinish)
   variables$positionStart <- as.numeric(variables$positionStart)
   
-  codes <- quickdf(do.call(rbind, lapply(xmlChildren(r), getSSScodes)))#, stringsAsFactors=FALSE)
-  list(variables=variables, codes=codes)
+  codes <- fastdf(do.call(rbind, lapply(xmlChildren(r), getSSScodes)))#, stringsAsFactors=FALSE)
+  list(variables=variables, codes=codes, format = format, skip = skip)
 }
 
 
@@ -51,7 +53,7 @@ parseSSSmetadata <- function(XMLdoc){
 #' # Not executed
 #' # readSSSdata("sample.asc")
 readSSSdata <- function(ascFilename){
-	suppressWarnings(scan(ascFilename, sep="\n", what="character"))
+  suppressWarnings(scan(ascFilename, sep="\n", what="character"))
 }
 
 
@@ -75,16 +77,18 @@ readSSSdata <- function(ascFilename){
 #' @examples
 #' # Not executed
 #' # read.sss("sample.sss, sample.asc")
-read.sss <- function(sssFilename, ascFilename, sep="_"){
+read.sss <- function(sssFilename, ascFilename, sep = "_"){
   message("Reading SSS metadata")
-  if (class(sssFilename)=="character"){
-    doc <- readSSSmetadata(sssFilename)
-    sss <- parseSSSmetadata(doc)
-  } else if (class(sssFilename=="XMLDocumentContent")){
-    sss <- parseSSSmetadata(sssFilename)
-  } else {
-    stop("SSSfilename not recognised as either a file or an XML object")
-  } 
+  switch(class(sssFilename),
+         "character" = {
+           doc <- readSSSmetadata(sssFilename)
+           sss <- parseSSSmetadata(doc)
+         }, 
+         "XMLDocumentContent" = {
+           sss <- parseSSSmetadata(sssFilename)
+         }, 
+         stop("SSSfilename not recognised as either a file or an XML object")
+  )
   
   sss$variables <- splitSSS(sss$variable, sep)
   
@@ -101,16 +105,27 @@ read.sss <- function(sssFilename, ascFilename, sep="_"){
   
   ascNames <- sss$variables$name
   
-  asc <- fast.read.fwf(
-      file=ascFilename, 
-      widths=ascWidth, 
-      colClasses=ascType, 
-      col.names=ascNames)
-  #asc
-  asc <- changeValues(sss, asc)
-  asc <- addQtext(sss, asc)
-  asc
+  dat <- switch(sss$format, 
+         csv = {
+           read.csv(file = ascFilename,
+                    skip = sss$skip,
+                    header = FALSE,
+                    col.names = ascNames
+                    #colClasses = unname(ascType)
+           )
+         },
+         fixed = {
+           fast.read.fwf(file = ascFilename, 
+                                widths = ascWidth, 
+                                colClasses = ascType, 
+                                col.names = ascNames)
+           #asc
+         }
+  )
+  dat <- changeValues(sss, dat)
+  dat <- addQtext(sss, dat)
+  dat
 }
 
-	
+
 

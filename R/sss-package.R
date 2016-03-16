@@ -8,7 +8,6 @@
 #'
 #' @docType package
 #' @name sss-package
-#' @import plyr
 #' @import XML
 #' @import methods
 #' @aliases sss sss-package
@@ -16,6 +15,7 @@
 NULL
 
 .onAttach <- function(libname, pkgname){
-  packageStartupMessage("The sss package is in early stages of development and still considered experimental.")
+  msg <- "The sss package is in early stages of development and still considered experimental."
+  packageStartupMessage(msg)
 }  
 

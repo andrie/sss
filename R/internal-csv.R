@@ -41,7 +41,7 @@ changeValues <- function (sss, df){
     }
   }
   
-  df <- quickdf(lapply(seq_along(df), changeSingleValue))
+  df <- fastdf(lapply(seq_along(df), changeSingleValue))
   names(df) <- col.names  
   df
 }

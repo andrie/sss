@@ -11,15 +11,15 @@
 #'
 #' @param xmlNode XML node
 #' @keywords internal
-getSSSrecord <- function(xmlNode){
-  p <- as.character(xmlAttrs (xmlNode[["position"]]))
-  if (is.null(xmlNode[["spread"]])){
+getSSSrecord <- function(node){
+  p <- as.character(xmlAttrs (node[["position"]]))
+  if (is.null(node[["spread"]])){
     subfields <- 0
     width <- 0
   } else {
-    subfields <- xmlAttrs(xmlNode[["spread"]])[["subfields"]]
-    if ("width" %in% xmlAttrs(xmlNode[["spread"]])){
-      width   <- xmlAttrs(xmlNode[["spread"]])[["width"]]
+    subfields <- xmlAttrs(node[["spread"]])[["subfields"]]
+    if ("width" %in% xmlAttrs(node[["spread"]])){
+      width   <- xmlAttrs(node[["spread"]])[["width"]]
     } else {
       width <- 1
     }
@@ -30,16 +30,16 @@ getSSSrecord <- function(xmlNode){
   } else {
     pto <- p[[1]]
   }
-  quickdf(list(
-      ident      = as.character(xmlAttrs (xmlNode)["ident"]),
-      type       = as.character(xmlAttrs (xmlNode)["type"]),
-      name       = as.character(xmlValue (xmlNode[["name"]])[1]),
-      label      = as.character(xmlValue (xmlNode[["label"]])[1]),
+  fastdf(list(
+      ident      = as.character(xmlAttrs (node)["ident"]),
+      type       = as.character(xmlAttrs (node)["type"]),
+      name       = as.character(xmlValue (node[["name"]])[1]),
+      label      = as.character(xmlValue (node[["label"]])[1]),
       positionStart  = as.character(pfrom),
       positionFinish = as.character(pto),
       subfields = subfields,
       width     = width,
-      hasValues = !is.null(xmlNode[["values"]])
+      hasValues = !is.null(node[["values"]])
       #stringsAsFactors = FALSE
   ))
 }
