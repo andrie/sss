@@ -17,7 +17,6 @@ Depends:
     R (>= 2.11.0)
 Imports:
     methods,
-    plyr,
     XML
 Suggests:
     testthat
@@ -27,3 +26,4 @@ Collate:
     'internal-xml.R'
     'read-fwf.R'
     'read-sss.R'
+RoxygenNote: 5.0.1
