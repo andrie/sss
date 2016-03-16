@@ -3,19 +3,23 @@
 # Author: Andrie
 #------------------------------------------------------------------------------
 
+context("sss test suite")
+
+if(interactive()){
+  library(testthat)
+  sampleRoot <- "sss/tests/testthat/samples/sample-0"
+} else {
+  sampleRoot <- "samples/sample-0"
+}
+filenameSSS <- file.path(sampleRoot, "sample.sss")
+filenameASC <- file.path(sampleRoot, "sample.asc")
+
 
 expectedNames <- c("Q1", "Q2_1", "Q2_2", "Q2_3", "Q2_4", "Q2_5", "Q2_6", "Q2_7", 
-    "Q2_8", "Q2_9", "Q3", "Q4_1", "Q4_2", "Q5", "Q6", "Q7", "Q99")
+                   "Q2_8", "Q2_9", "Q3", "Q4_1", "Q4_2", "Q5", "Q6", "Q7", "Q99")
 expectedNames2 <- c("Q1", "Q2.1", "Q2.2", "Q2.3", "Q2.4", "Q2.5", "Q2.6", "Q2.7", 
-    "Q2.8", "Q2.9", "Q3", "Q4.1", "Q4.2", "Q5", "Q6", "Q7", "Q99")
+                    "Q2.8", "Q2.9", "Q3", "Q4.1", "Q4.2", "Q5", "Q6", "Q7", "Q99")
 
-
-filenameSSS <- "sample.sss"
-filenameASC <-"sample.asc"
-
-#------------------------------------------------------------------------------
-
-context("sss test suite")
 
 test_that("parsing of .sss and .asc works", {
 	test <- read.sss(filenameSSS, filenameASC)
@@ -79,7 +83,7 @@ test_that("parsing of .sss and .asc works", {
   #print(dput(test))
 })
 
-context("sss question labels")
+# context("sss question labels")
 
 test_that("question text is assigned to variable.labels attribute", {
       test <- read.sss(filenameSSS, filenameASC)
@@ -103,9 +107,6 @@ test_that("question text is assigned to variable.labels attribute", {
           "Case weight"
       )
       expect_equal(attr(test, "variable.labels"), expectedLabels)
-#  cat("\n\n")
-#      print(attr(test, "variable.labels"))
-#  cat("\n\n")
     })
 
 test_that("separator parameter works", {

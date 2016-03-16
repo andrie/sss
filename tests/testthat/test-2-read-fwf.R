@@ -3,12 +3,19 @@
 # Author: Andrie
 #----------------------------------------------------------------------------------
 
+if(interactive()){
+  library(testthat)
+  sampleRoot <- "sss/tests/testthat/samples/sample-0"
+} else {
+  sampleRoot <- "samples/sample-0"
+}
+
 context("Read fwf")
 
 
 test_that("widths work", {
       ff <- tempfile()
-      cat(file=ff, "123456", "987654", sep="\n")
+      cat(file = ff, "123456", "987654", sep="\n")
       
       rest <- structure(list(
               V1=c(1, 9),
@@ -19,7 +26,7 @@ test_that("widths work", {
             class="data.frame"
             )
       
-      test <- fast.read.fwf(ff, widths=c(1,2,3))    #> 1 23 456 \ 9 87 654
+      test <- fast.read.fwf(ff, widths = c(1, 2, 3))    #> 1 23 456 \ 9 87 654
       expect_equal(rest, test)
       expect_is(test, "data.frame")
       unlink(ff)
@@ -43,11 +50,7 @@ test_that("colclasses work",{
           .Names = c("V1", "V2", "V3", "V4", "V5", "V6", "V7"), 
           row.names = c(NA, -2L), class = "data.frame")
       unlink(ff)
-      #browser()
       expect_equal(test, rest)
-      cat("\n")
-      print(test)
-      cat("\n")
     })
 
 

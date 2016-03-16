@@ -3,10 +3,16 @@
 # Author: Andrie
 #----------------------------------------------------------------------------------
 
-filenameSSS <- "sample.sss"
-filenameASC <- "sample.asc"
+if(interactive()){
+  library(testthat)
+  sampleRoot <- "sss/tests/testthat/samples/sample-0"
+} else {
+  sampleRoot <- "samples/sample-0"
+}
+filenameSSS <- file.path(sampleRoot, "sample.sss")
+filenameASC <- file.path(sampleRoot, "sample.asc")
 
-context("Test exported functions")
+context("Test metadata functions")
 
 test_that("readSSSmetadata works", {
       
