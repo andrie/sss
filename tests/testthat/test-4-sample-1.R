@@ -10,8 +10,8 @@ if(interactive()){
 } else {
   sampleRoot <- "samples/sample-1"
 }
-filenameSSS <- file.path(sampleRoot, "Recruitment Test.sss")
-filenameASC <- file.path(sampleRoot, "Recruitment Test.csv")
+filenameSSS <- file.path(sampleRoot, "recruitment_test.sss")
+filenameASC <- file.path(sampleRoot, "recruitment_test.csv")
 file.exists(filenameSSS)
 
 #------------------------------------------------------------------------------

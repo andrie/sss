@@ -1,3 +1,10 @@
+sss 0.0-13 (17/03/2016)
+----------
+
+* Added support to read csv files
+* Now supports multi-byte files (UTF-8)
+* Expanded unit tests will real-world data
+
 sss 0.0-11 (25/10/2013)
 ----------
 

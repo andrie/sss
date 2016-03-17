@@ -2,7 +2,7 @@
 % Please edit documentation in R/read-fwf.R
 \name{fast.read.fwf}
 \alias{fast.read.fwf}
-\title{Read in fixed-width files quickly.}
+\title{Read fixed-width files quickly.}
 \usage{
 fast.read.fwf(file, widths, col.names = NULL, colClasses = NA, tz = "",
   dec = ".", ...)
