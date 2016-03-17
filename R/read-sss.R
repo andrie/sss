@@ -40,8 +40,14 @@ read.sss <- function(sssFilename, ascFilename, sep = "_"){
   
   ascWidth <- sss$variables$colWidth
   
-  types <- c(rep("character", 3), "logical", rep("numeric", 2))
-  names(types) <- c("single", "multiple", "character", "logical", "numeric", "quantity")
+  types <- c(single = "character",
+              multiple = "character",
+              character = "character", 
+              logical = "logical",
+              numeric = "numeric", 
+              quantity = "numeric",
+              date = "Date"
+              )
   ascType <- types[sss$variables$type]
   ascType[sss$variables$type == "multiple"] <- "numeric"
   ascType[sss$variables$type == "multiple" & sss$variables$subfields > 0] <- "character"
