@@ -22,8 +22,10 @@ Suggests:
     testthat
 Collate:
     'sss-package.R'
+    'fastdf.R'
     'internal-csv.R'
     'internal-xml.R'
     'read-fwf.R'
     'read-sss.R'
+    'read-sss-metadata.R'
 RoxygenNote: 5.0.1

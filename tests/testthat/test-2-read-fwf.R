@@ -18,9 +18,9 @@ test_that("widths work", {
       cat(file = ff, "123456", "987654", sep="\n")
       
       rest <- structure(list(
-              V1=c(1, 9),
-              V2=c(23, 87),
-              V3=c(456, 654)),
+              V1 = c(1, 9),
+              V2 = c(23, 87),
+              V3 = c(456, 654)),
             .Names = c("V1", "V2", "V3"),
             row.names = c(NA, -2L),
             class="data.frame"
