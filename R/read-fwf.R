@@ -21,7 +21,7 @@ fast.read.fwf <- function (file, widths, col.names = NULL, colClasses = NA,
   if(is.null(col.names)) col.names <- paste("V", seq_along(widths), sep = "")
   
   fs <- file.size(file)
-
+  
   ll <- readLines(file, encoding = "UTF-8")
   nl <- length(ll)
   rw <- lapply(ll, charToRaw)
@@ -35,17 +35,21 @@ fast.read.fwf <- function (file, widths, col.names = NULL, colClasses = NA,
   
   modColClass <- function(i){
     if (is.na(colClasses[i])) 
-      type.convert(fields[, i], as.is = TRUE, dec = dec, na.strings = character(0L))
+    type.convert(fields[, i], as.is = TRUE, dec = dec, na.strings = character(0L))
     else switch(colClasses[i],
                 "factor" = as.factor(fields[, i]),
-                "Date" = as.Date(fields[, i]),
+                "Date" = as.Date(fields[, i], format = "%Y%m%d"),
                 "POSIXct" = as.POSIXct(fields[, i]),
                 "logical" = as.logical(as.numeric(fields[, i])),
-                methods::as(fields[, i], colClasses[i])
+                suppressWarnings(
+                  methods::as(fields[, i], colClasses[i])
+                )
+                
     )
   }
   
-  df2 <- fastdf(lapply(seq_len(ncol(fields)), modColClass))
+  df2 <- lapply(seq_len(ncol(fields)), modColClass)
+  df2 <- fastdf(df2)
   names(df2) <- col.names
   df2
 }
