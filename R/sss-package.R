@@ -10,7 +10,8 @@
 #' @docType package
 #' @name sss-package
 #' @import XML
-#' @import methods
+#' @import  methods 
+#' @importFrom utils read.csv type.convert
 #' @aliases sss sss-package
 #' @keywords package
 NULL
