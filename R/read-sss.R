@@ -10,13 +10,12 @@
 #' 
 #' The data.frame contains several attributes:
 #'  * `variable.labels`: a named list of value labels with one element per variable, either NULL or a named character vector
+#'  * `label.table`: a named list with one element per question. Every element is a named character strings, that contains the label codes for that question.
 #' 
 #' @keywords read
 #' @references http://www.triple-s.org/
 #' @export 
-#' @examples
-#' # Not executed
-#' # read.sss("sample.sss, sample.asc")
+#' @example inst/examples/example-read-sss.R
 read.sss <- function(sssFilename, ascFilename, sep = "_"){
   message("Reading SSS metadata")
   switch(class(sssFilename),

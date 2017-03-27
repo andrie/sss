@@ -4,12 +4,8 @@
 #------------------------------------------------------------------------------
 
 
-if(interactive()){
-  library(testthat)
-  sampleRoot <- "sss/tests/testthat/samples/sample-2"
-} else {
-  sampleRoot <- "samples/sample-2"
-}
+if(interactive()) library(testthat)
+sampleRoot <- system.file("sample_data/sample-2", package = "sss")
 filenameSSS <- file.path(sampleRoot, "survey_567311_20160213-200520_triples.sss")
 filenameASC <- file.path(sampleRoot, "survey_567311_20160213-200520_triples.dat")
 file.exists(filenameSSS)

@@ -19,14 +19,21 @@ A data frame with one element (column) for each variable in the data set.
 The data.frame contains several attributes:
 \itemize{
 \item \code{variable.labels}: a named list of value labels with one element per variable, either NULL or a named character vector
+\item \code{label.table}: a named list with one element per question. Every element is a named character strings, that contains the label codes for that question.
 }
 }
 \description{
 This function reads and parses a \code{.sss`` XML metadata file as well as its associated}.asc`` data file. The sss standard defines a standard survey structure.
 }
 \examples{
-# Not executed
-# read.sss("sample.sss, sample.asc")
+sampleRoot <- system.file("sample_data/sample-0", package = "sss")
+filenameSSS <- file.path(sampleRoot, "sample.sss")
+filenameASC <- file.path(sampleRoot, "sample.asc")
+
+read.sss(filenameSSS, filenameASC)
+
+readSSSdata(filenameSSS)
+readSSSmetadata(filenameSSS)
 }
 \references{
 http://www.triple-s.org/

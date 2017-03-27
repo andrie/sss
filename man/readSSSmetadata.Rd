@@ -13,8 +13,12 @@ readSSSmetadata(SSSfilename)
 This function reads a .sss XML metadata file.  The .sss standard defines a standard survey structure
 }
 \examples{
-# Not executed
-# readSSSmetadata("sample.sss")
+sampleRoot <- system.file("sample_data/sample-0", package = "sss")
+filenameSSS <- file.path(sampleRoot, "sample.sss")
+filenameASC <- file.path(sampleRoot, "sample.asc")
+
+readSSSdata(filenameSSS)
+readSSSmetadata(filenameSSS)
 }
 \seealso{
 \code{\link[=parseSSSmetadata]{parseSSSmetadata()}}, \code{\link[=read.sss]{read.sss()}}, \code{\link[=readSSSdata]{readSSSdata()}}

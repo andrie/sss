@@ -10,9 +10,7 @@
 #' @seealso [parseSSSmetadata()], [read.sss()], [readSSSdata()]
 #' @keywords read
 #' @importFrom xml2 read_xml
-#' @examples
-#' # Not executed
-#' # readSSSmetadata("sample.sss")
+#' @example inst/examples/example-read-sss-metadata.R
 readSSSmetadata <- function(SSSfilename){
   read_xml(SSSfilename)
 }
@@ -50,9 +48,7 @@ parseSSSmetadata <- function(XMLdoc){
 #' @export 
 #' @seealso [read.sss()], [readSSSmetadata()]
 #' @keywords parse
-#' @examples
-#' # Not executed
-#' # readSSSdata("sample.asc")
+#' @example inst/examples/example-read-sss-metadata.R
 readSSSdata <- function(ascFilename){
   suppressWarnings(scan(ascFilename, sep="\n", what="character"))
 }
