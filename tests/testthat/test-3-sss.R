@@ -69,8 +69,28 @@ test_that("parsing of .sss and .asc works", {
                         "Attractions visited", "Attractions visited", "Attractions visited", 
                         "Other attractions visited", "Two favourite attractions visited", 
                         "Two favourite attractions visited", "Miles travelled", "Would come again", 
-                        "When is that most likely to be", "Case weight")
-  )
+                        "When is that most likely to be", "Case weight"),
+    label.table = (list(
+      `1` = setNames(c("1","2", "3"), 
+                     c("First visit", "Visited before within the year", 
+                       "Visited before that")), 
+      `2` = setNames(c("1", "2", "3", "4", "5", "9"), 
+                     c("Sherwood Forest", "Nottingham Castle", 
+                       "\"Friar Tuck\" Restaurant", "\"Maid Marion\" Cafe", 
+                       "Mining museum", "Other")), 
+      `3` = setNames(NA_character_, NA_character_), 
+      `4` = setNames(c("1", "2", "3", "4", "5", "9"), 
+                     c("Sherwood Forest", "Nottingham Castle", 
+                       "\"Friar Tuck\" Restaurant", "\"Maid Marion\" Cafe", 
+                       "Mining museum", "Other")), 
+      `5` = setNames(c("500", "999"), 
+                     c("500 or more", "Not stated")), 
+      `6` = setNames(NA_character_, NA_character_), 
+      `7` = setNames(c("1", "2", "3"), 
+                     c("Within 3 months", "Between 3 months and 1 year", 
+                       "More than 1 years time")), 
+      `99` = setNames(NA_character_, NA_character_))
+  ))
   
   expect_is(test, "data.frame")
   expect_equal(nrow(test), 3)

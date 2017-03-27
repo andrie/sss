@@ -71,6 +71,11 @@ read.sss <- function(sssFilename, ascFilename, sep = "_"){
   )
   dat <- changeValues(sss, dat)
   dat <- addQtext(sss, dat)
+  labelTabelData <- split(sss$codes, f = sss$codes$ident)
+  labelTable <- lapply(labelTabelData, 
+                       function(x)setNames(x[["code"]], x[["codevalues"]])
+                       )
+  attr(dat, "label.table") <- labelTable
   dat
 }
 
