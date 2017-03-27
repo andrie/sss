@@ -1,17 +1,16 @@
 #' Reads a triple-s XML (asc) data file, as specified by the triple-s XML standard.
 #'
-#' This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
+#' This function reads and parses a `.sss`` XML metadata file as well as its associated `.asc`` data file. The sss standard defines a standard survey structure.
 #'
 #' @param sssFilename Character string: name of .sss file containing the survey metadata
 #' @param ascFilename Character string: name of .asc file containing survey data
-#' @param sep Character vector defining the string that separates question and subquestion labels, e.g. \code{c("Q_1", "Q_2")}
+#' @param sep Character vector defining the string that separates question and subquestion labels, e.g. `c("Q_1", "Q_2")`
 #' @return
 #' A data frame with one element (column) for each variable in the data set.
-#' The data.frame contains several attributes:
 #' 
-#' \describe{
-#' \item{variable.labels}{a named list of value labels with one element per variable, either NULL or a names character vector}
-#' }
+#' The data.frame contains several attributes:
+#'  * `variable.labels`: a named list of value labels with one element per variable, either NULL or a named character vector
+#' 
 #' @keywords read
 #' @references http://www.triple-s.org/
 #' @export 
@@ -36,8 +35,7 @@ read.sss <- function(sssFilename, ascFilename, sep = "_"){
   sss$variables <- splitSSS(sss$variable, sep)
   
   message("Reading SSS data")
-  #asc <- readSSSdata(ascFilename)
-  
+
   ascWidth <- sss$variables$colWidth
   
   types <- c(single = "character",

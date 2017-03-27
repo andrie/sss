@@ -17,7 +17,6 @@ This function reads a .sss XML metadata file.  The .sss standard defines a stand
 # readSSSmetadata("sample.sss")
 }
 \seealso{
-\code{\link{parseSSSmetadata}}, \code{\link{read.sss}}, \code{\link{readSSSdata}}
+\code{\link[=parseSSSmetadata]{parseSSSmetadata()}}, \code{\link[=read.sss]{read.sss()}}, \code{\link[=readSSSdata]{readSSSdata()}}
 }
 \keyword{read}
-

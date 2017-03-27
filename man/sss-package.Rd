@@ -2,8 +2,8 @@
 % Please edit documentation in R/sss-package.R
 \docType{package}
 \name{sss-package}
-\alias{sss}
 \alias{sss-package}
+\alias{sss}
 \title{Tools for importing files in the triple-s (Standard Survey Structure) format.}
 \description{
 sss is a set of tools to import survey files in the .sss (triple-s) format.  Triple-s is a standard to transfer survey data between applications.
@@ -12,7 +12,11 @@ sss is a set of tools to import survey files in the .sss (triple-s) format.  Tri
 http://www.triple-s.org/
 
 The most important exported function is:
-\code{\link{read.sss}}
+\itemize{
+\item \code{\link[=read.sss]{read.sss()}}
+}
+}
+\author{
+Andrie de Vries
 }
 \keyword{package}
-

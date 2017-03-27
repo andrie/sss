@@ -17,7 +17,6 @@ This function reads and parses a .sss XML metadata file as well as its associate
 # readSSSdata("sample.asc")
 }
 \seealso{
-\code{\link{read.sss}}, \code{\link{readSSSmetadata}}
+\code{\link[=read.sss]{read.sss()}}, \code{\link[=readSSSmetadata]{readSSSmetadata()}}
 }
 \keyword{parse}
-

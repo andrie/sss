@@ -7,7 +7,7 @@
 #'
 #' @param SSSfilename Name of .sss file containing the survey metadata
 #' @export 
-#' @seealso \code{\link{parseSSSmetadata}}, \code{\link{read.sss}}, \code{\link{readSSSdata}}
+#' @seealso [parseSSSmetadata()], [read.sss()], [readSSSdata()]
 #' @keywords read
 #' @examples
 #' # Not executed
@@ -21,7 +21,7 @@ readSSSmetadata <- function(SSSfilename){
 #'
 #' This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
 #' 
-#' @param XMLdoc An XML document - as returned by \code{\link[XML]{xml}}, or \code{\link{readSSSmetadata}}
+#' @param XMLdoc An XML document - as returned by [XML::xml()], or [readSSSmetadata()]
 #' @keywords parse
 #' @export 
 #' @seealso readSSSmetadata, read.sss, readSSSdata
@@ -31,12 +31,11 @@ parseSSSmetadata <- function(XMLdoc){
   skip   <- if("skip"   %in% names(xmlAttrs(r))) xmlAttrs(r)[["skip"]] else 0
   variables <- fastdf(
     do.call(rbind, lapply(xmlChildren(r), getSSSrecord)) 
-    #stringsAsFactors=FALSE)
   )
   variables$positionFinish <- as.numeric(variables$positionFinish)
   variables$positionStart <- as.numeric(variables$positionStart)
   
-  codes <- fastdf(do.call(rbind, lapply(xmlChildren(r), getSSScodes)))#, stringsAsFactors=FALSE)
+  codes <- fastdf(do.call(rbind, lapply(xmlChildren(r), getSSScodes)))
   list(variables=variables, codes=codes, format = format, skip = skip)
 }
 
@@ -47,7 +46,7 @@ parseSSSmetadata <- function(XMLdoc){
 #'
 #' @param ascFilename Name of .asc file containing the survey metadata
 #' @export 
-#' @seealso \code{\link{read.sss}}, \code{\link{readSSSmetadata}}
+#' @seealso [read.sss()], [readSSSmetadata()]
 #' @keywords parse
 #' @examples
 #' # Not executed

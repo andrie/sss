@@ -11,9 +11,9 @@
 #' @param file Character vector: name of file 
 #' @param widths Numeric vector: column widths. Negative numbers mean "skip this many columns". Use an NA as the final element if there are likely to be extra characters at the end of each row after the last one that you're interested in. 
 #' @param col.names names for the columns that are NOT skipped 
-#' @param colClasses can be used to control type conversion; see \code{\link{read.table}}. It is an optional vector whose names must be part of col.names. There is one extension of the \code{\link{read.table}} rules:a colClasses string starting \code{\link{POSIXct}}. will trigger automatic conversion to POSIXct, using the rest of the string as the format specifier. 
-#' @param tz used in auto-conversion to \code{\link{POSIXct}} when \code{colClasses} is set 
-#' @param dec the character to be assumed for decimal points. Passed to \code{\link[utils]{type.convert}}
+#' @param colClasses can be used to control type conversion; see [read.table()]. It is an optional vector whose names must be part of `col.names`. There is one extension of the [read.table()] rules: a `colClasses` string starting `POSIXct` will trigger automatic conversion to POSIXct, using the rest of the string as the format specifier. 
+#' @param tz used in auto-conversion to [POSIXct()] when `colClasses` is set 
+#' @param dec the character to be assumed for decimal points. Passed to [utils::type.convert()]
 #' @param ... ignored 
 fast.read.fwf <- function (file, widths, col.names = NULL, colClasses = NA,  
                            tz = "", dec = ".", ...){

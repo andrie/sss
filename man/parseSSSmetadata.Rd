@@ -7,7 +7,7 @@
 parseSSSmetadata(XMLdoc)
 }
 \arguments{
-\item{XMLdoc}{An XML document - as returned by \code{\link[XML]{xml}}, or \code{\link{readSSSmetadata}}}
+\item{XMLdoc}{An XML document - as returned by \code{\link[XML:xml]{XML::xml()}}, or \code{\link[=readSSSmetadata]{readSSSmetadata()}}}
 }
 \description{
 This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
@@ -16,4 +16,3 @@ This function reads and parses a .sss XML metadata file as well as its associate
 readSSSmetadata, read.sss, readSSSdata
 }
 \keyword{parse}
-

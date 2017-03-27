@@ -5,7 +5,7 @@
 #' @references http://www.triple-s.org/
 #'
 #' The most important exported function is:
-#' \code{\link{read.sss}}
+#' * [read.sss()]
 #'
 #' @docType package
 #' @name sss-package
@@ -14,6 +14,7 @@
 #' @importFrom utils read.csv type.convert
 #' @aliases sss sss-package
 #' @keywords package
+#' @author Andrie de Vries
 NULL
 
 .onAttach <- function(libname, pkgname){

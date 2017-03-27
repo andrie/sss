@@ -15,14 +15,14 @@ read.sss(sssFilename, ascFilename, sep = "_")
 }
 \value{
 A data frame with one element (column) for each variable in the data set.
-The data.frame contains several attributes:
 
-\describe{
-\item{variable.labels}{a named list of value labels with one element per variable, either NULL or a names character vector}
+The data.frame contains several attributes:
+\itemize{
+\item \code{variable.labels}: a named list of value labels with one element per variable, either NULL or a named character vector
 }
 }
 \description{
-This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
+This function reads and parses a \code{.sss`` XML metadata file as well as its associated}.asc`` data file. The sss standard defines a standard survey structure.
 }
 \examples{
 # Not executed
@@ -32,4 +32,3 @@ This function reads and parses a .sss XML metadata file as well as its associate
 http://www.triple-s.org/
 }
 \keyword{read}
-
