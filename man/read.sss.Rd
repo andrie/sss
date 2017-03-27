@@ -23,7 +23,7 @@ The data.frame contains several attributes:
 }
 }
 \description{
-This function reads and parses a \code{.sss`` XML metadata file as well as its associated}.asc`` data file. The sss standard defines a standard survey structure.
+This function reads and parses a \code{.sss} XML metadata file as well as its associated \code{.asc} data file. The sss standard defines a standard survey structure.
 }
 \examples{
 sampleRoot <- system.file("sample_data/sample-0", package = "sss")

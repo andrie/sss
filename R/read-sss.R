@@ -1,6 +1,6 @@
 #' Reads a triple-s XML (asc) data file, as specified by the triple-s XML standard.
 #'
-#' This function reads and parses a `.sss`` XML metadata file as well as its associated `.asc`` data file. The sss standard defines a standard survey structure.
+#' This function reads and parses a `.sss` XML metadata file as well as its associated `.asc` data file. The sss standard defines a standard survey structure.
 #'
 #' @param sssFilename Character string: name of .sss file containing the survey metadata
 #' @param ascFilename Character string: name of .asc file containing survey data
