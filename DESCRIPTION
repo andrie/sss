@@ -19,7 +19,7 @@ Depends:
 Imports:
     utils,
     methods,
-    XML
+    xml2
 Suggests:
     testthat
 RoxygenNote: 6.0.1

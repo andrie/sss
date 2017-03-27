@@ -9,11 +9,12 @@
 #' @export 
 #' @seealso [parseSSSmetadata()], [read.sss()], [readSSSdata()]
 #' @keywords read
+#' @importFrom xml2 read_xml
 #' @examples
 #' # Not executed
 #' # readSSSmetadata("sample.sss")
 readSSSmetadata <- function(SSSfilename){
-  xmlTreeParse(SSSfilename, getDTD = F)
+  read_xml(SSSfilename)
 }
 
 
@@ -24,18 +25,19 @@ readSSSmetadata <- function(SSSfilename){
 #' @param XMLdoc An XML document - as returned by [XML::xml()], or [readSSSmetadata()]
 #' @keywords parse
 #' @export 
+#' @importFrom xml2 xml_attrs xml_children xml_child xml_attr xml_length xml_contents
 #' @seealso readSSSmetadata, read.sss, readSSSdata
 parseSSSmetadata <- function(XMLdoc){
-  r <- xmlRoot(XMLdoc)[["survey"]][["record"]]
-  format <- if("format" %in% names(xmlAttrs(r))) xmlAttrs(r)[["format"]] else "fixed"
-  skip   <- if("skip"   %in% names(xmlAttrs(r))) xmlAttrs(r)[["skip"]] else 0
+  r <- xml_child(XMLdoc, "survey/record")
+  format <- if("format" %in% names(xml_attrs(r))) xml_attrs(r)[["format"]] else "fixed"
+  skip   <- if("skip"   %in% names(xml_attrs(r))) xml_attrs(r)[["skip"]] else 0
   variables <- fastdf(
-    do.call(rbind, lapply(xmlChildren(r), getSSSrecord)) 
+    do.call(rbind, lapply(xml_children(r), getSSSrecord)) 
   )
   variables$positionFinish <- as.numeric(variables$positionFinish)
   variables$positionStart <- as.numeric(variables$positionStart)
   
-  codes <- fastdf(do.call(rbind, lapply(xmlChildren(r), getSSScodes)))
+  codes <- fastdf(do.call(rbind, lapply(xml_children(r), getSSScodes)))
   list(variables=variables, codes=codes, format = format, skip = skip)
 }
 

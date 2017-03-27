@@ -3,6 +3,14 @@
 # Author: Andrie
 #----------------------------------------------------------------------------------
 
+xml_child_attrs <- function(node, name){
+  xml_attrs(xml_child(node, name))
+}
+
+xml_child_attr <- function(node, name, attr){
+  xml_attr(xml_child(node, name), attr)
+}
+
 
 # Reads all "variables" inside the triple-s "record". 
 #
@@ -12,14 +20,14 @@
 # @param xmlNode XML node
 # @keywords internal
 getSSSrecord <- function(node){
-  p <- as.character(xmlAttrs (node[["position"]]))
-  if (is.null(node[["spread"]])){
+  p <- as.character(xml_child_attrs(node, "position"))
+  if (inherits(xml_child(node, "spread"), "xml_missing")){
     subfields <- 0
     width <- 0
   } else {
-    subfields <- xmlAttrs(node[["spread"]])[["subfields"]]
-    if ("width" %in% xmlAttrs(node[["spread"]])){
-      width   <- xmlAttrs(node[["spread"]])[["width"]]
+    subfields <- xml_child_attr(node, "spread", "subfields")
+    if ("width" %in% xml_attrs(node, "spread")){
+      width   <- xml_child_attr(node, "spread", "width")
     } else {
       width <- 1
     }
@@ -31,22 +39,17 @@ getSSSrecord <- function(node){
     pto <- p[[1]]
   }
   fastdf(list(
-      ident      = as.character(xmlAttrs (node)["ident"]),
-      type       = as.character(xmlAttrs (node)["type"]),
-      name       = as.character(xmlValue (node[["name"]])[1]),
-      label      = as.character(xmlValue (node[["label"]])[1]),
+      ident      = as.character(xml_attr(node, "ident")),
+      type       = as.character(xml_attr(node, "type")),
+      name       = as.character(xml_contents(xml_child(node, "name")))[1],
+      label      = as.character(xml_contents(xml_child(node, "label")))[1],
       positionStart  = as.character(pfrom),
       positionFinish = as.character(pto),
       subfields = subfields,
       width     = width,
-      hasValues = !is.null(node[["values"]])
-      #stringsAsFactors = FALSE
+      hasValues = inherits(xml_child(node, "values"), "xml_node")
   ))
 }
-
-#is.character0 <- function(x){
-# identical(x, character(0))
-#}
 
 
 # Reads all "codes" inside the triple-s "record". 
@@ -56,23 +59,23 @@ getSSSrecord <- function(node){
 # @param x XML node
 # @keywords internal
 getSSScodes <- function(x){
-  size <- xmlSize(x[["values"]])
-  if (is.null(x[["values"]])){
+  if (inherits(xml_child(x, "values"), "xml_missing")){
     df <- data.frame(
-        ident      = as.character(xmlAttrs(x)["ident"]),
+        ident      = as.character(xml_attrs(x)["ident"]),
         code       = NA,
         codevalues = NA,
         stringsAsFactors = FALSE
     )
   } else {
-    #browser()
+    xx <- xml2::xml_find_all(x, "values/value")
+    size <- length(xx)
     df <- data.frame(
-        ident      = rep(unname(xmlAttrs (x)["ident"]), size),
-        code       = as.character(xmlSApply(x[["values"]], xmlAttrs)),
-        codevalues = as.character(xmlSApply(x[["values"]], xmlValue)),
+        ident      = rep(unname(xml_attr(x, "ident")), size),
+        code       = as.character(xml_attrs(xx)),
+        codevalues = as.character(xml_contents(xx)),
         stringsAsFactors = FALSE
     )
-    df <- df[df$codevalues!="character(0)", ]
+    df <- df[df$codevalues != "character(0)", ]
   }
   
   df
