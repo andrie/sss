@@ -1,22 +1,34 @@
+sss 0.1-0 (28/03/2017)
+----------
+
+* You can now specify only the .sss file in `read.sss()`, and the function 
+  will guess the name of the .asc
+* Added `label.table` attribute
+* Internal changes:
+  - Imports `xml2` instead of `XML`
+  - Better error checking using `assert_that()`
+
+
 sss 0.0-13 (17/03/2016)
 ----------
 
 * Added support to read csv files
 * Now supports multi-byte files (UTF-8)
-* Expanded unit tests will real-world data
+* Expanded unit tests with real-world data
 
 sss 0.0-11 (25/10/2013)
 ----------
 
 * No functional changes
-* Added .Rbuildignore to comply with CRAN requirements for R-3.1-0
+* Added .Rbuildignore to comply with CRAN requirements for R-3.1.0
 
 
 sss 0.0-09 (18/06/2012)
 ----------
 
 * Minor changes to remove redundant files and folders
-* Now uses packageStartupMessage() rather than message() to display startup message
+* Now uses `packageStartupMessage()` rather than `message()` to display startup 
+  message
 
 
 sss 0.0-08 (30/10/2011)
@@ -26,15 +38,17 @@ sss 0.0-08 (30/10/2011)
 
 Improvements:
 
-* Performance gains as a result of using plyr::quickdf rather than as.data.frame
-* Imports plyr and XML rather than declaring dependency
+* Performance gains as a result of using `plyr::quickdf()` rather than 
+  `as.data.frame()`
+* Imports `plyr` and `XML` rather than declaring dependency
 
 sss 0.0-07 (30/10/2011)
 ----------
 
 Improvements:
 
-* Substantial gains in speed by rewriting `fast.read.fwf` and `changeValues` to use `lapply` rather than loops.
+* Substantial gains in speed by rewriting `fast.read.fwf()` and 
+  `changeValues()` to use `lapply()` rather than loops.
 * Documentation updates 
 
 sss 0.0-05
@@ -44,7 +58,7 @@ Fixed issues:
 
 * Fixed issues with converting logical values to TRUE/FALSE
 * Convert values where appropriate
-* Add variable.label attribute containing question text
+* Add `variable.lable` attribute containing question text
 
 sss 0.0-04
 ----------
