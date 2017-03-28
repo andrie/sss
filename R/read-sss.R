@@ -21,8 +21,10 @@ read.sss <- function(sssFilename, ascFilename, sep = "_"){
   assert_that(is.character(sssFilename))
   assert_that(file.exists(sssFilename))
   
+  
   if(missing(ascFilename) || is.null(ascFilename)) {
-    ascFilename <- guessAsc(sssFilename)
+    ext <- getSSSformat(sssFilename)
+    ascFilename <- guessAsc(sssFilename, ext = ext)
   }
   
   assert_that(is.character(ascFilename))

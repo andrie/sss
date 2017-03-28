@@ -9,8 +9,6 @@ sampleRoot <- system.file("sampledata", package = "sss")
 filenameSSS <- file.path(sampleRoot, "sample-2.sss")
 filenameASC <- file.path(sampleRoot, "sample-2.csv")
 
-readSSSmetadata(filenameSSS)
-file.exists(filenameSSS)
 
 #------------------------------------------------------------------------------
 
@@ -23,6 +21,7 @@ test_that("parsing of .sss and .asc works", {
 
 
 test_that("parsing works when you only provide the .sss", {
+  expect_equal(getSSSformat(filenameSSS), ".csv")
   test <- read.sss(filenameSSS)
   expect_is(test, "data.frame")
 })
