@@ -16,9 +16,3 @@
 #' @keywords package
 #' @author Andrie de Vries
 NULL
-
-.onAttach <- function(libname, pkgname){
-  msg <- "The sss package is in early stages of development and still considered experimental."
-  packageStartupMessage(msg)
-}  
-

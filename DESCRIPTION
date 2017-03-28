@@ -7,9 +7,8 @@ Title: Tools for Importing Files in the Triple-s (Standard
 LazyData: true
 Description: Tools to import survey files
     in the .sss (triple-s) format. The package provides the function
-    read.sss() that reads the .asc and .sss files of a
-    triple-s survey data file.  The package is experimental
-    - feedback, issues and bug reports are welcome.
+    read.sss() that reads the .asc (or .csv) and .sss files of a
+    triple-s survey data file.
 Version: 0.1-0
 URL: https://github.com/andrie/sss
 BugReports: https://github.com/andrie/sss/issues
