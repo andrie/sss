@@ -18,7 +18,7 @@ http://www.triple-s.org/
 
 A previous version of this package imported the `XML` package, but from version 0.1 the package imports `xml2`. The `xml2` package depends on the `libxml2` library.  If you run your code on linux, you may have to manually install `libxml2`:
 
-* `libxml2-dev (deb)
-* libxml2-devel (rpm)
+* `libxml2-dev` (deb)
+* `libxml2-devel` (rpm)
   
   
