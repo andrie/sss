@@ -13,7 +13,7 @@ readSSSdata(ascFilename)
 This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
 }
 \examples{
-sampleRoot <- system.file("sample_data/sample-0", package = "sss")
+sampleRoot <- system.file("data/sample-1", package = "sss")
 filenameSSS <- file.path(sampleRoot, "sample.sss")
 filenameASC <- file.path(sampleRoot, "sample.asc")
 

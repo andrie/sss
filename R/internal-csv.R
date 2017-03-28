@@ -40,5 +40,12 @@ addQtext <- function(sss, df){
   df
 }
 
+# Take input sss filename and replace the .sss with .asc
+guessAsc <- function(x, ext = ".asc"){
+  file.path(
+    dirname(x),
+    paste0(gsub("\\..*$", "", basename(x)), ext)
+  )
+}
 
 

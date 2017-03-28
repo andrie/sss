@@ -26,14 +26,11 @@ The data.frame contains several attributes:
 This function reads and parses a \code{.sss} XML metadata file as well as its associated \code{.asc} data file. The sss standard defines a standard survey structure.
 }
 \examples{
-sampleRoot <- system.file("sample_data/sample-0", package = "sss")
+sampleRoot <- system.file("data/sample-1", package = "sss")
 filenameSSS <- file.path(sampleRoot, "sample.sss")
-filenameASC <- file.path(sampleRoot, "sample.asc")
 
-read.sss(filenameSSS, filenameASC)
+read.sss(filenameSSS)
 
-readSSSdata(filenameSSS)
-readSSSmetadata(filenameSSS)
 }
 \references{
 http://www.triple-s.org/

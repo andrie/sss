@@ -9,7 +9,8 @@
 #'
 #' @docType package
 #' @name sss-package
-#' @import  methods 
+#' @importFrom assertthat assert_that
+#' @import  methods
 #' @importFrom utils read.csv type.convert
 #' @aliases sss sss-package
 #' @keywords package

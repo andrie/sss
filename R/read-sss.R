@@ -18,6 +18,16 @@
 #' @export 
 #' @example inst/examples/example-read-sss.R
 read.sss <- function(sssFilename, ascFilename, sep = "_"){
+  assert_that(is.character(sssFilename))
+  assert_that(file.exists(sssFilename))
+  
+  if(missing(ascFilename) || is.null(ascFilename)) {
+    ascFilename <- guessAsc(sssFilename)
+  }
+  
+  assert_that(is.character(ascFilename))
+  assert_that(file.exists(ascFilename))
+  
   message("Reading SSS metadata")
   switch(class(sssFilename),
          "character" = {
