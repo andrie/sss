@@ -15,9 +15,9 @@ readSSSdata(x, ascFilename)
 This function reads an `.asc`` data file.
 }
 \examples{
-sampleRoot <- system.file("data/sample-1", package = "sss")
-filenameSSS <- file.path(sampleRoot, "sample.sss")
-filenameASC <- file.path(sampleRoot, "sample.asc")
+sampleRoot <- system.file("sampledata", package = "sss")
+filenameSSS <- file.path(sampleRoot, "sample-1.sss")
+filenameASC <- file.path(sampleRoot, "sample-1.asc")
 
 readSSSdata(filenameSSS)
 readSSSmetadata(filenameSSS)

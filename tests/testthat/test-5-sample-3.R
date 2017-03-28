@@ -5,9 +5,9 @@
 
 
 if(interactive()) library(testthat)
-sampleRoot <- system.file("data/sample-3", package = "sss")
-filenameSSS <- file.path(sampleRoot, "survey_567311_20160213-200520_triples.sss")
-filenameASC <- file.path(sampleRoot, "survey_567311_20160213-200520_triples.dat")
+sampleRoot <- system.file("sampledata", package = "sss")
+filenameSSS <- file.path(sampleRoot, "sample-3.sss")
+filenameASC <- file.path(sampleRoot, "sample-3.dat")
 file.exists(filenameSSS)
 file.exists(filenameASC)
 

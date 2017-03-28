@@ -1,5 +1,5 @@
-sampleRoot <- system.file("data/sample-1", package = "sss")
-filenameSSS <- file.path(sampleRoot, "sample.sss")
+sampleRoot <- system.file("sampledata", package = "sss")
+filenameSSS <- file.path(sampleRoot, "sample-1.sss")
 
 read.sss(filenameSSS)
 

@@ -8,9 +8,9 @@ if(interactive()) library(testthat)
 context("sss test suite")
 
 if(interactive()) library(testthat)
-sampleRoot <- system.file("data/sample-1", package = "sss")
-filenameSSS <- file.path(sampleRoot, "sample.sss")
-filenameASC <- file.path(sampleRoot, "sample.asc")
+sampleRoot <- system.file("sampledata", package = "sss")
+filenameSSS <- file.path(sampleRoot, "sample-1.sss")
+filenameASC <- file.path(sampleRoot, "sample-1.asc")
 
 
 expectedNames <- c("Q1", "Q2_1", "Q2_2", "Q2_3", "Q2_4", "Q2_5", "Q2_6", "Q2_7", 

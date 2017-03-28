@@ -5,9 +5,11 @@
 
 
 if(interactive()) library(testthat)
-sampleRoot <- system.file("data/sample-2", package = "sss")
-filenameSSS <- file.path(sampleRoot, "recruitment_test.sss")
-filenameASC <- file.path(sampleRoot, "recruitment_test.csv")
+sampleRoot <- system.file("sampledata", package = "sss")
+filenameSSS <- file.path(sampleRoot, "sample-2.sss")
+filenameASC <- file.path(sampleRoot, "sample-2.csv")
+
+readSSSmetadata(filenameSSS)
 file.exists(filenameSSS)
 
 #------------------------------------------------------------------------------
@@ -19,3 +21,8 @@ test_that("parsing of .sss and .asc works", {
 	expect_is(test, "data.frame")
 })
 
+
+test_that("parsing works when you only provide the .sss", {
+  test <- read.sss(filenameSSS)
+  expect_is(test, "data.frame")
+})
