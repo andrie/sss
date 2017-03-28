@@ -4,7 +4,7 @@
 #----------------------------------------------------------------------------------
 
 if(interactive()) library(testthat)
-sampleRoot <- system.file("sample_data/sample-0", package = "sss")
+sampleRoot <- system.file("data/sample-1", package = "sss")
 filenameSSS <- file.path(sampleRoot, "sample.sss")
 filenameASC <- file.path(sampleRoot, "sample.asc")
 

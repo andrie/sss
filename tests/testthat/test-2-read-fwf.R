@@ -3,15 +3,10 @@
 # Author: Andrie
 #----------------------------------------------------------------------------------
 
-if(interactive()){
-  library(testthat)
-  sampleRoot <- "sss/tests/testthat/samples/sample-0"
-} else {
-  sampleRoot <- "samples/sample-0"
-}
+if(interactive()) library(testthat)
+sampleRoot <- system.file("data/sample-1", package = "sss")
 
 context("Read fwf")
-
 
 test_that("widths work", {
       ff <- tempfile()

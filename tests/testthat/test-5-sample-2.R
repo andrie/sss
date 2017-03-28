@@ -5,7 +5,7 @@
 
 
 if(interactive()) library(testthat)
-sampleRoot <- system.file("sample_data/sample-2", package = "sss")
+sampleRoot <- system.file("data/sample-3", package = "sss")
 filenameSSS <- file.path(sampleRoot, "survey_567311_20160213-200520_triples.sss")
 filenameASC <- file.path(sampleRoot, "survey_567311_20160213-200520_triples.dat")
 file.exists(filenameSSS)
@@ -14,7 +14,7 @@ file.exists(filenameASC)
 
 #------------------------------------------------------------------------------
 
-context("sample 2")
+context("sample 3")
 
 test_that("parsing of .sss and .asc works", {
   test <- read.sss(filenameSSS, filenameASC)
