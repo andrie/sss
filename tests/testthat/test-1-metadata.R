@@ -34,9 +34,10 @@ rest <- structure(list(
     class = "data.frame"), 
   codes = structure(list(
     ident = c("1", "1", "1", "2", "2", "2", "2", "2", "2", "3", 
-              "4", "4", "4", "4", "4", "4", "5", "5", "6", "7", "7", "7", "99"), 
-    code = c("1", "2", "3", "1", "2", "3", "4", "5", "9", NA, "1", "2", "3", "4", 
-             "5", "9", "500", "999", NA, "1", "2", "3", NA), 
+              "4", "4", "4", "4", "4", "4", "5", "5", "6", 
+              "7", "7", "7", "99"), 
+    code = c("1", "2", "3", "1", "2", "3", "4", "5", "9", NA, "1", "2", "3", 
+             "4", "5", "9", "500", "999", NA, "1", "2", "3", NA), 
     codevalues = c("First visit", "Visited before within the year", 
                    "Visited before that", "Sherwood Forest", 
                    "Nottingham Castle", "\"Friar Tuck\" Restaurant", 
@@ -65,10 +66,8 @@ test_that("readSSSmetadata works", {
 test_that("parseSSSmetadata works", {
   
   md <- readSSSmetadata(filenameSSS)
-  expect_is({
-    test <- parseSSSmetadata(md)
-  }, "list"
-  )
+  test <- parseSSSmetadata(md)
+  expect_is(test,"list")
   expect_equal(test$variables$subfields, 
                rest$variables$subfields)
   expect_equal(test$variables, 
@@ -77,4 +76,3 @@ test_that("parseSSSmetadata works", {
                rest$codes)
   
 })
-

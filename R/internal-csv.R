@@ -13,14 +13,16 @@ changeValues <- function (sss, df){
   col.names <- names(df)
   whichHasValues <- which(with(sss$variables, 
           (hasValues & !type %in% c("multiple", "quantity")) |
-          (hasValues & type=="multiple" & subfields!="0")
+          (hasValues & type == "multiple" & subfields != "0")
   ))
           
   changeSingleValue <- function(i){
     if(i %in% whichHasValues){
-      code_frame <- sss$codes[sss$codes$ident==sss$variables$ident[i], c("code", "codevalues")]
-      code_frame <- rbind(code_frame, c(0, NA), c(" ", NA))
-      code_frame$codevalues[match(as.character(df[, i]), as.character(code_frame$code))]
+      codeFrame <- sss$codes[sss$codes$ident == sss$variables$ident[i], 
+                             c("code", "codevalues")]
+      codeFrame <- rbind(codeFrame, c(0, NA), c(" ", NA))
+      codeFrame$codevalues[match(as.character(df[, i]), 
+                                 as.character(codeFrame$code))]
     } else {
       df[, i]
     }
@@ -56,5 +58,3 @@ getSSSformat <- function(x){
   z <- xml_attr(y, "format")
   if(!is.na(z) && z == "csv") ".csv" else ".asc"
 }
-
-

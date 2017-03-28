@@ -33,8 +33,6 @@ read.sss <- function(sssFilename, ascFilename, sep = "_"){
   message("Reading SSS metadata")
   switch(class(sssFilename),
          "character" = {
-           if(!file.exists(sssFilename)) stop("File doesn't exist: ", sssFilename)
-           if(!file.exists(ascFilename)) stop("File doesn't exist: ", ascFilename)
            doc <- readSSSmetadata(sssFilename)
            sss <- parseSSSmetadata(doc)
          }, 
@@ -59,8 +57,10 @@ read.sss <- function(sssFilename, ascFilename, sep = "_"){
               date = "Date"
               )
   ascType <- types[sss$variables$type]
-  ascType[sss$variables$type == "multiple"] <- "numeric"
-  ascType[sss$variables$type == "multiple" & sss$variables$subfields > 0] <- "character"
+  idx <- sss$variables$type == "multiple"
+  ascType[idx] <- "numeric"
+  idx <- sss$variables$type == "multiple" & sss$variables$subfields > 0
+  ascType[idx] <- "character"
   
   ascNames <- sss$variables$name
   
@@ -90,4 +90,3 @@ read.sss <- function(sssFilename, ascFilename, sep = "_"){
   attr(dat, "label.table") <- labelTable
   dat
 }
-

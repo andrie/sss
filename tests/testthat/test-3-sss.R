@@ -13,10 +13,12 @@ filenameSSS <- file.path(sampleRoot, "sample-1.sss")
 filenameASC <- file.path(sampleRoot, "sample-1.asc")
 
 
-expectedNames <- c("Q1", "Q2_1", "Q2_2", "Q2_3", "Q2_4", "Q2_5", "Q2_6", "Q2_7", 
-                   "Q2_8", "Q2_9", "Q3", "Q4_1", "Q4_2", "Q5", "Q6", "Q7", "Q99")
-expectedNames2 <- c("Q1", "Q2.1", "Q2.2", "Q2.3", "Q2.4", "Q2.5", "Q2.6", "Q2.7", 
-                    "Q2.8", "Q2.9", "Q3", "Q4.1", "Q4.2", "Q5", "Q6", "Q7", "Q99")
+expectedNames <- c("Q1", "Q2_1", "Q2_2", "Q2_3", "Q2_4", "Q2_5", "Q2_6", 
+                   "Q2_7", "Q2_8", "Q2_9", "Q3", "Q4_1", "Q4_2", "Q5", "Q6", 
+                   "Q7", "Q99")
+expectedNames2 <- c("Q1", "Q2.1", "Q2.2", "Q2.3", "Q2.4", "Q2.5", "Q2.6", 
+                    "Q2.7", "Q2.8", "Q2.9", "Q3", "Q4.1", "Q4.2", "Q5", "Q6",
+                    "Q7", "Q99")
 
 
 test_that("parsing of .sss and .asc works", {
@@ -60,11 +62,11 @@ test_that("parsing of .sss and .asc works", {
                "Q2_8", "Q2_9", "Q3", "Q4_1", "Q4_2", "Q5", "Q6", "Q7", "Q99"), 
     class = "data.frame", 
     variable.labels = c("Number of visits", 
-                        "Attractions visited", "Attractions visited", "Attractions visited", 
-                        "Attractions visited", "Attractions visited", "Attractions visited", 
-                        "Attractions visited", "Attractions visited", "Attractions visited", 
-                        "Other attractions visited", "Two favourite attractions visited", 
-                        "Two favourite attractions visited", "Miles travelled", "Would come again", 
+                        rep("Attractions visited", 9), 
+                        "Other attractions visited", 
+                        "Two favourite attractions visited", 
+                        "Two favourite attractions visited", 
+                        "Miles travelled", "Would come again", 
                         "When is that most likely to be", "Case weight"),
     label.table = (list(
       `1` = setNames(c("1","2", "3"), 
@@ -124,5 +126,3 @@ test_that("separator parameter works", {
   
   expect_equal(names(d), expectedNames2)
 })
-
-

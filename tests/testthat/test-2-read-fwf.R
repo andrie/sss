@@ -46,6 +46,3 @@ test_that("colclasses work",{
       unlink(ff)
       expect_equal(test, rest)
     })
-
-
-

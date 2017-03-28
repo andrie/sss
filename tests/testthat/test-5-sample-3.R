@@ -22,4 +22,3 @@ test_that("parsing of .sss and .asc works", {
   expect_equal(nrow(test), 694)
   expect_equal(ncol(test), 200)
 })
-

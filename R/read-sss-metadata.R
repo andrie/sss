@@ -42,8 +42,9 @@ parseSSSmetadata <- function(x, XMLdoc){
   }
   assert_that(is.xml_document(x))
   r <- xml_child(x, "survey/record")
-  format <- if("format" %in% names(xml_attrs(r))) xml_attrs(r)[["format"]] else "fixed"
-  skip   <- if("skip"   %in% names(xml_attrs(r))) xml_attrs(r)[["skip"]] else 0
+  ra <- xml_attrs(r)
+  format <- if("format" %in% names(ra)) ra[["format"]] else "fixed"
+  skip   <- if("skip"   %in% names(ra)) ra[["skip"]] else 0
   variables <- fastdf(
     do.call(rbind, lapply(xml_children(r), getSSSrecord)) 
   )
@@ -51,7 +52,11 @@ parseSSSmetadata <- function(x, XMLdoc){
   variables$positionStart <- as.numeric(variables$positionStart)
   
   codes <- fastdf(do.call(rbind, lapply(xml_children(r), getSSScodes)))
-  list(variables=variables, codes=codes, format = format, skip = skip)
+  list(variables = variables, 
+       codes = codes, 
+       format = format, 
+       skip = skip
+  )
 }
 
 
@@ -74,7 +79,3 @@ readSSSdata <- function(x, ascFilename){
   assert_that(file.exists(x))
   suppressWarnings(scan(x, sep="\n", what="character"))
 }
-
-
-
-
