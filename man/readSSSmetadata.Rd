@@ -4,10 +4,12 @@
 \alias{readSSSmetadata}
 \title{Reads a triple-s XML (sss) metadata file, as specified by the triple-s XML standard.}
 \usage{
-readSSSmetadata(SSSfilename)
+readSSSmetadata(x, SSSfilename)
 }
 \arguments{
-\item{SSSfilename}{Name of .sss file containing the survey metadata}
+\item{x}{Name of .sss file containing the survey metadata}
+
+\item{SSSfilename}{No longer used. Use \code{x} instead.}
 }
 \description{
 This function reads a .sss XML metadata file.  The .sss standard defines a standard survey structure

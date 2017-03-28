@@ -4,13 +4,15 @@
 \alias{readSSSdata}
 \title{Reads a triple-s XML (asc) data file, as specified by the triple-s XML standard.}
 \usage{
-readSSSdata(ascFilename)
+readSSSdata(x, ascFilename)
 }
 \arguments{
-\item{ascFilename}{Name of .asc file containing the survey metadata}
+\item{x}{Name of .asc file containing the survey metadata}
+
+\item{ascFilename}{No longer used. Use \code{x} instead.}
 }
 \description{
-This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
+This function reads an `.asc`` data file.
 }
 \examples{
 sampleRoot <- system.file("data/sample-1", package = "sss")
