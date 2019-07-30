@@ -29,3 +29,15 @@ matrix:
   - stage: "Test"
     name: "Check devel"
     r: devel
+    
+  - stage: "Deploy"
+    name: "Deploy gh-pages"
+    r: release
+    if: branch IN (master, travis) AND repo = andrie/sss AND type = push
+    before_cache:
+    - Rscript -e 'remotes::install_cran("pkgdown")'
+    deploy:
+      provider: script
+      script: Rscript -e 'pkgdown::deploy_site_github()'
+      skip_cleanup: true
+
