@@ -1,4 +1,6 @@
 Package: sss
+Version: 0.1.0.9000
+Date: 2019-07-30
 Authors@R: person("Andrie", "de Vries", role=c("aut", "cre"),
     email="apdevries@gmail.com")
 License: GPL-2|GPL-3
@@ -9,10 +11,9 @@ Description: Tools to import survey files
     in the .sss (triple-s) format. The package provides the function
     read.sss() that reads the .asc (or .csv) and .sss files of a
     triple-s survey data file.
-Version: 0.1-0
+References: http://www.triple-s.org/
 URL: https://github.com/andrie/sss
 BugReports: https://github.com/andrie/sss/issues
-Date: 2017-03-31
 Depends:
     R (>= 2.11.0)
 Imports:
@@ -22,6 +23,11 @@ Imports:
     assertthat
 Suggests:
     testthat,
-    covr
-RoxygenNote: 6.0.1
+    covr,
+    knitr,
+    rmarkdown,
+    dplyr
+RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
+VignetteBuilder: knitr

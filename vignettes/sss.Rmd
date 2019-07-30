@@ -1,0 +1,61 @@
+---
+title: "Introduction to sss"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to sss}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `sss` package makes it easy to read and parse survey data in the sss ([triple-s](http://www.triple-s.org/)) file format.
+
+
+
+# Example
+
+```{r setup}
+library(sss)
+suppressPackageStartupMessages({
+  library(dplyr)
+})
+```
+
+Read a survey file
+
+```{r}
+dat <- read.sss("sample.sss", "sample.asc")
+```
+
+Display the results.
+
+```{r}
+dat %>% 
+  as_tibble()
+```
+
+And view the structure of the file. Note that some columns have additional attributes with `variable.labels` and `lable.table`, e.g. Q99:
+
+```{r}
+str(dat)
+```
+
+
+Extract the variable labels:
+
+```{r}
+attr(dat, "variable.labels")
+```
+
+
+And the label table for question 2:
+
+```{r}
+attr(dat, "label.table")$`2`
+```

@@ -17,4 +17,4 @@ This function reads and parses a .sss XML metadata file as well as its associate
 \seealso{
 readSSSmetadata, read.sss, readSSSdata
 }
-\keyword{parse}
+\concept{parsing functions}

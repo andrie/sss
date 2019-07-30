@@ -4,11 +4,11 @@
 #------------------------------------------------------------------------------
 
 
-# Applies coded values to asc data, as described in sss metadata.  
-#
-# @param sss Parsed .sss metadata information
-# @param df Parsed .asc data
-# @keywords internal
+#' Applies coded values to asc data, as described in sss metadata.  
+#'
+#' @param sss Parsed .sss metadata information
+#' @param df Parsed .asc data
+#' @keywords internal
 changeValues <- function (sss, df){
   col.names <- names(df)
   whichHasValues <- which(with(sss$variables, 
@@ -33,10 +33,10 @@ changeValues <- function (sss, df){
   df
 }
 
-# Assigns question text to variable.labels attribute.
-# 
-# @inheritParams changeValues
-# @keywords internal
+#' Assigns question text to variable.labels attribute.
+#' 
+#' @inheritParams changeValues
+#' @keywords internal
 addQtext <- function(sss, df){
   attr(df, "variable.labels") <- sss$variables$label
   df

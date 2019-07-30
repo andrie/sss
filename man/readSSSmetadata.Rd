@@ -24,5 +24,8 @@ readSSSmetadata(filenameSSS)
 }
 \seealso{
 \code{\link[=parseSSSmetadata]{parseSSSmetadata()}}, \code{\link[=read.sss]{read.sss()}}, \code{\link[=readSSSdata]{readSSSdata()}}
+
+Other read functions: \code{\link{read.sss}},
+  \code{\link{readSSSdata}}
 }
-\keyword{read}
+\concept{read functions}

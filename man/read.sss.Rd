@@ -2,28 +2,36 @@
 % Please edit documentation in R/read-sss.R
 \name{read.sss}
 \alias{read.sss}
-\title{Reads a triple-s XML (asc) data file, as specified by the triple-s XML standard.}
+\title{Reads a triple-s XML (asc) data file, as specified by the triple-s XML
+standard.}
 \usage{
 read.sss(sssFilename, ascFilename, sep = "_")
 }
 \arguments{
-\item{sssFilename}{Character string: name of .sss file containing the survey metadata}
+\item{sssFilename}{Character string: name of .sss file containing the survey
+metadata}
 
 \item{ascFilename}{Character string: name of .asc file containing survey data}
 
-\item{sep}{Character vector defining the string that separates question and subquestion labels, e.g. \code{c("Q_1", "Q_2")}}
+\item{sep}{Character vector defining the string that separates question and
+subquestion labels, e.g. \code{c("Q_1", "Q_2")}}
 }
 \value{
-A data frame with one element (column) for each variable in the data set.
+A data frame with one element (column) for each variable in the data
+set.
 
 The data.frame contains several attributes:
 \itemize{
-\item \code{variable.labels}: a named list of value labels with one element per variable, either NULL or a named character vector
-\item \code{label.table}: a named list with one element per question. Every element is a named character strings, that contains the label codes for that question.
+\item \code{variable.labels}: a named list of value labels with one element per
+variable, either NULL or a named character vector
+\item \code{label.table}: a named list with one element per question. Every element is
+a named character strings, that contains the label codes for that question.
 }
 }
 \description{
-This function reads and parses a \code{.sss} XML metadata file as well as its associated \code{.asc} data file. The sss standard defines a standard survey structure.
+This function reads and parses a \code{.sss} XML metadata file as well as its
+associated \code{.asc} data file. The sss standard defines a standard survey
+structure.
 }
 \examples{
 sampleRoot <- system.file("sampledata", package = "sss")
@@ -34,4 +42,8 @@ read.sss(filenameSSS)
 \references{
 http://www.triple-s.org/
 }
-\keyword{read}
+\seealso{
+Other read functions: \code{\link{readSSSdata}},
+  \code{\link{readSSSmetadata}}
+}
+\concept{read functions}

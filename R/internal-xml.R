@@ -12,13 +12,13 @@ xml_child_attr <- function(node, name, attr){
 }
 
 
-#' Reads all "variables" inside the triple-s "record". 
-#'
-#' This function parses the record node, extracts all variables
-#' and creates a data frame with information about size, position, type, etc.
-#'
-#' @param xmlNode XML node
-#' @keywords internal
+# Reads all "variables" inside the triple-s "record". 
+#
+# This function parses the record node, extracts all variables
+# and creates a data frame with information about size, position, type, etc.
+#
+# @param node XML node
+# @keywords Internal
 getSSSrecord <- function(node){
   p <- as.character(xml_child_attrs(node, "position"))
   if (inherits(xml_child(node, "spread"), "xml_missing")){
@@ -52,12 +52,12 @@ getSSSrecord <- function(node){
 }
 
 
-# Reads all "codes" inside the triple-s "record". 
-#
-# This function parses the record node and extracts all "codes" nodes into a data.frame
-#
-# @param x XML node
-# @keywords internal
+#' Reads all "codes" inside the triple-s "record". 
+#'
+#' This function parses the record node and extracts all "codes" nodes into a data.frame
+#'
+#' @param x XML node
+#' @keywords internal
 getSSScodes <- function(x){
   if (inherits(xml_child(x, "values"), "xml_missing")){
     df <- data.frame(
@@ -119,22 +119,22 @@ splitMultiple <- function(df, n, sep="_"){
   ret
 }
 
-# Repeats each element n times 
-#
-# Each element is repeated n times.  This is used to construct a vector of the new length after accounting for fields of type multiple 
-#
-# @param n Numeric vector that indicates the number of times each row must be repeated
-# @keywords internal
+#' Repeats each element n times 
+#'
+#' Each element is repeated n times.  This is used to construct a vector of the new length after accounting for fields of type multiple 
+#'
+#' @param n Numeric vector that indicates the number of times each row must be repeated
+#' @keywords internal
 repN <- function(n){
   rep(seq_along(n), times=pmax(1, n))
 }
 
-# Reads all "codes" inside the triple-s "record" 
-#
-# This function parses the record node and extracts all "codes" nodes into a data.frame
-#
-# @param x XML node
-# @keywords internal
+#' Reads all "codes" inside the triple-s "record" 
+#'
+#' This function parses the record node and extracts all "codes" nodes into a data.frame
+#'
+#' @param x XML node
+#' @keywords internal
 namesMultiple <- function(names, length, sep = "_"){
   xl <- rep(names, times = pmax(1, length))
   sm <- rep(length <= 1, times = pmax(1, length))
