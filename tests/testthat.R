@@ -1,4 +1,4 @@
-if(suppressPackageStartupMessages(requireNamespace("testthat"))) {
-  library("sss")
-  testthat::test_check("sss")
-}
+library(testthat)
+library(sss)
+
+test_check("sss")
