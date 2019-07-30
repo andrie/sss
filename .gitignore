@@ -2,3 +2,5 @@
 /_dev
 /.project
 /.metadata
+.Rproj.user
+inst/doc

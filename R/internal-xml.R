@@ -18,7 +18,7 @@ xml_child_attr <- function(node, name, attr){
 #' and creates a data frame with information about size, position, type, etc.
 #'
 #' @param xmlNode XML node
-#' @keywords internal
+#' @keywords Internal
 getSSSrecord <- function(node){
   p <- as.character(xml_child_attrs(node, "position"))
   if (inherits(xml_child(node, "spread"), "xml_missing")){

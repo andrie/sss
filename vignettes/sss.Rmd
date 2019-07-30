@@ -1,0 +1,52 @@
+---
+title: "Introduction to sss"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to sss}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `sss` package makes it easy to read and parse survey data in the sss ([triple-s](http://www.triple-s.org/)) file format.
+
+```{r setup}
+library(sss)
+```
+
+
+
+# Example
+
+Set path to point to import files.
+
+```{r}
+filenameSSS <- "sample.sss"
+filenameASC <- "sample.asc"
+```
+
+Import and parse the files
+
+```{r}
+sssXML <- readSSSmetadata(filenameSSS)
+sss <- parseSSSmetadata(sssXML)
+asc <- readSSSdata(filenameASC)
+```
+
+Display the results.
+
+```{r}
+df <- read.sss(filenameSSS, filenameASC)
+print(str(df))
+print(df$Q1)
+```
+
+# Final thoughts
+
+The last word.

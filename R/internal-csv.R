@@ -4,11 +4,11 @@
 #------------------------------------------------------------------------------
 
 
-# Applies coded values to asc data, as described in sss metadata.  
-#
-# @param sss Parsed .sss metadata information
-# @param df Parsed .asc data
-# @keywords internal
+#' Applies coded values to asc data, as described in sss metadata.  
+#'
+#' @param sss Parsed .sss metadata information
+#' @param df Parsed .asc data
+#' @keywords Internal
 changeValues <- function (sss, df){
   col.names <- names(df)
   whichHasValues <- which(with(sss$variables, 

@@ -1,21 +1,30 @@
-#' Reads a triple-s XML (asc) data file, as specified by the triple-s XML standard.
+#' Reads a triple-s XML (asc) data file, as specified by the triple-s XML
+#' standard.
 #'
-#' This function reads and parses a `.sss` XML metadata file as well as its associated `.asc` data file. The sss standard defines a standard survey structure.
+#' This function reads and parses a `.sss` XML metadata file as well as its
+#' associated `.asc` data file. The sss standard defines a standard survey
+#' structure.
 #'
-#' @param sssFilename Character string: name of .sss file containing the survey metadata
+#' @param sssFilename Character string: name of .sss file containing the survey
+#'   metadata
 #' @param ascFilename Character string: name of .asc file containing survey data
-#' @param sep Character vector defining the string that separates question and subquestion labels, e.g. `c("Q_1", "Q_2")`
-#' @return
-#' A data frame with one element (column) for each variable in the data set.
-#' 
+#' @param sep Character vector defining the string that separates question and
+#'   subquestion labels, e.g. `c("Q_1", "Q_2")`
+#' @return A data frame with one element (column) for each variable in the data
+#' set.
+#'
 #' The data.frame contains several attributes:
-#'  * `variable.labels`: a named list of value labels with one element per variable, either NULL or a named character vector
-#'  * `label.table`: a named list with one element per question. Every element is a named character strings, that contains the label codes for that question.
-#' 
+#'
+#' * `variable.labels`: a named list of value labels with one element per
+#' variable, either NULL or a named character vector
+#'
+#' * `label.table`: a named list with one element per question. Every element is
+#' a named character strings, that contains the label codes for that question.
+#'
 #' @keywords read
 #' @importFrom stats setNames
 #' @references http://www.triple-s.org/
-#' @export 
+#' @export
 #' @example inst/examples/example-read-sss.R
 read.sss <- function(sssFilename, ascFilename, sep = "_"){
   assert_that(is.character(sssFilename))
