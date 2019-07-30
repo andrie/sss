@@ -9,7 +9,7 @@
 #' @param SSSfilename No longer used. Use `x` instead.
 #' @export 
 #' @seealso [parseSSSmetadata()], [read.sss()], [readSSSdata()]
-#' @keywords read
+#' @family read functions
 #' @importFrom xml2 read_xml
 #' @example inst/examples/example-read-sss-metadata.R
 readSSSmetadata <- function(x, SSSfilename){
@@ -31,7 +31,7 @@ is.xml_document <- function(x)inherits(x, "xml_document")
 #' 
 #' @param x An XML document - as returned by [XML::xml()], or [readSSSmetadata()]
 #' @param XMLdoc No longer used. Use `x` instead.
-#' @keywords parse
+#' @family parsing functions
 #' @export 
 #' @importFrom xml2 xml_attrs xml_children xml_child xml_attr xml_length xml_contents
 #' @seealso readSSSmetadata, read.sss, readSSSdata
@@ -68,7 +68,7 @@ parseSSSmetadata <- function(x, XMLdoc){
 #' @param ascFilename No longer used. Use `x` instead.
 #' @export 
 #' @seealso [read.sss()], [readSSSmetadata()]
-#' @keywords parse
+#' @family read functions
 #' @example inst/examples/example-read-sss-metadata.R
 readSSSdata <- function(x, ascFilename){
   if(!missing(ascFilename)) {

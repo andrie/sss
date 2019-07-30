@@ -21,7 +21,7 @@
 #' * `label.table`: a named list with one element per question. Every element is
 #' a named character strings, that contains the label codes for that question.
 #'
-#' @keywords read
+#' @family read functions
 #' @importFrom stats setNames
 #' @references http://www.triple-s.org/
 #' @export

@@ -42,4 +42,8 @@ read.sss(filenameSSS)
 \references{
 http://www.triple-s.org/
 }
-\keyword{read}
+\seealso{
+Other read functions: \code{\link{readSSSdata}},
+  \code{\link{readSSSmetadata}}
+}
+\concept{read functions}
