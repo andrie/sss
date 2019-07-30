@@ -1,6 +1,6 @@
 Package: sss
-Version: 0.1-0
-Date: 2017-03-31
+Version: 0.1.0.9000
+Date: 2019-07-30
 Authors@R: person("Andrie", "de Vries", role=c("aut", "cre"),
     email="apdevries@gmail.com")
 License: GPL-2|GPL-3
