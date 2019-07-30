@@ -16,37 +16,46 @@ knitr::opts_chunk$set(
 
 The `sss` package makes it easy to read and parse survey data in the sss ([triple-s](http://www.triple-s.org/)) file format.
 
-```{r setup}
-library(sss)
-```
-
 
 
 # Example
 
-Set path to point to import files.
-
-```{r}
-filenameSSS <- "sample.sss"
-filenameASC <- "sample.asc"
+```{r setup}
+library(sss)
+suppressPackageStartupMessages({
+  library(dplyr)
+})
 ```
 
-Import and parse the files
+Read a survey file
 
 ```{r}
-sssXML <- readSSSmetadata(filenameSSS)
-sss <- parseSSSmetadata(sssXML)
-asc <- readSSSdata(filenameASC)
+dat <- read.sss("sample.sss", "sample.asc")
 ```
 
 Display the results.
 
 ```{r}
-df <- read.sss(filenameSSS, filenameASC)
-print(str(df))
-print(df$Q1)
+dat %>% 
+  as_tibble()
 ```
 
-# Final thoughts
+And view the structure of the file. Note that some columns have additional attributes with `variable.labels` and `lable.table`, e.g. Q99:
 
-The last word.
+```{r}
+str(dat)
+```
+
+
+Extract the variable labels:
+
+```{r}
+attr(dat, "variable.labels")
+```
+
+
+And the label table for question 2:
+
+```{r}
+attr(dat, "label.table")$`2`
+```
