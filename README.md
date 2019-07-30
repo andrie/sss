@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sss
+# sss <img src='man/figures/logo.png' align="right" height="139" />
 
 <!-- badges: start -->
 
@@ -19,8 +19,8 @@ status](https://travis-ci.org/andrie/sss.svg?branch=master)](https://travis-ci.o
 
 <!-- badges: end -->
 
-The `sss` package provides a function to import triple-s `XML` files
-into R. The package supports sss files in both `.asc` and `.csv` format.
+The `sss` package provides functions to import triple-s `XML` files into
+R. The package supports sss files in both `.asc` and `.csv` format.
 
 ## Installation
 

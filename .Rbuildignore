@@ -9,3 +9,4 @@ TODO
 ^\.travis\.yml$
 ^codecov\.yml$
 ^README\.Rmd$
+^logo.svg$
