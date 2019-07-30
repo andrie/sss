@@ -1,1 +1,11 @@
 destination: docs
+reference:
+- title: "Reading and Writing Data"
+  desc: "Functions for reading survey data in the Triple-S format"
+  contents:
+    - starts_with("read")
+- title: Other
+  desc: ~
+  contents:
+   - fast.read.fwf
+   - parseSSSmetadata
