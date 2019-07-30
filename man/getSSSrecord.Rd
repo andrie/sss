@@ -7,7 +7,7 @@
 getSSSrecord(node)
 }
 \arguments{
-\item{xmlNode}{XML node}
+\item{node}{XML node}
 }
 \description{
 This function parses the record node, extracts all variables

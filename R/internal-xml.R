@@ -17,7 +17,7 @@ xml_child_attr <- function(node, name, attr){
 #' This function parses the record node, extracts all variables
 #' and creates a data frame with information about size, position, type, etc.
 #'
-#' @param xmlNode XML node
+#' @param node XML node
 #' @keywords Internal
 getSSSrecord <- function(node){
   p <- as.character(xml_child_attrs(node, "position"))
