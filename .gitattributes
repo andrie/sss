@@ -1,1 +1,3 @@
 *.html linguist-documentation=true
+*.sss linguist-documentation=true
+*.asc linguist-documentation=true
