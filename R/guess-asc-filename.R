@@ -7,8 +7,10 @@ guess_asc_filename <- function(x){
     dirname(x),
     paste0(gsub("\\..*$", "", basename(x)), ext)
   )
-  if (file.exists(fn)) {
-    fn
+  
+  fe <- file.exists(fn)
+  if (any(fe)) {
+    fn[fe]
   } else {
     stop("Unable to find guessed data file at ", fn, call. = FALSE)
   }
@@ -19,5 +21,5 @@ guess_asc_filename <- function(x){
 get_sss_format <- function(x){
   y <- xml_child(readSSSmetadata(x), "survey/record")
   z <- xml_attr(y, "format")
-  if(!is.na(z) && z == "csv") ".csv" else ".asc"
+  if(!is.na(z) && z == "csv") ".csv" else c(".asc", ".dat")
 }
