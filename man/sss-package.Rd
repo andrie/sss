@@ -7,7 +7,7 @@
 \title{sss: Tools for Importing Files in the Triple-s (Standard
     Survey Structure) Format}
 \description{
-\if{html}{\figure{logo.png}{options: align='right'}}
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
 Tools to import survey files
     in the .sss (triple-s) format. The package provides the function

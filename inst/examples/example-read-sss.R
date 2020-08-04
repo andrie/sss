@@ -1,4 +1,8 @@
-sampleRoot <- system.file("sampledata", package = "sss")
-filenameSSS <- file.path(sampleRoot, "sample-1.sss")
+example <- system.file("sampledata/sample-1.sss", package = "sss")
 
-read.sss(filenameSSS)
+# read.sss() automatically guesses the data file name
+read.sss(system.file("sampledata/sample-1.sss", package = "sss"))
+
+read.sss(system.file("sampledata/sample-2.sss", package = "sss"))
+
+read.sss(system.file("sampledata/sample-3.sss", package = "sss"))

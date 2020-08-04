@@ -43,18 +43,3 @@ addQtext <- function(sss, df){
 }
 
 
-# Take input sss filename and replace the .sss with .asc
-guessAsc <- function(x, ext = ".asc"){
-  file.path(
-    dirname(x),
-    paste0(gsub("\\..*$", "", basename(x)), ext)
-  )
-}
-
-
-# Guess if format is csv or asc
-getSSSformat <- function(x){
-  y <- xml_child(readSSSmetadata(x), "survey/record")
-  z <- xml_attr(y, "format")
-  if(!is.na(z) && z == "csv") ".csv" else ".asc"
-}

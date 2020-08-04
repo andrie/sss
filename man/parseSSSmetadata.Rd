@@ -7,7 +7,7 @@
 parseSSSmetadata(x, XMLdoc)
 }
 \arguments{
-\item{x}{An XML document - as returned by \code{\link[XML:xml]{XML::xml()}}, or \code{\link[=readSSSmetadata]{readSSSmetadata()}}}
+\item{x}{An XML document - as returned by \code{\link[XML:isXMLString]{XML::xml()}}, or \code{\link[=readSSSmetadata]{readSSSmetadata()}}}
 
 \item{XMLdoc}{No longer used. Use \code{x} instead.}
 }

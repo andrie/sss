@@ -10,3 +10,4 @@ TODO
 ^codecov\.yml$
 ^README\.Rmd$
 ^logo.svg$
+^\.github$

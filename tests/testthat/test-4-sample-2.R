@@ -14,7 +14,11 @@ test_that("parsing of .sss and .asc works", {
 })
 
 test_that("parsing works when you only provide the .sss", {
-  expect_equal(getSSSformat(filenameSSS), ".csv")
+  expect_equal(get_sss_format(filenameSSS), ".csv")
   test <- read.sss(filenameSSS)
   expect_is(test, "data.frame")
+  
+  test_2 <- read.sss(filenameSSS, filenameASC)
+  expect_equal(test, test_2)
+  
 })

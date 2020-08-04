@@ -1,6 +1,5 @@
 Package: sss
-Version: 0.1.0.9000
-Date: 2019-07-30
+Version: 0.1.0.9001
 Authors@R: person("Andrie", "de Vries", role=c("aut", "cre"),
     email="apdevries@gmail.com")
 License: GPL-2|GPL-3
@@ -27,7 +26,7 @@ Suggests:
     knitr,
     rmarkdown,
     dplyr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 VignetteBuilder: knitr

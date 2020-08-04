@@ -5,17 +5,15 @@
 
 <!-- badges: start -->
 
+[![R build
+status](https://github.com/andrie/sss/workflows/R-CMD-check/badge.svg)](https://github.com/andrie/sss/actions)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![Build
-Status](https://travis-ci.org/andrie/sss.svg?branch=dev)](https://travis-ci.org/andrie/sss)
 [![codecov](https://codecov.io/gh/andrie/sss/branch/dev/graph/badge.svg)](https://codecov.io/gh/andrie/sss)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sss)](https://CRAN.R-project.org/package=sss)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/sss)](http://www.r-pkg.org/pkg/secret)
-[![Travis build
-status](https://travis-ci.org/andrie/sss.svg?branch=master)](https://travis-ci.org/andrie/sss)
 
 <!-- badges: end -->
 

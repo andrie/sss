@@ -5,13 +5,13 @@
 \title{Reads a triple-s XML (asc) data file, as specified by the triple-s XML
 standard.}
 \usage{
-read.sss(sssFilename, ascFilename, sep = "_")
+read.sss(sssFilename, ascFilename = guess_asc_filename(sssFilename), sep = "_")
 }
 \arguments{
 \item{sssFilename}{Character string: name of .sss file containing the survey
 metadata}
 
-\item{ascFilename}{Character string: name of .asc file containing survey data}
+\item{ascFilename}{Character string: name of .asc (or .csv) file containing survey data.  If this is not provided, guesses the filename using}
 
 \item{sep}{Character vector defining the string that separates question and
 subquestion labels, e.g. \code{c("Q_1", "Q_2")}}
@@ -20,12 +20,12 @@ subquestion labels, e.g. \code{c("Q_1", "Q_2")}}
 A data frame with one element (column) for each variable in the data
 set.
 
-The data.frame contains several attributes:
+The resulting  data.frame contains several attributes:
 \itemize{
 \item \code{variable.labels}: a named list of value labels with one element per
 variable, either NULL or a named character vector
 \item \code{label.table}: a named list with one element per question. Every element is
-a named character strings, that contains the label codes for that question.
+a named character string that contains the label codes for that question.
 }
 }
 \description{
@@ -34,16 +34,21 @@ associated \code{.asc} data file. The sss standard defines a standard survey
 structure.
 }
 \examples{
-sampleRoot <- system.file("sampledata", package = "sss")
-filenameSSS <- file.path(sampleRoot, "sample-1.sss")
+example <- system.file("sampledata/sample-1.sss", package = "sss")
 
-read.sss(filenameSSS)
+# read.sss() automatically guesses the data file name
+read.sss(system.file("sampledata/sample-1.sss", package = "sss"))
+
+read.sss(system.file("sampledata/sample-2.sss", package = "sss"))
+
+read.sss(system.file("sampledata/sample-3.sss", package = "sss"))
 }
 \references{
 http://www.triple-s.org/
 }
 \seealso{
-Other read functions: \code{\link{readSSSdata}},
-  \code{\link{readSSSmetadata}}
+Other read functions: 
+\code{\link{readSSSdata}()},
+\code{\link{readSSSmetadata}()}
 }
 \concept{read functions}
