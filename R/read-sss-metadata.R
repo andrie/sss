@@ -29,7 +29,7 @@ is.xml_document <- function(x)inherits(x, "xml_document")
 #'
 #' This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
 #' 
-#' @param x An XML document - as returned by [XML::xml()], or [readSSSmetadata()]
+#' @param x An XML document - as returned by [xml2::read_xml()], or [readSSSmetadata()]
 #' @param XMLdoc No longer used. Use `x` instead.
 #' @family parsing functions
 #' @export 
