@@ -1,3 +1,10 @@
+sss 0.1.1 (11/08/2020)
+----------
+
+* Mostly small cosmetic changes to keep the package up to date.
+* `read.sss()` will now also guess `*.dat` files for the data, in addition to `*.csv` and `*.asc`
+
+
 sss 0.1-0 (28/03/2017)
 ----------
 
