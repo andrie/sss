@@ -5,7 +5,7 @@
 
 if(interactive()) library(testthat)
 
-context("Read fwf")
+
 
 test_that("widths work", {
       ff <- tempfile()
@@ -22,7 +22,7 @@ test_that("widths work", {
       
       test <- fast.read.fwf(ff, widths = c(1, 2, 3))    #> 1 23 456 \ 9 87 654
       expect_equal(rest, test)
-      expect_is(test, "data.frame")
+      expect_s3_class(test,  "data.frame")
       unlink(ff)
     
     })

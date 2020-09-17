@@ -54,12 +54,12 @@ rest <- structure(list(
 )
 
 
-context("Test metadata functions")
+
 
 test_that("readSSSmetadata works", {
   
   test <- readSSSmetadata(filenameSSS)
-  expect_is(test, "xml_document")
+  expect_s3_class(test,  "xml_document")
   
 })
 
@@ -67,7 +67,7 @@ test_that("parseSSSmetadata works", {
   
   md <- readSSSmetadata(filenameSSS)
   test <- parseSSSmetadata(md)
-  expect_is(test,"list")
+  expect_type(test,"list")
   expect_equal(test$variables$subfields, 
                rest$variables$subfields)
   expect_equal(test$variables, 
