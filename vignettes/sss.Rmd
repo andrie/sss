@@ -22,9 +22,7 @@ The `sss` package makes it easy to read and parse survey data in the sss ([tripl
 
 ```{r setup}
 library(sss)
-suppressPackageStartupMessages({
-  library(dplyr)
-})
+library(dplyr, quietly = TRUE)
 ```
 
 Read a survey file

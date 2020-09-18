@@ -51,11 +51,13 @@ parseSSSmetadata <- function(x, XMLdoc){
   variables$positionFinish <- as.numeric(variables$positionFinish)
   variables$positionStart <- as.numeric(variables$positionStart)
   
-  codes <- fastdf(do.call(rbind, lapply(xml_children(r), getSSScodes)))
+  codes <- fastdf(
+    do.call(rbind, lapply(xml_children(r), getSSScodes))
+  )
   list(variables = variables, 
-       codes = codes, 
+       codes  = codes, 
        format = format, 
-       skip = skip
+       skip   = skip
   )
 }
 

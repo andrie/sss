@@ -9,7 +9,8 @@ filenameASC <- file.path(sampleRoot, "sample-2.csv")
 
 
 test_that("parsing of .sss and .asc works", {
-	test <- read.sss(filenameSSS, filenameASC)
+	test <- 
+	  read.sss(filenameSSS, filenameASC)
 	expect_s3_class(test,  "data.frame")
 })
 

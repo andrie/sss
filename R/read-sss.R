@@ -55,14 +55,15 @@ read.sss <- function(sssFilename, ascFilename = guess_asc_filename(sssFilename),
 
   ascWidth <- sss$variables$colWidth
   
-  types <- c(single = "character",
-              multiple = "character",
-              character = "character", 
-              logical = "logical",
-              numeric = "numeric", 
-              quantity = "numeric",
-              date = "Date"
-              )
+  types <- c(
+    single    = "character",
+    multiple  = "character",
+    character = "character", 
+    logical   = "logical",
+    numeric   = "numeric", 
+    quantity  = "numeric",
+    date      = "Date"
+  )
   ascType <- types[sss$variables$type]
   idx <- sss$variables$type == "multiple"
   ascType[idx] <- "numeric"
