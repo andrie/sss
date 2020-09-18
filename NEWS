@@ -1,21 +1,21 @@
-sss 0.1.1.9000
-----------
+sss 0.2.0 (2020-09-18)
+---------
 
-* No functional changes
+* This release fixes two issues that might introduce unintended consequences:
+  - dealing with embedded <text> tags (#9)
+  - dealing with self-closing tags (#10)
 * Tests conform to `testthat_3.0.0`
-* Fixes issue #9 (dealing with embedded <text> tags)
-* Fixes issue #10 (dealing with self-closing tags)
 
 
 sss 0.1.1 (2020-08-11)
-----------
+---------
 
 * Mostly small cosmetic changes to keep the package up to date.
 * `read.sss()` will now also guess `*.dat` files for the data, in addition to `*.csv` and `*.asc`
 
 
 sss 0.1-0 (2017-03-28)
-----------
+---------
 
 * You can now specify only the .sss file in `read.sss()`, and the function 
   will guess the name of the .asc

@@ -1,14 +1,14 @@
 Package: sss
-Version: 0.1.1.9000
+Version: 0.1.2
 Authors@R: person("Andrie", "de Vries", role=c("aut", "cre"),
     email="apdevries@gmail.com")
 License: GPL-2|GPL-3
 Title: Import Files in the Triple-s (Standard Survey Structure) Format
 LazyData: true
-Description: Tools to import survey files
-    in the '.sss' (triple-s) format. The package provides the function
-    'read.sss()' that reads the '.asc' (or '.csv') and '.sss' files of a
-    triple-s survey data file.  See also <http://www.triple-s.org/>
+Description: Tools to import survey files in the '.sss' (triple-s) format. 
+    The package provides the function 'read.sss()' that reads the '.asc' 
+    (or '.csv') and '.sss' files of a triple-s survey data file. 
+    See also <http://www.triple-s.org/>.
 URL: https://github.com/andrie/sss
 BugReports: https://github.com/andrie/sss/issues
 Depends:
