@@ -3,6 +3,8 @@ sss 0.1.1.9000
 
 * No functional changes
 * Tests conform to `testthat_3.0.0`
+* Fixes issue #9 (dealing with embedded <text> tags)
+* Fixes issue #10 (dealing with self-closing tags)
 
 
 sss 0.1.1 (2020-08-11)
