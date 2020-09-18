@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sss</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
       </span>
     </div>
 
@@ -128,7 +128,7 @@
     <p>This function reads a .sss XML metadata file.  The .sss standard defines a standard survey structure</p>
     </div>
 
-    <pre class="usage"><span class='fu'>readSSSmetadata</span>(<span class='no'>x</span>, <span class='no'>SSSfilename</span>)</pre>
+    <pre class="usage"><span class='fu'>readSSSmetadata</span>(<span class='kw'>x</span>, <span class='kw'>SSSfilename</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,11 +151,12 @@
 <code><a href='readSSSdata.html'>readSSSdata</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>sampleRoot</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"sampledata"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"sss"</span>)
-<span class='no'>filenameSSS</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='no'>sampleRoot</span>, <span class='st'>"sample-1.sss"</span>)
-<span class='no'>filenameASC</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='no'>sampleRoot</span>, <span class='st'>"sample-1.asc"</span>)
+    <pre class="examples"><div class='input'><span class='kw'>sampleRoot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"sampledata"</span>, package = <span class='st'>"sss"</span>)
+<span class='kw'>filenameSSS</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='kw'>sampleRoot</span>, <span class='st'>"sample-1.sss"</span>)
+<span class='kw'>filenameASC</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='kw'>sampleRoot</span>, <span class='st'>"sample-1.asc"</span>)
 
-<span class='fu'><a href='readSSSdata.html'>readSSSdata</a></span>(<span class='no'>filenameSSS</span>)</div><div class='output co'>#&gt;  [1] "&lt;?xml version=\"1.0\" encoding=\"ISO-8859-1\"?&gt;"                            
+<span class='fu'><a href='readSSSdata.html'>readSSSdata</a></span>(<span class='kw'>filenameSSS</span>)
+</div><div class='output co'>#&gt;  [1] "&lt;?xml version=\"1.0\" encoding=\"ISO-8859-1\"?&gt;"                            
 #&gt;  [2] "&lt;!DOCTYPE sss PUBLIC \"-//Triple-S//DTD Survey Interchange v1.2//EN\""      
 #&gt;  [3] "                     \"http://www.triple-s.org/dtd/sss_v12.dtd\"&gt;"          
 #&gt;  [4] "&lt;sss version=\"1.2\" options=\"standardnames\"&gt;"                            
@@ -244,7 +245,8 @@
 #&gt; [87] "        &lt;/variable&gt;"                                                        
 #&gt; [88] "    &lt;/record&gt;"                                                              
 #&gt; [89] "&lt;/survey&gt;"                                                                  
-#&gt; [90] "&lt;/sss&gt;"                                                                     </div><div class='input'><span class='fu'>readSSSmetadata</span>(<span class='no'>filenameSSS</span>)</div><div class='output co'>#&gt; {xml_document}
+#&gt; [90] "&lt;/sss&gt;"                                                                     </div><div class='input'><span class='fu'>readSSSmetadata</span>(<span class='kw'>filenameSSS</span>)
+</div><div class='output co'>#&gt; {xml_document}
 #&gt; &lt;sss version="1.2" options="standardnames"&gt;
 #&gt; [1] &lt;date&gt;21 September 2001&lt;/date&gt;
 #&gt; [2] &lt;time&gt;18:32&lt;/time&gt;
@@ -265,7 +267,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
