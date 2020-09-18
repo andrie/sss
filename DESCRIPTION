@@ -1,16 +1,14 @@
 Package: sss
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R: person("Andrie", "de Vries", role=c("aut", "cre"),
     email="apdevries@gmail.com")
 License: GPL-2|GPL-3
-Title: Tools for Importing Files in the Triple-s (Standard
-    Survey Structure) Format
+Title: Import Files in the Triple-s (Standard Survey Structure) Format
 LazyData: true
 Description: Tools to import survey files
-    in the .sss (triple-s) format. The package provides the function
-    read.sss() that reads the .asc (or .csv) and .sss files of a
-    triple-s survey data file.
-References: http://www.triple-s.org/
+    in the '.sss' (triple-s) format. The package provides the function
+    'read.sss()' that reads the '.asc' (or '.csv') and '.sss' files of a
+    triple-s survey data file.  See also <http://www.triple-s.org/>
 URL: https://github.com/andrie/sss
 BugReports: https://github.com/andrie/sss/issues
 Depends:
@@ -26,9 +24,11 @@ Suggests:
     knitr,
     rmarkdown,
     dplyr,
-    spelling
+    spelling,
+    utf8
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 VignetteBuilder: knitr
 Language: en-US
+Config/testthat/edition: 3

@@ -5,7 +5,7 @@
 
 if(interactive()) library(testthat)
   
-context("sss test suite")
+
 
 if(interactive()) library(testthat)
 sampleRoot <- system.file("sampledata", package = "sss")
@@ -90,7 +90,7 @@ test_that("parsing of .sss and .asc works", {
       `99` = setNames(NA_character_, NA_character_))
   ))
   
-  expect_is(test, "data.frame")
+  expect_s3_class(test,  "data.frame")
   expect_equal(nrow(test), 3)
   expect_equal(ncol(test), 17)
   expect_equal(names(test), expectedNames)

@@ -11,6 +11,12 @@ xml_child_attr <- function(node, name, attr){
   xml_attr(xml_child(node, name), attr)
 }
 
+#' @importFrom xml2 xml_text
+extract_contents <- function(x, ns) {
+  xml_text(xml_child(x, ns))
+}
+
+
 
 # Reads all "variables" inside the triple-s "record". 
 #
@@ -38,11 +44,12 @@ getSSSrecord <- function(node){
   } else {
     pto <- p[[1]]
   }
+  
   fastdf(list(
       ident      = as.character(xml_attr(node, "ident")),
       type       = as.character(xml_attr(node, "type")),
-      name       = as.character(xml_contents(xml_child(node, "name")))[1],
-      label      = as.character(xml_contents(xml_child(node, "label")))[1],
+      name       = extract_contents(node, "name"),
+      label      = extract_contents(node, "label"),
       positionStart  = as.character(pfrom),
       positionFinish = as.character(pto),
       subfields = subfields,
@@ -69,12 +76,16 @@ getSSScodes <- function(x){
   } else {
     xx <- xml2::xml_find_all(x, "values/value")
     size <- length(xx)
-    df <- data.frame(
+    df <- fastdf(list(
         ident      = rep(unname(xml_attr(x, "ident")), size),
         code       = as.character(xml_attrs(xx)),
-        codevalues = as.character(xml_contents(xx)),
-        stringsAsFactors = FALSE
-    )
+        codevalues = 
+          if (length(xml_contents(xx)) > length(xx)) {
+            xml_text(xml_child(xx, "text"))
+          } else {
+            xml_text(xml_contents(xx))
+          }
+    ))
     df <- df[df$codevalues != "character(0)", ]
   }
   
