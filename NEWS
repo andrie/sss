@@ -1,4 +1,17 @@
-sss 0.2.0 (2020-09-18)
+sss 0.1.9000
+---------
+
+This release contains very minor changes to comply with CRAN policies.
+
+* Don't use `LazyData`, since the package doesn't contain data
+
+
+Other changes
+
+* The function `read.sss()` has a new argument `verbose = FALSE` that suppresses any messages.  If you want the messages, set `verbose = TRUE`
+
+
+sss 0.1.2 (2020-09-18)
 ---------
 
 * This release fixes two issues that might introduce unintended consequences:

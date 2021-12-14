@@ -13,6 +13,8 @@
 #' @param sep Character vector defining the string that separates question and
 #'   subquestion labels, e.g. `c("Q_1", "Q_2")`
 #'   
+#' @param verbose If TRUE, prints messages when reading data files. Defaults to FALSE.
+#'   
 #' @return A data frame with one element (column) for each variable in the data
 #' set.
 #'
@@ -26,17 +28,17 @@
 #'
 #' @family read functions
 #' @importFrom stats setNames
-#' @references http://www.triple-s.org/
+#' @references https://www.triple-s.org/
 #' @export
 #' @example inst/examples/example-read-sss.R
-read.sss <- function(sssFilename, ascFilename = guess_asc_filename(sssFilename), sep = "_"){
+read.sss <- function(sssFilename, ascFilename = guess_asc_filename(sssFilename), sep = "_", verbose = FALSE){
   assert_that(is.character(sssFilename))
   assert_that(file.exists(sssFilename))
   
   assert_that(is.character(ascFilename))
   assert_that(file.exists(ascFilename))
   
-  message("Reading SSS metadata")
+  if (verbose) message("Reading SSS metadata")
   switch(
     class(sssFilename),
     "character" = {
@@ -51,7 +53,7 @@ read.sss <- function(sssFilename, ascFilename = guess_asc_filename(sssFilename),
   
   sss$variables <- splitSSS(sss$variable, sep)
   
-  message("Reading SSS data")
+  if (verbose) message("Reading SSS data")
 
   ascWidth <- sss$variables$colWidth
   

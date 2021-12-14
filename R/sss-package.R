@@ -3,7 +3,7 @@
 #' @import  methods
 #' @importFrom utils read.csv type.convert
 #' @keywords internal
-#' @references http://www.triple-s.org/
+#' @references https://www.triple-s.org/
 #'
 #' The most important exported function is:
 #' 

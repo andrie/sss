@@ -27,7 +27,7 @@ is.xml_document <- function(x)inherits(x, "xml_document")
 
 #' Parses a triple-s XML (sss) metadata file, as specified by the triple-s XML standard.  
 #'
-#' This function reads and parses a .sss XML metadata file as well as its associated .asc data file. The .sss standard defines a standard survey structure
+#' This function reads and parses a `.sss` XML metadata file as well as its associated `.asc` data file. The `.sss` standard defines a standard survey structure.
 #' 
 #' @param x An XML document - as returned by [xml2::read_xml()], or [readSSSmetadata()]
 #' @param XMLdoc No longer used. Use `x` instead.

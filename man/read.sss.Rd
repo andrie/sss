@@ -5,7 +5,12 @@
 \title{Reads a triple-s XML (asc) data file, as specified by the triple-s XML
 standard.}
 \usage{
-read.sss(sssFilename, ascFilename = guess_asc_filename(sssFilename), sep = "_")
+read.sss(
+  sssFilename,
+  ascFilename = guess_asc_filename(sssFilename),
+  sep = "_",
+  verbose = FALSE
+)
 }
 \arguments{
 \item{sssFilename}{Character string: name of .sss file containing the survey
@@ -15,6 +20,8 @@ metadata}
 
 \item{sep}{Character vector defining the string that separates question and
 subquestion labels, e.g. \code{c("Q_1", "Q_2")}}
+
+\item{verbose}{If TRUE, prints messages when reading data files. Defaults to FALSE.}
 }
 \value{
 A data frame with one element (column) for each variable in the data
@@ -44,7 +51,7 @@ read.sss(system.file("sampledata/sample-2.sss", package = "sss"))
 read.sss(system.file("sampledata/sample-3.sss", package = "sss"))
 }
 \references{
-http://www.triple-s.org/
+https://www.triple-s.org/
 }
 \seealso{
 Other read functions: 

@@ -7,14 +7,13 @@
 
 [![R build
 status](https://github.com/andrie/sss/workflows/R-CMD-check/badge.svg)](https://github.com/andrie/sss/actions)
-[![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![codecov](https://codecov.io/gh/andrie/sss/branch/dev/graph/badge.svg)](https://codecov.io/gh/andrie/sss)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sss)](https://CRAN.R-project.org/package=sss)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![codecov](https://codecov.io/gh/andrie/sss/branch/main/graph/badge.svg)](https://app.codecov.io/gh/andrie/sss)
 [![CRAN RStudio mirror
-downloads](http://cranlogs.r-pkg.org/badges/sss)](http://www.r-pkg.org/pkg/secret)
-
+downloads](https://cranlogs.r-pkg.org/badges/sss)](https://www.r-pkg.org/pkg/sss)
 <!-- badges: end -->
 
 The `sss` package provides functions to import triple-s `XML` files into
@@ -43,12 +42,12 @@ version 0.1 the package imports `xml2`. The `xml2` package depends on
 the `libxml2` library. If you run your code on linux, you may have to
 manually install `libxml2`:
 
-  - `libxml2-dev` (Debian, Ubuntu)
-  - `libxml2-devel` (Red Hat, CentOS, Fedora)
+-   `libxml2-dev` (Debian, Ubuntu)
+-   `libxml2-devel` (Red Hat, CentOS, Fedora)
 
 ## The triple-s standard
 
-[triple-s](http://www.triple-s.org/) is a standard to transfer survey
+[triple-s](https://www.triple-s.org/) is a standard to transfer survey
 data between applications.
 
 ## Example
