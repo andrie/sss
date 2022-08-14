@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Introduction to sss">
 <meta property="og:description" content="sss">
@@ -33,20 +33,23 @@
     
     <a class="navbar-brand me-2" href="../index.html">sss</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div id="navbar" class="collapse navbar-collapse ms-2">
+    <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="active nav-item">
   <a class="nav-link" href="../articles/sss.html">Get started</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -66,8 +69,11 @@
     
   </div>
 </nav><div class="container template-article">
+
+
+
 <script src="sss_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
-  <main id="main"><div class="page-header">
+  <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Introduction to sss</h1>
             
       
@@ -78,84 +84,85 @@
     
     
 <p>The <code>sss</code> package makes it easy to read and parse survey data in the sss (<a href="https://www.triple-s.org/" class="external-link">triple-s</a>) file format.</p>
-<div class="section level1">
-<h1 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
-</h1>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://andrie.github.io/sss/" class="external-link">sss</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://andrie.github.io/sss/" class="external-link">sss</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Read a survey file</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read.sss.html">read.sss</a></span><span class="op">(</span><span class="st">"sample.sss"</span>, <span class="st">"sample.asc"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read.sss.html">read.sss</a></span><span class="op">(</span><span class="st">"sample.sss"</span>, <span class="st">"sample.asc"</span><span class="op">)</span></span></code></pre></div>
 <p>Display the results.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 17</span></span>
-<span class="co">#&gt;   Q1      Q2_1  Q2_2  Q2_3  Q2_4  Q2_5  Q2_6  Q2_7  Q2_8  Q2_9 Q3    Q4_1  Q4_2 </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Visit…     1     0     1     0     0     0     0     0     1 <span style="color: #949494;">"</span>Amu… Sher… <span style="color: #949494;">"</span>Oth…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Visit…     0     1     0     0     0     0     0     0     0 <span style="color: #949494;">"</span>   … Nott…  <span style="color: #BB0000;">NA</span>  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Visit…     1     0     0     1     0     0     0     0     1 <span style="color: #949494;">"</span>\"M… Other <span style="color: #949494;">"</span>\"M…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 4 more variables: Q5 &lt;dbl&gt;, Q6 &lt;lgl&gt;, Q7 &lt;chr&gt;, Q99 &lt;dbl&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 17</span></span></span>
+<span><span class="co">#&gt;   Q1      Q2_1  Q2_2  Q2_3  Q2_4  Q2_5  Q2_6  Q2_7  Q2_8  Q2_9 Q3    Q4_1  Q4_2 </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Visit…     1     0     1     0     0     0     0     0     1 <span style="color: #949494;">"</span>Amu… Sher… <span style="color: #949494;">"</span>Oth…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Visit…     0     1     0     0     0     0     0     0     0 <span style="color: #949494;">"</span>   … Nott…  <span style="color: #BB0000;">NA</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Visit…     1     0     0     1     0     0     0     0     1 <span style="color: #949494;">"</span>\"M… Other <span style="color: #949494;">"</span>\"M…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 4 more variables: Q5 &lt;dbl&gt;, Q6 &lt;lgl&gt;, Q7 &lt;chr&gt;, Q99 &lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `colnames()` to see all variable names</span></span></span></code></pre></div>
 <p>And view the structure of the file. Note that some columns have additional attributes with <code>variable.labels</code> and <code>lable.table</code>, e.g. Q99:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span>
-<span class="co">#&gt; 'data.frame':    3 obs. of  17 variables:</span>
-<span class="co">#&gt;  $ Q1  : chr  "Visited before within the year" "Visited before that" "Visited before within the year"</span>
-<span class="co">#&gt;  $ Q2_1: num  1 0 1</span>
-<span class="co">#&gt;  $ Q2_2: num  0 1 0</span>
-<span class="co">#&gt;  $ Q2_3: num  1 0 0</span>
-<span class="co">#&gt;  $ Q2_4: num  0 0 1</span>
-<span class="co">#&gt;  $ Q2_5: num  0 0 0</span>
-<span class="co">#&gt;  $ Q2_6: num  0 0 0</span>
-<span class="co">#&gt;  $ Q2_7: num  0 0 0</span>
-<span class="co">#&gt;  $ Q2_8: num  0 0 0</span>
-<span class="co">#&gt;  $ Q2_9: num  1 0 1</span>
-<span class="co">#&gt;  $ Q3  : chr  "Amusement Park                " "                              " "\"Marco's\" Restaurant          "</span>
-<span class="co">#&gt;  $ Q4_1: chr  "Sherwood Forest" "Nottingham Castle" "Other"</span>
-<span class="co">#&gt;  $ Q4_2: chr  "Other" NA "\"Maid Marion\" Cafe"</span>
-<span class="co">#&gt;  $ Q5  : num  12 999 58</span>
-<span class="co">#&gt;  $ Q6  : logi  TRUE TRUE FALSE</span>
-<span class="co">#&gt;  $ Q7  : chr  "Within 3 months" "More than 1 years time" NA</span>
-<span class="co">#&gt;  $ Q99 : num  1.4 0.9 0.7</span>
-<span class="co">#&gt;  - attr(*, "variable.labels")= chr [1:17] "Number of visits" "Attractions visited" "Attractions visited" "Attractions visited" ...</span>
-<span class="co">#&gt;  - attr(*, "label.table")=List of 8</span>
-<span class="co">#&gt;   ..$ 1 : Named chr [1:3] "1" "2" "3"</span>
-<span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:3] "First visit" "Visited before within the year" "Visited before that"</span>
-<span class="co">#&gt;   ..$ 2 : Named chr [1:6] "1" "2" "3" "4" ...</span>
-<span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:6] "Sherwood Forest" "Nottingham Castle" "\"Friar Tuck\" Restaurant" "\"Maid Marion\" Cafe" ...</span>
-<span class="co">#&gt;   ..$ 3 : Named chr NA</span>
-<span class="co">#&gt;   .. ..- attr(*, "names")= chr NA</span>
-<span class="co">#&gt;   ..$ 4 : Named chr [1:6] "1" "2" "3" "4" ...</span>
-<span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:6] "Sherwood Forest" "Nottingham Castle" "\"Friar Tuck\" Restaurant" "\"Maid Marion\" Cafe" ...</span>
-<span class="co">#&gt;   ..$ 5 : Named chr [1:2] "500" "999"</span>
-<span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:2] "500 or more" "Not stated"</span>
-<span class="co">#&gt;   ..$ 6 : Named chr NA</span>
-<span class="co">#&gt;   .. ..- attr(*, "names")= chr NA</span>
-<span class="co">#&gt;   ..$ 7 : Named chr [1:3] "1" "2" "3"</span>
-<span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:3] "Within 3 months" "Between 3 months and 1 year" "More than 1 years time"</span>
-<span class="co">#&gt;   ..$ 99: Named chr NA</span>
-<span class="co">#&gt;   .. ..- attr(*, "names")= chr NA</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    3 obs. of  17 variables:</span></span>
+<span><span class="co">#&gt;  $ Q1  : chr  "Visited before within the year" "Visited before that" "Visited before within the year"</span></span>
+<span><span class="co">#&gt;  $ Q2_1: num  1 0 1</span></span>
+<span><span class="co">#&gt;  $ Q2_2: num  0 1 0</span></span>
+<span><span class="co">#&gt;  $ Q2_3: num  1 0 0</span></span>
+<span><span class="co">#&gt;  $ Q2_4: num  0 0 1</span></span>
+<span><span class="co">#&gt;  $ Q2_5: num  0 0 0</span></span>
+<span><span class="co">#&gt;  $ Q2_6: num  0 0 0</span></span>
+<span><span class="co">#&gt;  $ Q2_7: num  0 0 0</span></span>
+<span><span class="co">#&gt;  $ Q2_8: num  0 0 0</span></span>
+<span><span class="co">#&gt;  $ Q2_9: num  1 0 1</span></span>
+<span><span class="co">#&gt;  $ Q3  : chr  "Amusement Park                " "                              " "\"Marco's\" Restaurant          "</span></span>
+<span><span class="co">#&gt;  $ Q4_1: chr  "Sherwood Forest" "Nottingham Castle" "Other"</span></span>
+<span><span class="co">#&gt;  $ Q4_2: chr  "Other" NA "\"Maid Marion\" Cafe"</span></span>
+<span><span class="co">#&gt;  $ Q5  : num  12 999 58</span></span>
+<span><span class="co">#&gt;  $ Q6  : logi  TRUE TRUE FALSE</span></span>
+<span><span class="co">#&gt;  $ Q7  : chr  "Within 3 months" "More than 1 years time" NA</span></span>
+<span><span class="co">#&gt;  $ Q99 : num  1.4 0.9 0.7</span></span>
+<span><span class="co">#&gt;  - attr(*, "variable.labels")= chr [1:17] "Number of visits" "Attractions visited" "Attractions visited" "Attractions visited" ...</span></span>
+<span><span class="co">#&gt;  - attr(*, "label.table")=List of 8</span></span>
+<span><span class="co">#&gt;   ..$ 1 : Named chr [1:3] "1" "2" "3"</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:3] "First visit" "Visited before within the year" "Visited before that"</span></span>
+<span><span class="co">#&gt;   ..$ 2 : Named chr [1:6] "1" "2" "3" "4" ...</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:6] "Sherwood Forest" "Nottingham Castle" "\"Friar Tuck\" Restaurant" "\"Maid Marion\" Cafe" ...</span></span>
+<span><span class="co">#&gt;   ..$ 3 : Named chr NA</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr NA</span></span>
+<span><span class="co">#&gt;   ..$ 4 : Named chr [1:6] "1" "2" "3" "4" ...</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:6] "Sherwood Forest" "Nottingham Castle" "\"Friar Tuck\" Restaurant" "\"Maid Marion\" Cafe" ...</span></span>
+<span><span class="co">#&gt;   ..$ 5 : Named chr [1:2] "500" "999"</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:2] "500 or more" "Not stated"</span></span>
+<span><span class="co">#&gt;   ..$ 6 : Named chr NA</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr NA</span></span>
+<span><span class="co">#&gt;   ..$ 7 : Named chr [1:3] "1" "2" "3"</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:3] "Within 3 months" "Between 3 months and 1 year" "More than 1 years time"</span></span>
+<span><span class="co">#&gt;   ..$ 99: Named chr NA</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr NA</span></span></code></pre></div>
 <p>Extract the variable labels:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">dat</span>, <span class="st">"variable.labels"</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "Number of visits"                  "Attractions visited"              </span>
-<span class="co">#&gt;  [3] "Attractions visited"               "Attractions visited"              </span>
-<span class="co">#&gt;  [5] "Attractions visited"               "Attractions visited"              </span>
-<span class="co">#&gt;  [7] "Attractions visited"               "Attractions visited"              </span>
-<span class="co">#&gt;  [9] "Attractions visited"               "Attractions visited"              </span>
-<span class="co">#&gt; [11] "Other attractions visited"         "Two favourite attractions visited"</span>
-<span class="co">#&gt; [13] "Two favourite attractions visited" "Miles travelled"                  </span>
-<span class="co">#&gt; [15] "Would come again"                  "When is that most likely to be"   </span>
-<span class="co">#&gt; [17] "Case weight"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">dat</span>, <span class="st">"variable.labels"</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "Number of visits"                  "Attractions visited"              </span></span>
+<span><span class="co">#&gt;  [3] "Attractions visited"               "Attractions visited"              </span></span>
+<span><span class="co">#&gt;  [5] "Attractions visited"               "Attractions visited"              </span></span>
+<span><span class="co">#&gt;  [7] "Attractions visited"               "Attractions visited"              </span></span>
+<span><span class="co">#&gt;  [9] "Attractions visited"               "Attractions visited"              </span></span>
+<span><span class="co">#&gt; [11] "Other attractions visited"         "Two favourite attractions visited"</span></span>
+<span><span class="co">#&gt; [13] "Two favourite attractions visited" "Miles travelled"                  </span></span>
+<span><span class="co">#&gt; [15] "Would come again"                  "When is that most likely to be"   </span></span>
+<span><span class="co">#&gt; [17] "Case weight"</span></span></code></pre></div>
 <p>And the label table for question 2:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">dat</span>, <span class="st">"label.table"</span><span class="op">)</span><span class="op">$</span><span class="va">`2`</span>
-<span class="co">#&gt;         Sherwood Forest       Nottingham Castle "Friar Tuck" Restaurant </span>
-<span class="co">#&gt;                     "1"                     "2"                     "3" </span>
-<span class="co">#&gt;      "Maid Marion" Cafe           Mining museum                   Other </span>
-<span class="co">#&gt;                     "4"                     "5"                     "9"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">dat</span>, <span class="st">"label.table"</span><span class="op">)</span><span class="op">$</span><span class="va">`2`</span></span>
+<span><span class="co">#&gt;         Sherwood Forest       Nottingham Castle "Friar Tuck" Restaurant </span></span>
+<span><span class="co">#&gt;                     "1"                     "2"                     "3" </span></span>
+<span><span class="co">#&gt;      "Maid Marion" Cafe           Mining museum                   Other </span></span>
+<span><span class="co">#&gt;                     "4"                     "5"                     "9"</span></span></code></pre></div>
 </div>
   </main>
 </div>
@@ -169,7 +176,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>
