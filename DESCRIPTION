@@ -1,5 +1,5 @@
 Package: sss
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: person("Andrie", "de Vries", role=c("aut", "cre"),
     email="apdevries@gmail.com")
 License: GPL-2|GPL-3
