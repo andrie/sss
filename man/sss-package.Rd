@@ -6,9 +6,9 @@
 \alias{sss-package}
 \title{sss: Import Files in the Triple-s (Standard Survey Structure) Format}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Tools to import survey files in the '.sss' (triple-s) format. The package provides the function 'read.sss()' that reads the '.asc' (or '.csv') and '.sss' files of a triple-s survey data file. See also <https://www.triple-s.org/>.
+Tools to import survey files in the '.sss' (triple-s) format. The package provides the function 'read.sss()' that reads the '.asc' (or '.csv') and '.sss' files of a triple-s survey data file. See also \url{https://www.triple-s.org/}.
 }
 \references{
 https://www.triple-s.org/
