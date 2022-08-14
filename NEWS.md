@@ -1,5 +1,9 @@
-sss 0.2.0
----------
+# sss 0.2.1
+
+* Re-document to fix HTML5 problems
+* Added a `NEWS.md` file to track changes to the package.
+
+# sss 0.2.0
 
 This release contains very minor changes to comply with CRAN policies.
 
@@ -11,8 +15,8 @@ Other changes
 * The function `read.sss()` has a new argument `verbose = FALSE` that suppresses any messages.  If you want the messages, set `verbose = TRUE`
 
 
-sss 0.1.2 (2020-09-18)
----------
+# sss 0.1.2
+
 
 * This release fixes two issues that might introduce unintended consequences:
   - dealing with embedded <text> tags (#9)
@@ -20,15 +24,13 @@ sss 0.1.2 (2020-09-18)
 * Tests conform to `testthat_3.0.0`
 
 
-sss 0.1.1 (2020-08-11)
----------
+# sss 0.1.1
 
 * Mostly small cosmetic changes to keep the package up to date.
 * `read.sss()` will now also guess `*.dat` files for the data, in addition to `*.csv` and `*.asc`
 
 
-sss 0.1-0 (2017-03-28)
----------
+# sss 0.1-0
 
 * You can now specify only the .sss file in `read.sss()`, and the function 
   will guess the name of the .asc
@@ -38,30 +40,26 @@ sss 0.1-0 (2017-03-28)
   - Better error checking using `assert_that()`
 
 
-sss 0.0-13 (2016-03-17)
-----------
+# sss 0.0-13
 
 * Added support to read csv files
 * Now supports multi-byte files (UTF-8)
 * Expanded unit tests with real-world data
 
-sss 0.0-11 (2013-10-25)
-----------
+# sss 0.0-11
 
 * No functional changes
-* Added .Rbuildignore to comply with CRAN requirements for R-3.1.0
+* Added `.Rbuildignore` to comply with CRAN requirements for R-3.1.0
 
 
-sss 0.0-09 (2012-06-18)
-----------
+# sss 0.0-09
 
 * Minor changes to remove redundant files and folders
 * Now uses `packageStartupMessage()` rather than `message()` to display startup 
   message
 
 
-sss 0.0-08 (2011-10-30)
-----------
+# sss 0.0-08
 
 * First experimental release to CRAN
 
@@ -71,8 +69,7 @@ Improvements:
   `as.data.frame()`
 * Imports `plyr` and `XML` rather than declaring dependency
 
-sss 0.0-07 (2011-10-30)
-----------
+# sss 0.0-07
 
 Improvements:
 
@@ -80,8 +77,7 @@ Improvements:
   `changeValues()` to use `lapply()` rather than loops.
 * Documentation updates 
 
-sss 0.0-05
-----------
+# sss 0.0-05
 
 Fixed issues:
 
@@ -89,8 +85,7 @@ Fixed issues:
 * Convert values where appropriate
 * Add `variable.lable` attribute containing question text
 
-sss 0.0-04
-----------
+# sss 0.0-04
 
-* Refactored all function names to use camelCase
-* Implemented read.fast.fwf to read fixed width file 
+* Refactored all function names to use "camelCase"
+* Implemented `read.fast.fwf()` to read fixed width file 
