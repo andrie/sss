@@ -8,10 +8,10 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Tools to import survey files in the '.sss' (triple-s) format. The package provides the function 'read.sss()' that reads the '.asc' (or '.csv') and '.sss' files of a triple-s survey data file. See also \url{https://www.triple-s.org/}.
+Tools to import survey files in the '.sss' (triple-s) format. The package provides the function 'read.sss()' that reads the '.asc' (or '.csv') and '.sss' files of a triple-s survey data file. See also \url{https://triple-s.org/}.
 }
 \references{
-https://www.triple-s.org/
+https://triple-s.org/
 
 The most important exported function is:
 \itemize{

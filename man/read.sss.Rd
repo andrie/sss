@@ -51,7 +51,7 @@ read.sss(system.file("sampledata/sample-2.sss", package = "sss"))
 read.sss(system.file("sampledata/sample-3.sss", package = "sss"))
 }
 \references{
-https://www.triple-s.org/
+https://triple-s.org/
 }
 \seealso{
 Other read functions: 

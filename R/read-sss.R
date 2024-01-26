@@ -28,7 +28,7 @@
 #'
 #' @family read functions
 #' @importFrom stats setNames
-#' @references https://www.triple-s.org/
+#' @references https://triple-s.org/
 #' @export
 #' @example inst/examples/example-read-sss.R
 read.sss <- function(sssFilename, ascFilename = guess_asc_filename(sssFilename), sep = "_", verbose = FALSE){

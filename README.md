@@ -47,7 +47,7 @@ manually install `libxml2`:
 
 ## The triple-s standard
 
-[triple-s](https://www.triple-s.org/) is a standard to transfer survey
+[triple-s](https://triple-s.org/) is a standard to transfer survey
 data between applications.
 
 ## Example

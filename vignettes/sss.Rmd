@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The `sss` package makes it easy to read and parse survey data in the sss ([triple-s](https://www.triple-s.org/)) file format.
+The `sss` package makes it easy to read and parse survey data in the sss ([triple-s](https://triple-s.org/)) file format.
 
 
 
