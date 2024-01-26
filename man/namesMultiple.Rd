@@ -7,9 +7,13 @@
 namesMultiple(names, length, sep = "_")
 }
 \arguments{
-\item{x}{XML node}
+\item{names}{character vector defining the string that separates field and subfield names}
+
+\item{length}{Numeric vector that indicates the number of times each row must be repeated}
+
+\item{sep}{Character vector defining the string that separates field and subfield names}
 }
 \description{
 This function parses the record node and extracts all "codes" nodes into a data.frame
 }
-\keyword{internal}
+\keyword{Internal}

@@ -135,7 +135,7 @@ splitMultiple <- function(df, n, sep="_"){
 #' Each element is repeated n times.  This is used to construct a vector of the new length after accounting for fields of type multiple 
 #'
 #' @param n Numeric vector that indicates the number of times each row must be repeated
-#' @keywords internal
+#' @keywords Internal
 repN <- function(n){
   rep(seq_along(n), times=pmax(1, n))
 }
@@ -144,8 +144,10 @@ repN <- function(n){
 #'
 #' This function parses the record node and extracts all "codes" nodes into a data.frame
 #'
-#' @param x XML node
-#' @keywords internal
+#' @param names character vector defining the string that separates field and subfield names
+#' @param length Numeric vector that indicates the number of times each row must be repeated
+#' @param sep Character vector defining the string that separates field and subfield names
+#' @keywords Internal
 namesMultiple <- function(names, length, sep = "_"){
   xl <- rep(names, times = pmax(1, length))
   sm <- rep(length <= 1, times = pmax(1, length))

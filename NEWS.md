@@ -1,3 +1,7 @@
+# sss 0.2.2
+
+* Minor fix in documentation to comply with new CRAN tests
+
 # sss 0.2.1
 
 * Re-document to fix HTML5 problems

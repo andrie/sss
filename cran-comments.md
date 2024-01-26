@@ -1,6 +1,6 @@
 ## Test environments
 
-* local R installation, R 4.1.0
+* local R installation, R 4.3.2 and R-devel
 * Ubuntu 16.04 (on github actions), R-devel, R-release, R-oldrel
 * Win-builder (devel)
 
@@ -8,4 +8,4 @@
 
 0 errors | 0 warnings | 0 notes
 
-* This is a small bugfix release
+* This is a documentation release to fix stricter R-devel checks

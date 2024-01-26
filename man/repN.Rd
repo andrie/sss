@@ -12,4 +12,4 @@ repN(n)
 \description{
 Each element is repeated n times.  This is used to construct a vector of the new length after accounting for fields of type multiple
 }
-\keyword{internal}
+\keyword{Internal}

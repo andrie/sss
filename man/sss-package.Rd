@@ -21,6 +21,7 @@ The most important exported function is:
 \seealso{
 Useful links:
 \itemize{
+  \item \url{http://andrie.github.io/sss/}
   \item \url{https://andrie.github.io/sss/}
   \item Report bugs at \url{https://github.com/andrie/sss/issues}
 }
