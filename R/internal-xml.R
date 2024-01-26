@@ -24,7 +24,7 @@ extract_contents <- function(x, ns) {
 # and creates a data frame with information about size, position, type, etc.
 #
 # @param node XML node
-# @keywords Internal
+# @keywords internal
 getSSSrecord <- function(node){
   p <- as.character(xml_child_attrs(node, "position"))
   if (inherits(xml_child(node, "spread"), "xml_missing")){
@@ -135,7 +135,7 @@ splitMultiple <- function(df, n, sep="_"){
 #' Each element is repeated n times.  This is used to construct a vector of the new length after accounting for fields of type multiple 
 #'
 #' @param n Numeric vector that indicates the number of times each row must be repeated
-#' @keywords Internal
+#' @keywords internal
 repN <- function(n){
   rep(seq_along(n), times=pmax(1, n))
 }
@@ -147,7 +147,7 @@ repN <- function(n){
 #' @param names character vector defining the string that separates field and subfield names
 #' @param length Numeric vector that indicates the number of times each row must be repeated
 #' @param sep Character vector defining the string that separates field and subfield names
-#' @keywords Internal
+#' @keywords internal
 namesMultiple <- function(names, length, sep = "_"){
   xl <- rep(names, times = pmax(1, length))
   sm <- rep(length <= 1, times = pmax(1, length))

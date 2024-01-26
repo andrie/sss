@@ -16,4 +16,4 @@ namesMultiple(names, length, sep = "_")
 \description{
 This function parses the record node and extracts all "codes" nodes into a data.frame
 }
-\keyword{Internal}
+\keyword{internal}

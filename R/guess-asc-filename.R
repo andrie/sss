@@ -1,7 +1,7 @@
 #' Guess the data filename given the sss filename.
 #' 
 #' @param x filename
-#' @keywords Internal
+#' @keywords internal
 #' @noRd
 guess_asc_filename <- function(x){
   ext <- get_sss_format(x)

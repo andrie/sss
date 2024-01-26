@@ -5,15 +5,15 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/andrie/sss/workflows/R-CMD-check/badge.svg)](https://github.com/andrie/sss/actions)
+[![R-CMD-check](https://github.com/andrie/sss/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andrie/sss/actions/workflows/R-CMD-check.yaml)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/sss)](https://www.r-pkg.org/pkg/sss)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sss)](https://CRAN.R-project.org/package=sss)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![codecov](https://codecov.io/gh/andrie/sss/branch/main/graph/badge.svg)](https://app.codecov.io/gh/andrie/sss)
-[![CRAN RStudio mirror
-downloads](https://cranlogs.r-pkg.org/badges/sss)](https://www.r-pkg.org/pkg/sss)
+[![Codecov test
+coverage](https://codecov.io/gh/andrie/sss/branch/main/graph/badge.svg)](https://app.codecov.io/gh/andrie/sss?branch=main)
 <!-- badges: end -->
 
 The `sss` package provides functions to import triple-s `XML` files into
