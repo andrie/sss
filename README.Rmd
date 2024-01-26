@@ -28,7 +28,7 @@ The `sss` package provides functions to import triple-s `XML` files into R.  The
 
 ## Installation
 
-You can install the released version of sss from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of sss from [CRAN](https://CRAN.R-project.org) using:
 
 ``` r
 install.packages("sss")

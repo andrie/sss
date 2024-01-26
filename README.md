@@ -10,7 +10,7 @@ status](https://github.com/andrie/sss/workflows/R-CMD-check/badge.svg)](https://
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sss)](https://CRAN.R-project.org/package=sss)
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![codecov](https://codecov.io/gh/andrie/sss/branch/main/graph/badge.svg)](https://app.codecov.io/gh/andrie/sss)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/sss)](https://www.r-pkg.org/pkg/sss)
@@ -22,7 +22,7 @@ R. The package supports sss files in both `.asc` and `.csv` format.
 ## Installation
 
 You can install the released version of sss from
-[CRAN](https://CRAN.R-project.org) with:
+[CRAN](https://CRAN.R-project.org) using:
 
 ``` r
 install.packages("sss")
@@ -42,13 +42,13 @@ version 0.1 the package imports `xml2`. The `xml2` package depends on
 the `libxml2` library. If you run your code on linux, you may have to
 manually install `libxml2`:
 
--   `libxml2-dev` (Debian, Ubuntu)
--   `libxml2-devel` (Red Hat, CentOS, Fedora)
+- `libxml2-dev` (Debian, Ubuntu)
+- `libxml2-devel` (Red Hat, CentOS, Fedora)
 
 ## The triple-s standard
 
-[triple-s](https://triple-s.org/) is a standard to transfer survey
-data between applications.
+[triple-s](https://triple-s.org/) is a standard to transfer survey data
+between applications.
 
 ## Example
 
