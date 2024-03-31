@@ -1,19 +1,20 @@
 
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # sss <img src='man/figures/logo.png' align="right" height="139" />
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/andrie/sss/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andrie/sss/actions/workflows/R-CMD-check.yaml)
-[![CRAN RStudio mirror
-downloads](https://cranlogs.r-pkg.org/badges/sss)](https://www.r-pkg.org/pkg/sss)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sss)](https://CRAN.R-project.org/package=sss)
-[![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/sss)](https://www.r-pkg.org/pkg/sss)
+[![R-CMD-check](https://github.com/andrie/sss/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andrie/sss/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/andrie/sss/branch/main/graph/badge.svg)](https://app.codecov.io/gh/andrie/sss?branch=main)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 <!-- badges: end -->
 
 The `sss` package provides functions to import triple-s `XML` files into
