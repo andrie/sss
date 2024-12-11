@@ -1,63 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/sss.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/addQtext.html</loc>
-  </url>
-  <url>
-    <loc>/reference/changeValues.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fast.read.fwf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/getSSScodes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/namesMultiple.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parseSSSmetadata.html</loc>
-  </url>
-  <url>
-    <loc>/reference/read.sss.html</loc>
-  </url>
-  <url>
-    <loc>/reference/readSSSdata.html</loc>
-  </url>
-  <url>
-    <loc>/reference/readSSSmetadata.html</loc>
-  </url>
-  <url>
-    <loc>/reference/repN.html</loc>
-  </url>
-  <url>
-    <loc>/reference/splitMultiple.html</loc>
-  </url>
-  <url>
-    <loc>/reference/splitSSS.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sss-package.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/sss.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/addQtext.html</loc></url>
+<url><loc>/reference/changeValues.html</loc></url>
+<url><loc>/reference/fast.read.fwf.html</loc></url>
+<url><loc>/reference/getSSScodes.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/namesMultiple.html</loc></url>
+<url><loc>/reference/parseSSSmetadata.html</loc></url>
+<url><loc>/reference/read.sss.html</loc></url>
+<url><loc>/reference/readSSSdata.html</loc></url>
+<url><loc>/reference/readSSSmetadata.html</loc></url>
+<url><loc>/reference/repN.html</loc></url>
+<url><loc>/reference/splitMultiple.html</loc></url>
+<url><loc>/reference/splitSSS.html</loc></url>
+<url><loc>/reference/sss-package.html</loc></url>
 </urlset>
+
